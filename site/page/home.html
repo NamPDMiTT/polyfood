@@ -1,58 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/base.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
 
-  <body>
+<body>
     <div id="root" class="font min-w-[320px] max-w-[1400px] mx-auto">
-      <div class="content-wrapper max-w-screen-2xl mx-auto  text-base bg-white">
-        <header class=" max-w-[1400px] bg-white sticky top-0 z-50">
-          <nav class="w-full h-20 px-5  flex justify-between items-center ">
-            <div class="h-10 py-2 px-3 shadow__logo">
-              <a href="../../index.html" class="logo  flex items-center">
-                <h1 class="text-xl font-semibold text-gray-700">
-                  <span class="text-orange-600">poly</span
+        <div class="content-wrapper max-w-screen-2xl mx-auto  text-base bg-white">
+            <header class=" max-w-[1400px] bg-white sticky top-0 z-50">
+                <nav class="w-full h-20 px-5  flex justify-between items-center ">
+                    <div class="h-10 py-2 px-3 shadow__logo">
+                        <a href="../../index.html" class="logo  flex items-center">
+                            <h1 class="text-xl font-semibold text-gray-700">
+                                <span class="text-orange-600">poly</span
                   ><span class="text-blue-600 font-semibold">F</span
                   ><span class="text-orange-600 font-semibold">oo</span
                   ><span class="text-green-600 font-semibold">d</span>
-                </h1>
-              </a>
-            </div>
+                            </h1>
+                        </a>
+                    </div>
 
-            <ul
-              class="menu w-[60%] justify-center flex gap-6 font-semibold text-sm text-gray-700 uppercase"
-            >
-              <li><a class="text-orange-600" href="#">Trang chủ</a></li>
-              <li><a href="#">Giới thiệu</a></li>
-              <li><a href="#">Sản Phẩm</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Liên hệ</a></li>
-            </ul>
-            <ul class="cart__account flex gap-7">
-              <li class="cart">
-                <form
-                  action="index.php?action=products"
-                  method="post"
-                  class="search flex items-center py-1 px-2 border rounded-2xl"
-                >
-                  <input
-                    type="text"
-                    name="search"
-                    placeholder="Search"
-                    placeholder="Search"
-                    class="search__input w-24 bg-transparent focus:outline-none"
-                  />
-                  <button class="search-btn">
+                    <ul class="menu w-[60%] justify-center flex gap-6 font-semibold text-sm text-gray-700 uppercase">
+                        <li><a class="text-orange-600" href="#">Trang chủ</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Sản Phẩm</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                    <ul class="cart__account flex gap-7">
+                        <li class="cart">
+                            <form action="index.php?action=products" method="post" class="search flex items-center py-1 px-2 border rounded-2xl">
+                                <input type="text" name="search" placeholder="Search" placeholder="Search" class="search__input w-24 bg-transparent focus:outline-none" />
+                                <button class="search-btn">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -68,287 +54,196 @@
                       />
                     </svg>
                   </button>
-                </form>
-              </li>
+                            </form>
+                        </li>
 
-              <li class="cart">
-                <a href="#">
-                  <img class="w-12 h-auto" src="../IMG/cart.png" alt="" />
-                </a>
-              </li>
-              <li class="account">
-                <a href="#">
-                  <img class="w-10 h-auto" src="../IMG/account1.png" alt="" />
-                </a>
-              </li>
-            </ul>
-          </nav>
-        </header>
-        <main>
-          <div class="banner flex">
-            <div class="banner__title mt-20 text-center">
-              <h1
-                class="text-[72px] font-bold text-gray-700
-"
-              >
-                <span class="text-orange-600">poly</span
+                        <li class="cart">
+                            <a href="#">
+                                <img class="w-12 h-auto" src="../IMG/cart.png" alt="" />
+                            </a>
+                        </li>
+                        <li class="account">
+                            <a href="#">
+                                <img class="w-10 h-auto" src="../IMG/account1.png" alt="" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <div class="banner flex">
+                    <div class="banner__title mt-20 text-center">
+                        <h1 class="text-[72px] font-bold text-gray-700
+">
+                            <span class="text-orange-600">poly</span
                 ><span class="text-blue-600 font-semibold">F</span
                 ><span class="text-orange-600 font-semibold">oo</span
                 ><span class="text-green-600 font-semibold">d</span>
-              </h1>
-              <p
-                class="text-[72px] leading-[70px] font-semibold text-[#FAB500] text-center mt-12"
-              >
-                " Yêu là phải nói , đói là phải ăn "
-              </p>
-              <button
-                class="btn mt-12 px-5 py-3 bg-orange-600 rounded-xl text-white animate__animated animate__pulse animate__infinite
-"
-              >
+                        </h1>
+                        <p class="text-[72px] leading-[70px] font-semibold text-[#FAB500] text-center mt-12">
+                            " Yêu là phải nói ,
+                            <p class="text-[72px] leading-[70px] font-semibold text-[#FAB500]  mt-12"> đói là phải ăn . "</p>
+                        </p>
+                        <button class="btn mt-12 px-5 py-3 bg-orange-600 rounded-xl text-white animate__animated animate__pulse animate__infinite
+">
                 Đặt hàng ngay
               </button>
-            </div>
-            <div class="banner__img w-[60%] flex justify-end relative">
-              <img
-                class="w-[555px] h-[520px] absolute top-3 right-3"
-                src="../IMG/hamberger.png"
-                alt=""
-              />
-              <img
-                class="absolute top-3 right-0 w-[150px]"
-                src="../IMG/sale-banner.png"
-                alt=""
-              />
-              <img
-                class="w-[500px] h-[550px] "
-                src="../IMG/bg-hamberger.png"
-                alt=""
-              />
-            </div>
-          </div>
-          <div class="products px-10">
-            <div class="products__title text-center">
-              <h2 class="text-4xl font-semibold text-gray-700">Thực đơn</h2>
-              <p class="text-2xl font-semibold text-[#FAB500] mt-5">
-                " Ăn đã – chuyện khác để sau "
-              </p>
-            </div>
-            <div class="category my-10">
-              <ul class="list__category flex gap-20 justify-center">
-                <li class="w-20 text-center flex flex-col gap-2">
-                  <a href=""
-                    ><img class="w-20 " src="../IMG/bread.png" alt=""
-                  /></a>
-                  <span class="text-gray-700 font-semibold">Bánh mì</span>
-                </li>
-                <li class="w-20 text-center flex flex-col gap-2">
-                  <a href=""
-                    ><img class="w-20 " src="../IMG/ramen.png" alt=""
-                  /></a>
-                  <span class="text-gray-700 font-semibold">Mì - Phở</span>
-                </li>
-                <li class="w-20 text-center flex flex-col gap-2">
-                  <a href=""
-                    ><img class="w-20 " src="../IMG/fried-rice.png" alt=""
-                  /></a>
-                  <span class="text-gray-700 font-semibold">Cơm</span>
-                </li>
-                <li class="w-20 text-center flex flex-col gap-2">
-                  <a href=""
-                    ><img class="w-20 " src="../IMG/cupcake.png" alt=""
-                  /></a>
-                  <span class="text-gray-700 font-semibold">Bánh ngọt</span>
-                </li>
-                <li class="w-20 text-center flex flex-col gap-2">
-                  <a href=""
-                    ><img class="w-20 " src="../IMG/snack.png" alt=""
-                  /></a>
-                  <span class="text-gray-700 font-semibold">Ăn vặt</span>
-                </li>
-                <li class="w-20 text-center flex flex-col gap-2">
-                  <a href=""
-                    ><img class="w-20 " src="../IMG/soft-drink.png" alt=""
-                  /></a>
-                  <span class="text-gray-700 font-semibold">Đồ uống</span>
-                </li>
-              </ul>
-            </div>
-            <!-- End category -->
-            <div class="list__products grid grid-cols-5 gap-8">
-              <div class="products__items p-5 shadow__products">
-                <div class="w-full h-auto">
-                  <img
-                    class="w-full h-auto rounded-xl"
-                    src="../IMG/bunbo.jpeg"
-                    alt=""
-                  />
+                    </div>
+                    <div class="banner__img w-[60%] flex justify-end relative">
+                        <img class="w-[555px] h-[520px] absolute top-3 right-3" src="../IMG/hamberger.png" alt="" />
+                        <img class="absolute top-3 right-0 w-[150px]" src="../IMG/sale-banner.png" alt="" />
+                        <img class="w-[500px] h-[550px] " src="../IMG/bg-hamberger.png" alt="" />
+                    </div>
                 </div>
-                <div class="products__info mt-2">
-                  <h3 class="text-xl font-semibold text-gray-700">
-                    Mì hải sản
-                  </h3>
-                  <p
-                    class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2"
-                  >
-                    <span class="text-sm">★★★★★</span>35.000đ
-                  </p>
-                  <p class="text-gray-500 text-xs mt-1 limited__content-2">
-                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là
-                    trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản
-                    nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm
-                    với nước chấm.
-                  </p>
-                  <div class="products__btn flex justify-center mt-4">
-                    <button
-                      class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl"
-                    >
+                <div class="products px-10">
+                    <div class="products__title text-center">
+                        <h2 class="text-4xl font-semibold text-gray-700">Thực đơn</h2>
+                        <p class="text-2xl font-semibold text-[#FAB500] mt-5">
+                            " Ăn đã – chuyện khác để sau "
+                        </p>
+                    </div>
+                    <div class="category my-10">
+                        <ul class="list__category flex gap-20 justify-center">
+                            <li class="w-20 text-center flex flex-col gap-2">
+                                <a href=""><img class="w-20 " src="../IMG/bread.png" alt="" /></a>
+                                <span class="text-gray-700 font-semibold">Bánh mì</span>
+                            </li>
+                            <li class="w-20 text-center flex flex-col gap-2">
+                                <a href=""><img class="w-20 " src="../IMG/ramen.png" alt="" /></a>
+                                <span class="text-gray-700 font-semibold">Mì - Phở</span>
+                            </li>
+                            <li class="w-20 text-center flex flex-col gap-2">
+                                <a href=""><img class="w-20 " src="../IMG/fried-rice.png" alt="" /></a>
+                                <span class="text-gray-700 font-semibold">Cơm</span>
+                            </li>
+                            <li class="w-20 text-center flex flex-col gap-2">
+                                <a href=""><img class="w-20 " src="../IMG/cupcake.png" alt="" /></a>
+                                <span class="text-gray-700 font-semibold">Bánh ngọt</span>
+                            </li>
+                            <li class="w-20 text-center flex flex-col gap-2">
+                                <a href=""><img class="w-20 " src="../IMG/snack.png" alt="" /></a>
+                                <span class="text-gray-700 font-semibold">Ăn vặt</span>
+                            </li>
+                            <li class="w-20 text-center flex flex-col gap-2">
+                                <a href=""><img class="w-20 " src="../IMG/soft-drink.png" alt="" /></a>
+                                <span class="text-gray-700 font-semibold">Đồ uống</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- End category -->
+                    <div class="list__products grid grid-cols-5 gap-8">
+                        <div class="products__items p-5 shadow__products">
+                            <div class="w-full h-auto">
+                                <img class="w-full h-auto rounded-xl" src="../IMG/bunbo.jpeg" alt="" />
+                            </div>
+                            <div class="products__info mt-2">
+                                <h3 class="text-xl font-semibold text-gray-700">
+                                    Mì hải sản
+                                </h3>
+                                <p class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2">
+                                    <span class="text-sm">★★★★★</span>35.000đ
+                                </p>
+                                <p class="text-gray-500 text-xs mt-1 limited__content-2">
+                                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm với nước chấm.
+                                </p>
+                                <div class="products__btn flex justify-center mt-4">
+                                    <button class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl">
                       Thêm vào giỏ
                     </button>
-                  </div>
-                </div>
-              </div>
-              <div class="products__items p-5 shadow__products">
-                <div class="w-full h-auto">
-                  <img
-                    class="w-full h-auto rounded-xl"
-                    src="../IMG/bunbo.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div class="products__info mt-2">
-                  <h3 class="text-xl font-semibold text-gray-700">
-                    Mì hải sản
-                  </h3>
-                  <p
-                    class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2"
-                  >
-                    <span class="text-sm">★★★★★</span>35.000đ
-                  </p>
-                  <p class="text-gray-500 text-xs mt-1 limited__content-2">
-                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là
-                    trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản
-                    nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm
-                    với nước chấm.
-                  </p>
-                  <div class="products__btn flex justify-center mt-4">
-                    <button
-                      class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl"
-                    >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="products__items p-5 shadow__products">
+                            <div class="w-full h-auto">
+                                <img class="w-full h-auto rounded-xl" src="../IMG/bunbo.jpeg" alt="" />
+                            </div>
+                            <div class="products__info mt-2">
+                                <h3 class="text-xl font-semibold text-gray-700">
+                                    Mì hải sản
+                                </h3>
+                                <p class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2">
+                                    <span class="text-sm">★★★★★</span>35.000đ
+                                </p>
+                                <p class="text-gray-500 text-xs mt-1 limited__content-2">
+                                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm với nước chấm.
+                                </p>
+                                <div class="products__btn flex justify-center mt-4">
+                                    <button class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl">
                       Thêm vào giỏ
                     </button>
-                  </div>
-                </div>
-              </div>
+                                </div>
+                            </div>
+                        </div>
 
-              <div class="products__items p-5 shadow__products">
-                <div class="w-full h-auto">
-                  <img
-                    class="w-full h-auto rounded-xl"
-                    src="../IMG/bunbo.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div class="products__info mt-2">
-                  <h3 class="text-xl font-semibold text-gray-700">
-                    Mì hải sản
-                  </h3>
-                  <p
-                    class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2"
-                  >
-                    <span class="text-sm">★★★★★</span>35.000đ
-                  </p>
-                  <p class="text-gray-500 text-xs mt-1 limited__content-2">
-                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là
-                    trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản
-                    nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm
-                    với nước chấm.
-                  </p>
-                  <div class="products__btn flex justify-center mt-4">
-                    <button
-                      class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl"
-                    >
+                        <div class="products__items p-5 shadow__products">
+                            <div class="w-full h-auto">
+                                <img class="w-full h-auto rounded-xl" src="../IMG/bunbo.jpeg" alt="" />
+                            </div>
+                            <div class="products__info mt-2">
+                                <h3 class="text-xl font-semibold text-gray-700">
+                                    Mì hải sản
+                                </h3>
+                                <p class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2">
+                                    <span class="text-sm">★★★★★</span>35.000đ
+                                </p>
+                                <p class="text-gray-500 text-xs mt-1 limited__content-2">
+                                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm với nước chấm.
+                                </p>
+                                <div class="products__btn flex justify-center mt-4">
+                                    <button class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl">
                       Thêm vào giỏ
                     </button>
-                  </div>
-                </div>
-              </div>
+                                </div>
+                            </div>
+                        </div>
 
-              <div class="products__items p-5 shadow__products">
-                <div class="w-full h-auto">
-                  <img
-                    class="w-full h-auto rounded-xl"
-                    src="../IMG/bunbo.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div class="products__info mt-2">
-                  <h3 class="text-xl font-semibold text-gray-700">
-                    Mì hải sản
-                  </h3>
-                  <p
-                    class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2"
-                  >
-                    <span class="text-sm">★★★★★</span>35.000đ
-                  </p>
-                  <p class="text-gray-500 text-xs mt-1 limited__content-2">
-                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là
-                    trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản
-                    nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm
-                    với nước chấm.
-                  </p>
-                  <div class="products__btn flex justify-center mt-4">
-                    <button
-                      class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl"
-                    >
+                        <div class="products__items p-5 shadow__products">
+                            <div class="w-full h-auto">
+                                <img class="w-full h-auto rounded-xl" src="../IMG/bunbo.jpeg" alt="" />
+                            </div>
+                            <div class="products__info mt-2">
+                                <h3 class="text-xl font-semibold text-gray-700">
+                                    Mì hải sản
+                                </h3>
+                                <p class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2">
+                                    <span class="text-sm">★★★★★</span>35.000đ
+                                </p>
+                                <p class="text-gray-500 text-xs mt-1 limited__content-2">
+                                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm với nước chấm.
+                                </p>
+                                <div class="products__btn flex justify-center mt-4">
+                                    <button class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl">
                       Thêm vào giỏ
                     </button>
-                  </div>
-                </div>
-              </div>
+                                </div>
+                            </div>
+                        </div>
 
-              <div class="products__items p-5 shadow__products">
-                <div class="w-full h-auto">
-                  <img
-                    class="w-full h-auto rounded-xl"
-                    src="../IMG/bunbo.jpeg"
-                    alt=""
-                  />
-                </div>
-                <div class="products__info mt-2">
-                  <h3 class="text-xl font-semibold text-gray-700">
-                    Mì hải sản
-                  </h3>
-                  <p
-                    class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2"
-                  >
-                    <span class="text-sm">★★★★★</span>35.000đ
-                  </p>
-                  <p class="text-gray-500 text-xs mt-1 limited__content-2">
-                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là
-                    trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản
-                    nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm
-                    với nước chấm.
-                  </p>
-                  <div class="products__btn flex justify-center mt-4">
-                    <button
-                      class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl"
-                    >
+                        <div class="products__items p-5 shadow__products">
+                            <div class="w-full h-auto">
+                                <img class="w-full h-auto rounded-xl" src="../IMG/bunbo.jpeg" alt="" />
+                            </div>
+                            <div class="products__info mt-2">
+                                <h3 class="text-xl font-semibold text-gray-700">
+                                    Mì hải sản
+                                </h3>
+                                <p class="text-xs font-semibold flex justify-between  text-[#FAB500] mt-2">
+                                    <span class="text-sm">★★★★★</span>35.000đ
+                                </p>
+                                <p class="text-gray-500 text-xs mt-1 limited__content-2">
+                                    Mì hải sản là món ăn được nhiều người yêu thích, đặc biệt là trong những ngày lạnh. Mì hải sản có thể là món ăn đơn giản nhưng lại rất ngon miệng, thơm béo, đặc biệt là khi ăn kèm với nước chấm.
+                                </p>
+                                <div class="products__btn flex justify-center mt-4">
+                                    <button class="btn__add w-full bg-orange-600 text-white px-5 py-2 rounded-xl">
                       Thêm vào giỏ
                     </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- paging -->
-            <ul class="paging flex justify-center mt-10 gap-5">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-6 h-6 p-1  text-white rounded-[50%] bg-orange-600"
-              >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- paging -->
+                    <ul class="paging flex justify-center mt-10 gap-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 p-1  text-white rounded-[50%] bg-orange-600">
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
@@ -356,11 +251,8 @@
                 />
               </svg>
 
-              <li>
-                <a
-                  class="px-4 py-2 rounded-3xl shadow-md border text-gray-500"
-                  href=""
-                  >1</a
+                        <li>
+                            <a class="px-4 py-2 rounded-3xl shadow-md border text-gray-500" href="">1</a
                 >
               </li>
               <li>
