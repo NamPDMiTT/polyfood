@@ -1,5 +1,5 @@
 <?php
-require_once '/xampp/htdocs/DAM_FALL2022/dao/pdo.php';
+require_once "/xampp/htdocs/POLYFOOD/dao/pdo.php";
 function insert_users($user_name, $password, $email, $phone, $image, $role){
     $sql = "INSERT INTO users(user_name, password, email, phone, image, role) 
                       VALUES ( '$user_name', '$password', '$email', '$phone', '$image', '$role')";
