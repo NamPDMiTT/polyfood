@@ -1,5 +1,5 @@
 <?php
-require_once '/xampp/htdocs/DAM_FALL2022/dao/pdo.php';
+require_once '/xampp/htdocs/polyfood/dao/pdo.php';
 function insert_order($product_id,$quantity,$user_id,$time_order,$note,$total_price,$status){
     $sql = "INSERT INTO orders(product_id,quantity,user_id,time_order,note,total_price,status) 
                       VALUES ( '$product_id', '$quantity', '$user_id', '$time_order', '$note', '$total_price', $status)";

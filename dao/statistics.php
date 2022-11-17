@@ -1,5 +1,5 @@
 <?php
-require_once '/xampp/htdocs/DAM_FALL2022/dao/pdo.php';
+require_once '/xampp/htdocs/polyfood/dao/pdo.php';
 function statistic_products(){
     $sql = "SELECT cate.category_id, cate.category_name,"
     . " COUNT(*) quality,"
