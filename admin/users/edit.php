@@ -9,7 +9,6 @@
                         </a>
                         <h1 class="text-xs font-bold italic text-orange-500">
                             CONGTIEN<span class="text-black">DEV</span>
-                        </h1>
                     </div>
                     <div class="account__admin flex items-center gap-2">
                         <div class="account__admin--avatar">
