@@ -1,5 +1,5 @@
 <?php
-require_once '/xampp/htdocs/polyfood-main/dao/pdo.php';
+require_once '/xampp/htdocs/polyfood/dao/pdo.php';
  function insert_categories($category_name) {
     $sql = "INSERT INTO categories (category_name) VALUES ('$category_name')";
 pdo_execute($sql);

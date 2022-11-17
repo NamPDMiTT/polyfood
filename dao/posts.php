@@ -1,5 +1,5 @@
 <?php
-require_once '/xampp/htdocs/DAM_FALL2022/dao/pdo.php';
+require_once '/xampp/htdocs/polyfood/dao/pdo.php';
 function insert_post($user_id, $content, $time_post, $status) {
     $sql = "INSERT INTO posts(user_id, content, time_post, status) 
                       VALUES ( '$user_id', '$content', '$time_post', $status)";
