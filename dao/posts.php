@@ -63,5 +63,12 @@ function post_oldest() {
     $sql = "SELECT * FROM posts ORDER BY time_post ASC LIMIT 5";
     return pdo_query($sql);
 }
-
+function post_like_up($post_id){
+    $sql = "UPDATE posts SET like_count=like_count+1 WHERE post_id=$post_id";
+    pdo_execute($sql);
+}
+function post_like_down($post_id){
+    $sql = "UPDATE posts SET like_count=like_count-1 WHERE post_id=$post_id";
+    pdo_execute($sql);
+}
 ?>
