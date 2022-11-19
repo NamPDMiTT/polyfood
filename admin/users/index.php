@@ -15,7 +15,7 @@ if(exist_param("btn_insert")){
     catch (Exception $exc) {
         $MESSAGE = "Thêm mới thất bại!";
     }
-    $VIEW_NAME = "./users/new.php";
+    $VIEW_NAME = "../users/new.php";
 }
 else if(exist_param("btn_update")){
     $up_hinh = save_file("up_hinh", "$IMAGE_DIR/users/");
@@ -27,7 +27,7 @@ else if(exist_param("btn_update")){
     catch (Exception $exc) {
         $MESSAGE = "Cập nhật thất bại!";
     }
-    $VIEW_NAME = "./users/edit.php";
+    $VIEW_NAME = "../users/edit.php";
 }
 else if(exist_param("btn_delete")){
     try {
@@ -38,19 +38,19 @@ else if(exist_param("btn_delete")){
     catch (Exception $exc) {
         $MESSAGE = "Xóa thất bại!";
     }
-    $VIEW_NAME = "./users/list.php";
+    $VIEW_NAME = "../users/list.php";
 }
 else if(exist_param("btn_edit")){
     $item = select_by_id_users($user_id);
     extract($item);
-    $VIEW_NAME = "./users/edit.php";
+    $VIEW_NAME = "../users/edit.php";
 }
 else if(exist_param("btn_list")){
     $users = select_all_users();
-    $VIEW_NAME = "./users/list.php";
+    $VIEW_NAME = "../users/list.php";
 }
 else{
-    $VIEW_NAME = "./users/new.php";
+    $VIEW_NAME = "../users/new.php";
 }
 
-require "../layout.php";
+require_once "/xampp/htdocs/polyfood/admin/page/layout.php";

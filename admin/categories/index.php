@@ -1,7 +1,7 @@
 <?php
-    require_once '/xampp/htdocs/polyfood-main/global.php';
-    require_once '/xampp/htdocs/poly-food/dao/categories.php';
-    check_login();
+    require_once '/xampp/htdocs/polyfood/global.php';
+    require_once '/xampp/htdocs/polyfood/dao/categories.php';
+    // check_login();
 
 extract($_REQUEST);
 if(exist_param('btn_insert')) {
@@ -37,7 +37,7 @@ if(exist_param('btn_insert')) {
     $VIEW_NAME ="./categories/edit.php";
 } else {
     $list = categories_select_all();
-    $VIEW_NAME ="./categories/list.php";
+    $VIEW_NAME ="../categories/list.php";
 }
-require_once '/xampp/htdocs/polyfood-main/admin/layout.php';
+require_once '/xampp/htdocs/polyfood/admin/page/layout.php';
 ?>

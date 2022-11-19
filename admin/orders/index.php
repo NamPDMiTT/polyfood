@@ -1,7 +1,7 @@
 <?php
 require_once '/xampp/htdocs/polyfood/global.php';
 require_once '/xampp/htdocs/polyfood/dao/orders.php';
-check_login();
+// check_login();
 extract($_REQUEST);
 if(exist_param('btn_insert')) {
     try {
@@ -48,4 +48,6 @@ if(exist_param('btn_update')){
     $items = order_select_all();
     $VIEW_NAME = "../orders/list.php";
 }
+require_once '/xampp/htdocs/polyfood/admin/page/layout.php';
+
 ?>
