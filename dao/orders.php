@@ -2,17 +2,17 @@
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
 function insert_order($product_id,$quantity,$user_id,$time_order,$note,$total_price,$status){
     $sql = "INSERT INTO orders(product_id,quantity,user_id,time_order,note,total_price,status) 
-                      VALUES ( '$product_id', '$quantity', '$user_id', '$time_order', '$note', '$total_price', $status)";
+                      VALUES ( $product_id, $quantity, '$user_id', '$time_order', '$note', $total_price, $status)";
     pdo_execute($sql);
 } 
 function update_order($product_id,$quantity,$user_id,$time_order,$note,$total_price,$status,$order_id){
-    $sql = "UPDATE orders SET product_id='$product_id', quantity='$quantity', user_id='$user_id', time_order='$time_order', note='$note', total_price='$total_price', status=$status WHERE order_id=$order_id";
+    $sql = "UPDATE orders SET product_id=$product_id, quantity=$quantity, user_id='$user_id', time_order='$time_order', note='$note', total_price=$total_price, status=$status WHERE order_id=$order_id";
     pdo_execute($sql);
 }
 function order_delete($order_id) {
     if(is_array($order_id)){
         foreach ($order_id as $ma) {
-    $sql = "DELETE FROM orders WHERE order_id='$ma'";
+    $sql = "DELETE FROM orders WHERE order_id=$ma";
 
             pdo_execute($sql);
         }
