@@ -2,7 +2,7 @@
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
 function products_insert($product_name, $price, $discount, $image, $category_id,  $view, $quantity, $detail){
     $sql = "INSERT INTO products(product_name, price, discount, image, category_id, view, quantity, detail) 
-                      VALUES ( '$product_name', $price, $discount, '$image', '$category_id' , $view, '$quantity', '$detail')";
+                      VALUES ( '$product_name', $price, $discount, '$image', $category_id , $view, $quantity, '$detail')";
     pdo_execute($sql);
 }
     
