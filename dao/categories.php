@@ -6,7 +6,7 @@ pdo_execute($sql);
 
  }
  function update_categories($category_name,$category_id){
-    $sql = "UPDATE categories SET category_name = '$category_name' WHERE category_id = '$category_id'";
+    $sql = "UPDATE categories SET category_name = '$category_name' WHERE category_id = $category_id";
     pdo_execute($sql);
  }
 
