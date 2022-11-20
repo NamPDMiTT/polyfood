@@ -23,11 +23,11 @@
                     extract($item);
             ?>
                 <tr>
-                    <td><?=$ten_loai?></td>
-                    <td><?=$so_luong?></td>
-                    <td>$<?=number_format($gia_min,2)?></td>
-                    <td>$<?=number_format($gia_max,2)?></td>
-                    <td>$<?=number_format($gia_avg,2)?></td>
+                    <td><?=$category_name?></td>
+                    <td><?=$total?></td>
+                    <td>$<?=number_format($price_min,2)?></td>
+                    <td>$<?=number_format($price_max,2)?></td>
+                    <td>$<?=number_format($price_avg,2)?></td>
                 </tr>
             <?php
                 }

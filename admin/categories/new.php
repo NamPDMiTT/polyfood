@@ -30,6 +30,11 @@
     <!-- End header -->
     <main style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px
 #bebebe, -35px -35px 70px #ffffff; " class="w-full  p-5 mt-5 bg-gray-100">
+  <?php
+            if(strlen($MESSAGE)){
+                echo "<h5>$MESSAGE</h5>";
+            }
+        ?>
         <section class="add__category w-full mt-5">
             <section class="add__products-title flex  items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
@@ -39,7 +44,7 @@
             </section>
 
             <section class="mt-5  w-full">
-                <form action="index.php?action=addCategory" class="form__add-category w-full" method="post" enctype="multipart/form-data">
+                <form action="index.php" class="form__add-category w-full" method="post" enctype="multipart/form-data">
                     <div class="list__form-group w-full grid  grid-cols-1 gap-10">
                         <div class="form__group flex flex-col">
                             <label for="categorytid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">CATEGORY ID</label>
@@ -51,15 +56,10 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">CATEGORY NAME</label>
                             <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="category_name" id="name" placeholder="Category name" />
-                            <span class="text-red-500 text-xs mt-3"><?php
-                                                                    if (isset($category_error)) {
-                                                                        echo $category_error;
-                                                                    }
-                                                                    ?></span>
                         </div>
 
                         <div class="form__add-category--list-button w-full mt-7 flex gap-3 justify-center items-center">
-                            <button type="submit" name="submit" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
+                            <button type="submit" name="btn_insert" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
 2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
 rounded-md text-sm hover:bg-gray-200 leading-4 ">
                                 Add new
@@ -68,6 +68,11 @@ rounded-md text-sm hover:bg-gray-200 leading-4 ">
 2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
 rounded-md text-sm hover:bg-gray-200 leading-4 ">
                                 Reset
+                            </button>
+                            <button type="submit" name="btn_list" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
+2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
+rounded-md text-sm hover:bg-gray-200 leading-4 ">
+                              List
                             </button>
                         </div>
                     </div>
