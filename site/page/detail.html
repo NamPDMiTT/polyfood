@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chi tiết </title>
+    <link rel="stylesheet" href="../../css/style.css" />
+    <link rel="stylesheet" href="../../css/base.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div id="root" class="font min-w-[320px] max-w-[1400px] mx-auto">
+        <div class="content-wrapper max-w-screen-2xl mx-auto  text-base bg-white">
+            <header class=" max-w-[1400px] bg-white sticky top-0 z-50">
+                <nav class="w-full h-20 px-5  flex justify-between items-center ">
+                    <div class="h-10 py-2 px-3 shadow__logo">
+                        <a href="../../index.html" class="logo  flex items-center">
+                            <h1 class="text-xl font-semibold text-gray-700">
+                                <span class="text-orange-600">poly</span
+                  ><span class="text-blue-600 font-semibold">F</span
+                  ><span class="text-orange-600 font-semibold">oo</span
+                  ><span class="text-green-600 font-semibold">d</span>
+                            </h1>
+                        </a>
+                    </div>
+
+                    <!-- <ul class="menu w-[60%] justify-center flex gap-6 font-semibold text-sm text-gray-700 uppercase">
+                        <li><a class="text-orange-600" href="#">Trang chủ</a></li>
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Sản Phẩm</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul> -->
+                    <ul class="cart__account flex gap-7">
+                        <li class="cart">
+                            <form action="index.php?action=products" method="post" class="search flex items-center py-1 px-2 border rounded-2xl">
+                                <input type="text" name="search" placeholder="Search" placeholder="Search" class="search__input w-24 bg-transparent focus:outline-none" />
+                                <button class="search-btn">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="w-7 h-7 text-gray-500"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+                      />
+                    </svg>
+                  </button>
+                            </form>
+                        </li>
+
+                        <li class="cart">
+                            <a href="#">
+                                <img class="w-12 h-auto" src="../IMG/cart.png" alt="" />
+                            </a>
+                        </li>
+                        <li class="account">
+                            <a href="#">
+                                <img class="w-10 h-auto" src="../IMG/account1.png" alt="" />
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="banner flex">
+                <div class="banner__title mt-20 text-center">
+                    <h1 class="text-[72px] font-bold text-gray-700
+">
+                        <span class="text-orange-600">poly</span
+            ><span class="text-blue-600 font-semibold">F</span
+            ><span class="text-orange-600 font-semibold">oo</span
+            ><span class="text-green-600 font-semibold">d</span>
+                    </h1>
+                    <p class="text-[72px] leading-[70px] font-semibold text-[#FAB500] text-center mt-12">
+                        " Yêu là phải nói , đói là phải ăn "
+                    </p>
+                    <button class="btn mt-12 px-5 py-3 bg-orange-600 rounded-xl text-white animate__animated animate__pulse animate__infinite
+">
+            Đặt hàng ngay
+          </button>
+                </div>
+                <div class="banner__img w-[60%] flex justify-end relative">
+                    <img class="w-[555px] h-[520px] absolute top-3 right-3" src="../IMG/hamberger.png" alt="" />
+                    <img class="absolute top-3 right-0 w-[150px]" src="../IMG/sale-banner.png" alt="" />
+                    <img class="w-[500px] h-[550px] " src="../IMG/bg-hamberger.png" alt="" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <section class="max-w-6xl mx-auto mt-20">
+        <div class="grid grid-cols-2 gap-12">
+            <div class="rounded">
+                <img src="../IMG/bunbo.jpeg" alt="" class="rounded">
+            </div>
+            <div class="">
+                <div class="font-bold text-5xl font text-orange-600">Bún bò </div>
+                <div class="flex items-center space-x-2 py-4 ">
+                    <p class="text-orange-600">★★★★</p>
+                    <p class="text-black">|</p>
+                    <p class="font ">7 Customer Reviews</p>
+                </div>
+                <div class="text-3xl font text-orange-600">
+                    $.000
+                </div>
+                <span class="inline-block text-gray-400 font">Quốc gia:</span>
+                <span class="inline-block text-black font">Việt Nam</span>
+                <div class="font text-2xl font-bold py-4">Ưu đãi</div>
+                <div class="flex items-center space-x-2">
+                    <span class="bg-orange-600 py-2 px-0.5"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check text-orange-600" viewBox="0 0 16 16">
+                        <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                      </svg>
+                    <p class="text-orange-600 font">Đổi trả dễ dàng trong 2 giờ nếu bạn đổi ý</p>
+                </div>
+                <div class="flex items-center space-x-2 py-2">
+                    <span class="bg-orange-600 py-2 px-0.5"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tags text-orange-600" viewBox="0 0 16 16">
+                        <path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z"/>
+                        <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z"/>
+                      </svg>
+                    <p class="text-orange-600 font">Gọi món sớm, có hàng sớm :></p>
+                </div>
+                <button class="bg-orange-600 text-white font py-2 px-8 items-center flex space-x-6 rounded-xl">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag-x-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM6.854 8.146a.5.5 0 1 0-.708.708L7.293 10l-1.147 1.146a.5.5 0 0 0 .708.708L8 10.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 10l1.147-1.146a.5.5 0 0 0-.708-.708L8 9.293 6.854 8.146z"/>
+                      </svg>
+                      Thêm Vào Giỏ Hàng.
+                </button>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
