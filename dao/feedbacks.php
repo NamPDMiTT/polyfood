@@ -47,4 +47,8 @@ function feedbacks_select_by_product_id($product_id) {
     return pdo_query($sql);
 
 }
+function info_feedback($product_id){
+    $sql = "SELECT u.user_name,pro.product_name, fb.* FROM feedbacks fb join products pro on pro.product_id=fb.product_id join users u on fb.user_id=u.user_id WHERE fb.product_id=$product_id";
+    return pdo_query($sql);
+}
 ?>

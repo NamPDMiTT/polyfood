@@ -7,7 +7,7 @@ require_once '/xampp/htdocs/polyfood/dao/statistics.php';
 
 
 //--------------------------------//
-check_login();
+
 extract($_REQUEST);
 if(exist_param("product_id")){
     if(exist_param("btn_delete")){
@@ -25,7 +25,7 @@ if(exist_param("product_id")){
         $VIEW_NAME = "../feedbacks/list.php";
     }
     else{
-        $items = statistic_feedbacks();
+        $items = info_feedback($product_id);
         $VIEW_NAME = "../feedbacks/detail.php";
     }
 }

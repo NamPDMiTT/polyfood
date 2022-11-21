@@ -26,7 +26,7 @@
                         extract($item);
                 ?>
                     <tr>
-                        <th><input type="checkbox" name="ma_bl[]" value="<?=$feedback_id?>"></th>
+                        <th><input type="checkbox" name="feedback_id[]" value="<?=$feedback_id?>"></th>
                         <td><?=$content?></td>
                         <td><?=$rate?></td>
                         <td><img src="<?= $CONTENT_URL ?>/images/feedbacks/<?=$image?>" alt="" class="w-16 h-16 block mx-auto" /></td>

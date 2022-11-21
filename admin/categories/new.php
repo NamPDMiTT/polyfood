@@ -48,7 +48,7 @@
                     <div class="list__form-group w-full grid  grid-cols-1 gap-10">
                         <div class="form__group flex flex-col">
                             <label for="categorytid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">CATEGORY ID</label>
-                            <input placeholder="Auto generate" disabled type="text" name="productid" id="product__id" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none
+                            <input placeholder="Auto generate" disabled type="text" name="category_id" id="category__id" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none
 text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
 rounded-md text-gray-500
 " />

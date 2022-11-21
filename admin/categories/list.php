@@ -65,7 +65,7 @@
                                 <?php extract($item); ?>
                                 <tr class="border-t-2 border-dashed">
                               <td class="p-2 whitespace-nowrap">
-                                    <input type="checkbox" name="checkbox[]" value="<?= $category_id ?>" class="checkbox"/>
+                                    <input type="checkbox" name="category_id[]" value="<?= $category_id ?>" class="checkbox"/>
                                 </td>
 
                               <td class="p-2 w-20 ">
@@ -105,7 +105,7 @@
                     </label>
 
                     <button style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow:
-1.5px 1.5px 2.5px #babecc, -2px -2px 5px #fff;" type="submit" name="delete_select" class=" p-3  border rounded-md w-[120px] text-center   text-xs hover:bg-gray-200 leading-4 ">
+1.5px 1.5px 2.5px #babecc, -2px -2px 5px #fff;" type="submit" name="btn_delete" class=" p-3  border rounded-md w-[120px] text-center   text-xs hover:bg-gray-200 leading-4 ">
                         Delete selected
                     </button>
                     <input type="checkbox" hidden id="checkAll" name="checkAll">

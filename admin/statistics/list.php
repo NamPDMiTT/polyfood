@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-    <head>
-    <link rel="stylesheet" href="../../content/css/table.css">
-    
-    </head>
-    <body>
+
         <h3>THỐNG KÊ HÀNG HÓA TỪNG LOẠI</h3>
         <div class="table-wrapper">
         <table class="fl-table">
