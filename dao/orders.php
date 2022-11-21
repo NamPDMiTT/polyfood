@@ -42,7 +42,7 @@ function order_select_by_user_id($user_id) {
 
 }
 function order_change_status($order_id, $status) {
-    $sql = "UPDATE orders SET status='$status' WHERE order_id=$order_id";
+    $sql = "UPDATE orders SET status=$status WHERE order_id=$order_id";
     pdo_execute($sql);
 }
 // order đã được xử lý
