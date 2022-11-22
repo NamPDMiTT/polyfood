@@ -1,5 +1,4 @@
 
-=======
 <article class="w-[85%]">
     <header style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px #bebebe,
 -35px -35px 70px #ffffff;
@@ -179,5 +178,4 @@
 </div>
 </body>
 
->>>>>>> thaidolphin
-</html>
+
