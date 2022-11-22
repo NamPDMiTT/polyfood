@@ -20,5 +20,5 @@ if (exist_param("btn_update")) {
     extract($_SESSION['user']);
 }
 
-$VIEW_NAME = "tai-khoan/cap-nhat-tk-form.php";
+$VIEW_NAME = "account/update-account-form.php";
 require '../layout.php';

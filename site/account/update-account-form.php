@@ -1,76 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home</title>
-    <link rel="stylesheet" href="../../css/style.css" />
-    <link rel="stylesheet" href="../../css/base.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-</head>
-
-<body>
-    <div id="root" class="font min-w-[320px] max-w-[1400px] mx-auto">
-        <div class="content-wrapper max-w-screen-2xl mx-auto  text-base bg-white">
-            <header class=" max-w-[1400px] bg-[rgba(0,0,0,0.6)] sticky top-0 z-50">
-                <nav class="w-full h-16 px-5 bg-[rgba(0,0,0,0.7)]  hidden lg:flex justify-between items-center ">
-                    <div class="h-10 py-2 px-3">
-                        <a href="../../index.html" class="logo  flex items-center">
-                            <h1 class="text-xl font-semibold">
-                                <span class="text-orange-600">poly</span><span class="text-blue-600 font-semibold">F</span><span class="text-orange-600 font-semibold">oo</span><span class="text-green-600 font-semibold">d</span>
-                            </h1>
-                        </a>
-                    </div>
-
-                    <ul class="menu w-[60%] justify-center flex gap-6  text-sm text-white uppercase">
-                        <li><a href="#">Trang chủ</a></li>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Sản Phẩm</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Liên hệ</a></li>
-                    </ul>
-                    <ul class="cart__account flex gap-7">
-                        <li class="cart">
-                            <form action="index.php?action=products" method="post" class="search flex items-center py-1 px-2 border rounded-2xl">
-                                <input type="text" name="search" placeholder="Search" placeholder="Search" class="search__input w-24 bg-transparent focus:outline-none text-white" />
-                                <button class="search-btn">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7 text-white">
-                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                                    </svg>
-                                </button>
-                            </form>
-                        </li>
-
-                        <li class="cart">
-                            <a href="#">
-                                <img class="w-12 h-auto" src="../IMG/cart.png" alt="" />
-                            </a>
-                        </li>
-                        <li class="account">
-                            <a href="#">
-                                <img class="w-10 h-auto" src="../IMG/account1.png" alt="" />
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-            <main class="w-full mt-14">
-                <?php
-                if (isset($_SESSION['account_info']) && (is_array($_SESSION['account_info']))) {
-                    extract($_SESSION['account_info']);
-                    $avatarSrc = $avatarUrl . $avatar;
-                }
-                ?>
-                <div class="profile__box my-10 w-full flex justify-center sm:gap-8 md:gap-12">
+                <main class="w-full mt-14">
+                    <?php
+                    if (strlen($MESSAGE)) {
+                        echo "<h5 class=''>$MESSAGE</h5>";
+                    }
+                    ?>
+                    <!-- <div class="profile__box my-10 w-full flex justify-center sm:gap-8 md:gap-12">
                     <div class="profile__card bg-white justify-center flex flex-col w-[250px] h-[280px] sm:w-[250px] sm:h-[250px] lg:w-[300px] lg:h-[300px] px-3 py-5 rounded-md shadow-md  items-center  gap-4">
                         <div class="profile__card-avatar flex items-center gap-3">
                             <img class="w-[50px] h-[50px] lg:w-[80px] lg:h-[80px] rounded-[50%]" src="<?= $avatarSrc ?>" alt="" />
                             <div class="profile__card-name flex flex-col">
-                                <h2 class="text-lg lg:text-xl"><?= $fullname ?></h2>
+                                <h2 class="text-lg lg:text-xl"><?= $name ?></h2>
                                 <span class="text-sm sm:text-xs text-gray-500"><?= $user_name ?></span>
                             </div>
                         </div>
@@ -124,7 +63,7 @@
                                 <span class="text-sm sm:text-xs"><?= $email ?></span>
                             </p>
                         </div>
-                        <a href="index.php?action=editAccountMobile" class="edit__profile-btn sm:hidden flex items-center justify-center gap-2 text-white text-sm bg-orange-600 p-2 rounded-sm w-full text-center">
+                        <a href="update-account.php" class="edit__profile-btn sm:hidden flex items-center justify-center gap-2 text-white text-sm bg-orange-600 p-2 rounded-sm w-full text-center">
                             <span>Edit Profile</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 text-white">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" />
@@ -135,110 +74,64 @@
                     <div class="profile__edit hidden sm:flex flex-col gap-5">
                         <div class="profile__edit-title flex flex-col gap-2">
                             <h1 class="text-xl text-center sm:text-left">EDIT PROFILE</h1>
-                            <p class="sub-title text-sm text-gray-500 text-center sm:text-left
-">
+                            <p class="sub-title text-sm text-gray-500 text-center sm:text-left">
                                 Manage profile information for account security
                             </p>
-                        </div>
+                        </div> -->
+                    <div class="form__login my-10 w-full flex justify-center">
+                        <form action="update-account.php" method="post" enctype="multipart/form-data" class="form__login--content w-full flex flex-col justify-center items-center gap-5">
+                            <div class="form__group flex flex-col gap-2 ">
+                                <label for="name">Full name</label>
+                                <input type="text" name="name" id="name" placeholder="Name" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
+                  focus:border-orange-500 focus:outline-none" value="<?= $name ?>" />
+                                <span class="text-red-500 text-xs">
+                                    <?php
+                                    if (isset($error['name'])) {
+                                        echo $error['name'];
+                                    }
+                                    ?>
+                                </span>
+                            </div>
+                            <div class="form__group flex flex-col gap-2">
+                                <label for="user_name">Username</label>
+                                <input type="text" name="user_name" id="username" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
+                  focus:border-orange-500 focus:outline-none" placeholder="Username" value="<?= $user_name ?>" />
+                                <span class="text-red-500 text-xs">
+                                    <?php
+                                    if (isset($error['user_name'])) {
+                                        echo $error['user_name'];
+                                    }
+                                    ?>
+                                </span>
+                            </div>
 
-                        <form action="index.php?action=editAccount" method="post" enctype="multipart/form-data" class="form__login--content w-full flex flex-col justify-center items-center gap-5">
-                            <div class="list__form-input w-[300px] sm:w-full flex flex-col sm:grid sm:grid-cols-2 gap-4">
-                                <div class="form__group flex flex-col gap-2 ">
-                                    <label for="fullname">Full name</label>
-                                    <input type="text" name="fullname" id="fullname" placeholder="fullname" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" value="<?= $fullname ?>" />
-                                    <span class="error text-red-500 text-xs"><?php
-                                                                                if (isset($error['fullname'])) {
-                                                                                    echo $error['fullname'];
-                                                                                }
-                                                                                ?></span>
-                                </div>
-                                <div class="form__group flex flex-col gap-2">
-                                    <label for="user_name">Username</label>
-                                    <input type="text" name="user_name" id="username" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" placeholder="Username" readonly value="<?= $user_name ?>" />
-                                    <span class="error text-red-500 text-xs"><?php
-                                                                                if (isset($error['user_name'])) {
-                                                                                    echo $error['user_name'];
-                                                                                }
-                                                                                ?></span>
-                                </div>
+                            <div class="form__group flex flex-col gap-2">
+                                <label for="email">Email</label>
+                                <input type="email" name="email" id="email" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="Email" value="<?= $email ?>" />
+                                <span class="text-red-500 text-xs">
+                                    <?php
+                                    if (isset($error['email'])) {
+                                        echo $error['email'];
+                                    }
+                                    ?>
+                                </span>
+                            </div>
 
-                                <div class="form__group flex flex-col gap-2">
-                                    <label for="gender">Gender</label>
-                                    <div class="gender__input flex gap-2 text-xs border border-gray-700 p-3 w-full rounded-sm focus:border-orange-500
-">
-                                        <?php
-                                        if (isset($_SESSION['account_info'])) {
-                                            $gender = $_SESSION['account_info']['gender'];
-                                            if ($gender == 0) {
-                                                echo "<input type='radio' name='gender' value='0' checked>Male";
-                                                echo "<input type='radio' name='gender' value='1'>Female";
-                                            } else {
-                                                echo "<input type='radio' name='gender' value='0'>Male";
-                                                echo "<input type='radio' name='gender' value='1' checked>Female";
-                                            }
-                                        }
-                                        ?>
-                                        <span class="error text-red-500 text-xs"><?php
-                                                                                    if (isset($error['gender'])) {
-                                                                                        echo $error['gender'];
-                                                                                    }
-                                                                                    ?></span>
-                                    </div>
-                                </div>
+                            <div class="form__group flex flex-col gap-2">
+                                <label for="phone">Phone</label>
+                                <input type="tel" name="phone" id="phone" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="Phone" value="<?= $phone ?>" />
+                                <span class="text-red-500 text-xs">
+                                    <?php
+                                    if (isset($error['phone'])) {
+                                        echo $error['phone'];
+                                    }
+                                    ?>
+                                </span>
+                            </div>
 
-                                <div class="form__group flex flex-col gap-2">
-                                    <label for="birth_year">Birth year</label>
-                                    <input type="date" name="birth_year" id="birth_year" class="form__input  text-xs border border-gray-700  p-[11px] w-full rounded-sm focus:border-orange-500 focus:outline-none
-                          " value="<?php if (isset($birth_year)) {
-                                        echo $birth_year;
-                                    } ?>" />
-                                    <span class="error text-red-500 text-xs"><?php
-                                                                                if (isset($error['birth_year'])) {
-                                                                                    echo $error['birth_year'];
-                                                                                }
-                                                                                ?></span>
-                                </div>
-
-                                <div class="form__group flex flex-col gap-2">
-                                    <label for="email">Email</label>
-                                    <input type="email" name="email" id="email" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="Email" value="<?= $email ?>" />
-                                    <span class="error text-red-500 text-xs"><?php
-                                                                                if (isset($error['email'])) {
-                                                                                    echo $error['email'];
-                                                                                }
-                                                                                ?></span>
-                                </div>
-
-                                <div class="form__group flex flex-col gap-2">
-                                    <label for="phone">Phone</label>
-                                    <input type="number" min="0" name="phone" id="phone" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" placeholder="Phone" value="<?= $phone ?>" />
-                                    <span class="error text-red-500 text-xs"><?php
-                                                                                if (isset($error['phone'])) {
-                                                                                    echo $error['phone'];
-                                                                                }
-                                                                                ?></span>
-                                </div>
-
-                                <div class="form__group flex flex-col gap-2">
-                                    <label for="address">Address</label>
-                                    <input type="text" name="address" id="address" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" placeholder="Address" value="<?= $address ?>" />
-                                    <span class="error text-red-500 text-xs">
-                                        <?php
-                                        if (isset($error['address'])) {
-                                            echo $error['address'];
-                                        }
-                                        ?>
-                                    </span>
-                                </div>
-
-                                <div class="form__group flex flex-col gap-2">
-                                    <label for="avatar">Avatar</label>
-                                    <input type="file" name="avatar" id="avatar" class="form__input  text-xs border border-gray-700  p-[9px] w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="avatar" />
-                                </div>
+                            <div class="form__group flex flex-col gap-2">
+                                <label for="avatar">Avatar</label>
+                                <input type="file" name="avatar" id="avatar" class="form__input  text-xs border border-gray-700  p-[9px] w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="avatar" />
                             </div>
                             <div class="form__group flex flex-row justify-center items-center gap-2">
                                 <a href="index.php?action=changePassword" class="change__password text-center text-orange-500 hover:underline">Change password</a>
@@ -247,8 +140,8 @@
                                 </svg>
                             </div>
                             <div class="form__group w-[90%] flex flex-col sm:w-auto sm:flex-row  justify-center items-center gap-3">
-                                <input type="hidden" name="id" value="<?= $id ?>" />
-                                <button type="submit" name="update_account" class="text-white bg-orange-600 p-2 rounded-sm w-full sm:w-[100px] text-center">
+                                <input type="hidden" name="id" value="<?= $user_id ?>" />
+                                <button type="submit" name="btn_update" class="text-white bg-orange-600 p-2 rounded-sm w-full sm:w-[100px] text-center">
                                     SAVE
                                 </button>
                                 <button type="reset" class="text-white bg-orange-600 p-2 rounded-sm w-full sm:w-[100px] text-center">
@@ -257,5 +150,5 @@
                             </div>
                         </form>
                     </div>
-                </div>
-            </main>
+                    </div>
+                </main>
