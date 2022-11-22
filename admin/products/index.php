@@ -1,41 +1,54 @@
 <?php
 require_once '/xampp/htdocs/polyfood/global.php';
 require_once '/xampp/htdocs/polyfood/dao/products.php';
+require_once '/xampp/htdocs/polyfood/dao/categories.php';
 // check_login();
 extract($_REQUEST);
 if(exist_param('btn_insert')) {
+    $upload_image = save_file("image", "$IMAGE_DIR/products/");
+    $image = strlen("$upload_image") > 0 ? $upload_image : 'product.png';
     try {
-        products_insert($product_name, $price, $discount, $image, $category_id,  $view, $quantity, $detail);
-        $MESSAGE = "Thêm sản phẩm thành công";
-        unset($name, $price, $image, $description, $status, $product_id);
-    } catch (Exception $exc) {
-        $MESSAGE = "Thêm sản phẩm thất bại";
+        products_insert($product_name, $price, $discount, $image, $category_id, $quantity, $detail);
+        unset($product_name, $price, $discount, $image, $category_id, $quantity, $detail);
+        $MESSAGE = "Thêm mới thành công!";
+    } 
+    catch (Exception $exc) {
+        $MESSAGE = "Thêm mới thất bại!";
     }
-    $VIEW_NAME ="../products/new.php";
+    $VIEW_NAME = "../products/new.php";
 }else
 if(exist_param('btn_update')){
+    $upload_image = save_file("upload_image", "$IMAGE_DIR/products/");
+    $image = strlen("$upload_image") > 0 ? $upload_image : $image;
     try {
-        products_update($product_id,$product_name, $price, $discount, $image, $category_id,  $view, $quantity, $detail);
-        $MESSAGE = "Cập nhật sản phẩm thành công";
-    } catch (Exception $exc) {
-        $MESSAGE = "Cập nhật sản phẩm thất bại";
+        products_update($product_id,$product_name, $price, $discount, $image, $category_id,  $quantity, $detail);
+        $MESSAGE = "Cập nhật thành công!";
+    } 
+    catch (Exception $exc) {
+        $MESSAGE = "Cập nhật thất bại!";
     }
-    $VIEW_NAME ="../products/edit.php";
+    $VIEW_NAME = "../products/edit.php";
 }else if(exist_param('btn_delete')){
-    if (products_delete($product_id)) {
+    try {
+        products_delete($product_id);
         $items = products_select_all();
         $MESSAGE = "Xóa thành công!";
-    } else {
+    } 
+    catch (Exception $exc) {
         $MESSAGE = "Xóa thất bại!";
     }
     $VIEW_NAME = "../products/list.php";
-} else if(exist_param('btn_edit')){
-    $product = products_select_by_id($product_id);
-    extract($product);
+}else if(exist_param('btn_edit')){
+    $item = products_select_by_id($product_id);
+    extract($item);
     $VIEW_NAME ="../products/edit.php";
-} else  {
+} 
+else if(exist_param("btn_list")){
     $items = products_select_all();
-    $VIEW_NAME = "../products/list.php";
+    $VIEW_NAME ="../products/list.php";
+}
+else{
+    $VIEW_NAME = "../products/new.php";
 }
 require_once '/xampp/htdocs/polyfood/admin/page/layout.php';
 

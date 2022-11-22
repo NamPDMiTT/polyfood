@@ -2,7 +2,7 @@
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
 function statistic_products(){
     $sql = "SELECT cate.category_id, cate.category_name,"
-    . " COUNT(*) quality,"
+    . " COUNT(*) total,"
     . " MIN(pro.price) price_min,"
     . " MAX(pro.price) price_max,"
     . " AVG(pro.price) price_avg"
@@ -13,15 +13,38 @@ return pdo_query($sql);
 }
 
 function statistic_feedbacks(){
-    $sql = "SELECT pro.product_id,pro.product_name,"
-    . " COUNT(*) quality,"
+    $sql = "SELECT pro.product_id,pro.product_name, "
+    . " COUNT(*) total,"
     . " MIN(fb.time_send) new,"
     . " MAX(fb.time_send) old"
-    . " FROM feedback fb "
+    . " FROM feedbacks fb "
     . " JOIN products pro ON pro.product_id=fb.product_id "
+    . " JOIN users u ON u.user_id=fb.user_id "
     . " GROUP BY pro.product_id, pro.product_name"
-    . " HAVING quality > 0";
+    . " HAVING total > 0";
+    return pdo_query($sql);
+
 }
-
-
+function statistic_comments(){
+    $sql = "SELECT po.post_id,"
+    . " COUNT(*) total,"
+    . " MIN(cmt.time_send) new,"
+    . " MAX(cmt.time_send) old"
+    . " FROM comments cmt "
+    . " JOIN posts po ON po.post_id=cmt.post_id "
+    . " GROUP BY po.post_id"
+    . " HAVING total > 0";
+    return pdo_query($sql);
+}
+function statistic_orders(){
+    $sql = "SELECT u.user_id, u.user_name,u.name,"
+    . " COUNT(*) total,"
+    . " MIN(o.time_order) new,"
+    . " MAX(o.time_order) old"
+    . " FROM orders o "
+    . " JOIN users u ON u.user_id=o.user_id "
+    . " GROUP BY u.user_id, u.user_name, u.name"
+    . " HAVING total > 0";
+    return pdo_query($sql);
+}
 ?>

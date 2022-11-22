@@ -71,4 +71,8 @@ function post_like_down($post_id){
     $sql = "UPDATE posts SET like_count=like_count-1 WHERE post_id=$post_id";
     pdo_execute($sql);
 }
+function post_image_select_by_post_id($post_id){
+    $sql = "SELECT * FROM post_image WHERE post_id=$post_id";
+    return pdo_query($sql);
+}
 ?>

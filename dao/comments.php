@@ -13,13 +13,13 @@ function comment_insert($user_id, $post_id, $content, $time_send){
 function comment_delete($comment_id) {
     if(is_array($comment_id)){
         foreach ($comment_id as $ma) {
-    $sql = "DELETE FROM   WHERE comment_id=$ma";
+    $sql = "DELETE FROM comments  WHERE comment_id=$ma";
 
             pdo_execute($sql);
         }
     }
     else{
-    $sql = "DELETE FROM   WHERE comment_id=$comment_id";
+    $sql = "DELETE FROM comments  WHERE comment_id=$comment_id";
 
         pdo_execute($sql);
     }
@@ -49,5 +49,8 @@ function comment_select_by_post_id($post_id) {
     return pdo_query($sql);
 
 }
-
+function info_comment($post_id){
+    $sql = "SELECT u.user_name,po.post_id, cm.* FROM comments cm join posts po on po.post_id=cm.post_id join users u on cm.user_id=u.user_id  WHERE cm.post_id=$post_id";
+    return pdo_query($sql);
+}
 ?>

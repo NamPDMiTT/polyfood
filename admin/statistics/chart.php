@@ -10,7 +10,7 @@
               ['Loại', 'Số Lượng'],
                 <?php
                 foreach ($items as $item){
-                    echo "['$item[ten_loai]',     $item[so_luong]],";
+                    echo "['$item[category_name]',     $item[total]],";
                 }
                 ?>
             ]);
