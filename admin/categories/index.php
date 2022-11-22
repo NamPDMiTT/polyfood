@@ -5,17 +5,22 @@
 
 extract($_REQUEST);
 if(exist_param('btn_insert')) {
+    $upload_category_image = save_file("category_image", "$IMAGE_DIR/categories/");
+    $category_image = strlen("$upload_category_image") > 0 ? $upload_category_image : 'category.png';
+
     try {
-        insert_categories($category_name);
+        insert_categories($category_name,$category_image);
         $MESSAGE = "Thêm danh mục thành công";
-        unset($category_name, $category_id);
+        unset($category_name, $category_id,$category_image);
     } catch (Exception $exc) {
         $MESSAGE = "Thêm danh mục thất bại";
     }
     $VIEW_NAME ="../categories/new.php";
 }else if(exist_param('btn_update')){
+    $upload_category_image = save_file("upload_category_image", "$IMAGE_DIR/categories/");
+    $category_image = strlen("$upload_category_image") > 0 ? $upload_category_image : $category_image;
     try {
-        update_categories($category_name, $category_id);
+        update_categories($category_name, $category_image, $category_id);
         $MESSAGE = "Cập nhật danh mục thành công";
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật danh mục thất bại";

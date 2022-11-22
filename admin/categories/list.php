@@ -55,6 +55,9 @@
                                 <th class=" text-xs  px-2 py-2 font-medium">
                                     Category name
                                 </th>
+                                <th class=" text-xs  px-2 py-2 font-medium">
+                                    Category image
+                                </th>
                                 <th class=" text-xs  px-6 py-2 font-medium">
                                     Action
                                 </th>
@@ -77,6 +80,9 @@
                                   <p class="text-xs text-gray-900">
                                         <?= $category_name ?>
                                   </p>
+                              </td>
+                              <td class="p-2 whitespace-nowrap">
+                                <img src="<?= $CONTENT_URL ?>/images/categories/<?= $category_image ?>" width="80" height="80" alt="">
                               </td>
                               <td class="px-2 mt-2 whitespace-nowrap flex gap-3 items-center justify-center">
                                   <a href="index.php?btn_edit&category_id=<?= $category_id ?>" class="text-indigo-600 hover:text-indigo-900"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
