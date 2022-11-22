@@ -1,6 +1,6 @@
 <?php
 require_once '/xampp/htdocs/polyfood/global.php';
-require_once '/xampp/htdocs/polyfood/dao/comments.php';
+require_once '/xampp/htdocs/polyfood/dao/feedbacks.php';
 require_once '/xampp/htdocs/polyfood/dao/statistics.php';
 
 // check_login();
@@ -9,28 +9,28 @@ require_once '/xampp/htdocs/polyfood/dao/statistics.php';
 //--------------------------------//
 
 extract($_REQUEST);
-if(exist_param("post_id")){
+if(exist_param("product_id")){
     if(exist_param("btn_delete")){
         try {
-            comment_delete($comment_id);
+            feedbacks_delete($feedback_id);
             $MESSAGE = "Xóa thành công!";
         } 
         catch (Exception $exc) {
             $MESSAGE = "Xóa thất bại!";
         }
     }
-    $items = comment_select_by_post_id($post_id);
+    $items = feedbacks_select_by_product_id($product_id);
     if(count($items) == 0){
-        $items = statistic_comments();
-        $VIEW_NAME = "../comments/list.php";
+        $items = statistic_feedbacks();
+        $VIEW_NAME = "../feedbacks/list.php";
     }
     else{
-        $items = info_comment($post_id);
-        $VIEW_NAME = "../comments/detail.php";
+        $items = info_feedback($product_id);
+        $VIEW_NAME = "../feedbacks/detail.php";
     }
 }
 else{
-    $items = statistic_comments();
-    $VIEW_NAME = "../comments/list.php";
+    $items = statistic_feedbacks();
+    $VIEW_NAME = "../feedbacks/list.php";
 }
 require "../page/layout.php";

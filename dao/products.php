@@ -1,13 +1,13 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
-function products_insert($product_name, $price, $discount, $image, $category_id,  $view, $quantity, $detail){
-    $sql = "INSERT INTO products(product_name, price, discount, image, category_id, view, quantity, detail) 
-                      VALUES ( '$product_name', $price, $discount, '$image', $category_id , $view, $quantity, '$detail')";
+function products_insert($product_name, $price, $discount, $image, $category_id, $quantity, $detail){
+    $sql = "INSERT INTO products(product_name, price, discount, image, category_id,  quantity, detail) 
+                      VALUES ( '$product_name', $price, $discount, '$image', $category_id , $quantity, '$detail')";
     pdo_execute($sql);
 }
     
-function products_update($product_id,$product_name, $price, $discount, $image, $category_id,  $view, $quantity, $detail){
-    $sql = "UPDATE products SET product_name='$product_name', price=$price, discount=$discount, image='$image', category_id=$category_id, view= $view, quantity=$quantity, detail='$detail' WHERE product_id=$product_id";
+function products_update($product_id,$product_name, $price, $discount, $image, $category_id,  $quantity, $detail){
+    $sql = "UPDATE products SET product_name='$product_name', price=$price, discount=$discount, image='$image', category_id=$category_id, quantity=$quantity, detail='$detail' WHERE product_id=$product_id";
     pdo_execute($sql);
 }
     
@@ -30,7 +30,7 @@ function products_delete($product_id){
 }
     
 function products_select_all(){
-    $sql = "SELECT * FROM products";
+    $sql = "SELECT p.*,c.category_name FROM products p join categories c on p.category_id=c.category_id";
     return pdo_query($sql);
 }
     
@@ -63,8 +63,8 @@ function products_select_by_categories($category_id){
 function products_select_keyword($keyword){
     $sql = "SELECT * FROM products pro "
             . " JOIN categories cate ON cate.category_id=pro.category_id "
-            . " WHERE product_name LIKE ? OR product_name LIKE ?";
-    return pdo_query($sql, '%'.$keyword.'%', '%'.$keyword.'%');
+            . " WHERE product_name LIKE '%$keyword%' OR product_name LIKE '%$keyword%'";
+    return pdo_query($sql);
 }
 
 function products_select_page(){
