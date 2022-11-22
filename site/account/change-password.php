@@ -10,11 +10,11 @@ if (exist_param("btn_change")) {
     if ($password2 != $password3) {
         $MESSAGE = "Xác nhận mật khẩu mới không đúng!";
     } else {
-        $user = select_by_id_users($user_id);
+        $user = select_by_name_users($user_name);
         if ($user) {
             if ($user['password'] == $password) {
                 try {
-                    users_change_password($user_id, $password);
+                    users_change_password_by_username($user_name, $password);
                     $MESSAGE = "Đổi mật khẩu thành công!";
                 } catch (Exception $exc) {
                     $MESSAGE = "Đổi mật khẩu thất bại !";

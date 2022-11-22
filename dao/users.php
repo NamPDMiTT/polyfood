@@ -32,8 +32,16 @@ function select_by_id_users($user_id){
     $sql = "SELECT * FROM users WHERE user_id=$user_id";
     return pdo_query_one($sql);
 }
-function users_exist($user_id){
+function select_by_name_users($user_name){
+    $sql = "SELECT * FROM users WHERE user_name='$user_name'";
+    return pdo_query_one($sql);
+}
+function users_exist_by_id($user_id){
     $sql = "SELECT count(*) FROM users WHERE user_id=$user_id";
+    return pdo_query_value($sql) > 0;
+}
+function users_exist_by_username($user_name){
+    $sql = "SELECT count(*) FROM users WHERE user_name='$user_name'";
     return pdo_query_value($sql) > 0;
 }
 function select_users_by_role($role) {
@@ -41,8 +49,12 @@ function select_users_by_role($role) {
     return pdo_query($sql);
 
 }
-function users_change_password($user_id, $password) {
+function users_change_password_by_id($user_id, $password) {
     $sql = "UPDATE users SET password='$password' WHERE user_id=$user_id";
+    pdo_execute($sql);
+}
+function users_change_password_by_username($user_name, $password) {
+    $sql = "UPDATE users SET password='$password' WHERE user_name='$user_name'";
     pdo_execute($sql);
 }
 ?>

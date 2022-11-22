@@ -7,7 +7,7 @@ extract($_REQUEST);
 if (exist_param("btn_register")) {
     if ($password != $password2) {
         $MESSAGE = "Xác nhận mật khẩu không đúng!";
-    } else if (users_exist($user_name)) {
+    } else if (users_exist_by_username($user_name)) {
         $MESSAGE = "Tên đăng nhập này đã được sử dụng!";
     } else {
         $avatar = save_file("avatar", "$IMAGE_DIR/users/");
