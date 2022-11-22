@@ -1,5 +1,5 @@
-<?php $cate_id=$category_id;
-$cates=categories_select_all()
+<?php $cate_id = $category_id;
+$cates = categories_select_all()
 
 ?>
 <article class="w-[85%]">
@@ -34,10 +34,10 @@ $cates=categories_select_all()
     <!-- End header -->
     <main style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px
 #bebebe, -35px -35px 70px #ffffff; " class="w-full  p-5 mt-5 bg-gray-100">
-  <?php
-            if(strlen($MESSAGE)){
-                echo "<h5>$MESSAGE</h5>";
-            }
+        <?php
+        if (strlen($MESSAGE)) {
+            echo "<h5>$MESSAGE</h5>";
+        }
         ?>
         <section class="add__category w-full mt-5">
             <section class="add__products-title flex  items-center gap-1">
@@ -62,14 +62,14 @@ rounded-md text-gray-500
                             <input type="text" value="<?= $product_name ?>" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="product_name" id="name" placeholder="Product name" />
                         </div>
                         <div class="form__group flex flex-col ">
-                        <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">CATEGORY</label>
+                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">CATEGORY</label>
 
-                        <select name="category_id" class="mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm  bg-gray-100 rounded-md text-gray-500">
-            <?php foreach($cates as $cate): ?>
-                <?php extract($cate) ?>
-             <option value="<?=$category_id?>" <?= $cate_id==$category_id?"selected":"" ?>><?=$category_name?></option>
-                <?php endforeach; ?>
-          </select>
+                            <select name="category_id" class="mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm  bg-gray-100 rounded-md text-gray-500">
+                                <?php foreach ($cates as $cate) : ?>
+                                    <?php extract($cate) ?>
+                                    <option value="<?= $category_id ?>" <?= $cate_id == $category_id ? "selected" : "" ?>><?= $category_name ?></option>
+                                <?php endforeach; ?>
+                            </select>
                         </div>
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">PRICE</label>
@@ -80,40 +80,39 @@ rounded-md text-gray-500
                             <input type="number" value="<?= $discount ?>" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="discount" id="name" placeholder="Discount" />
                         </div>
                         <div class="form__group flex flex-col">
-                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="quantity">Quantity</label>
-                             <input type="number" value="<?= $quantity ?>" min="0" class="form__input-add__prodcut mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md text-gray-500" name="quantity" id="quantity" placeholder="Quantity" value="" />
-                         </div>
+                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="quantity">Quantity</label>
+                            <input type="number" value="<?= $quantity ?>" min="0" class="form__input-add__prodcut mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md text-gray-500" name="quantity" id="quantity" placeholder="Quantity" value="" />
+                        </div>
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">IMAGE</label>
-                            <input  type="hidden" name="image" value="<?= $image ?>" id="image" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
+                            <input type="hidden" name="image" value="<?= $image ?>" id="image" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
 text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
 rounded-md text-gray-500
 " />
-<input  type="file" name="upload_image" id="upload_image" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
+                            <input type="file" name="upload_image" id="upload_image" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
 text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
 rounded-md text-gray-500
 " /> (<?= $image ?>)
                         </div>
                         <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="detail">Detail</label>
-                         <textarea cols="30" rows="10"  name="detail" id="detail" class="mt-2 p-2 px-3   shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md  text-gray-500">
-                         <?=$detail?>
+                        <textarea name="detail" id="detail" class="mt-2 p-2 px-3   shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md  text-gray-500">
+                         <?= trim($detail) ?>
                         </textarea>
                         <div class="form__add-category--list-button w-full mt-7 flex gap-3 justify-center items-center">
-                        <button type="submit" name="btn_update" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
+                            <button type="submit" name="btn_update" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
 2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
 rounded-md text-sm hover:bg-gray-200 leading-4 ">
-                             Save
-                         </button>
-                         <button type="reset" name="reset" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
+                                Save
+                            </button>
+                            <button style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow:
+1.5px 1.5px 2.5px #babecc, -2px -2px 5px #fff;" class="p-2  border rounded-md w-[120px] text-center   text-xs hover:bg-gray-200 leading-4 ">
+                                <a href="<?= $ADMIN_URL ?>/products/index.php">Add new</a>
+                            </button>
+                            <button type="submit" name="btn_list" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
 2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
 rounded-md text-sm hover:bg-gray-200 leading-4 ">
-                             Reset
-                         </button>
-                         <button type="submit" name="btn_list" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
-2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
-rounded-md text-sm hover:bg-gray-200 leading-4 ">
-                             List
-                         </button>
+                                List
+                            </button>
                         </div>
                     </div>
                 </form>
