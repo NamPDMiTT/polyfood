@@ -12,13 +12,13 @@ function update_users($user_name, $password,$name, $email, $phone, $image, $role
 function delete_users($user_id) {
     if(is_array($user_id)){
         foreach ($user_id as $ma) {
-    $sql = "DELETE FROM   WHERE user_id=$ma";
+    $sql = "DELETE FROM users WHERE user_id=$ma";
 
             pdo_execute($sql);
         }
     }
     else{
-    $sql = "DELETE FROM   WHERE user_id=$user_id";
+    $sql = "DELETE FROM users  WHERE user_id=$user_id";
 
         pdo_execute($sql);
     }

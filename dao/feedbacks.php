@@ -1,24 +1,24 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
-function insert_feedbacks($user_id, $product_id, $content, $time_send){
-    $sql = "INSERT INTO feedbacks(user_id, product__id, content, time_send) 
-                      VALUES ( '$user_id', $product_id, '$content', '$time_send')";
+function insert_feedbacks($user_id, $product_id,$rate, $content, $time_send){
+    $sql = "INSERT INTO feedbacks(user_id, product__id,rate, content, time_send) 
+                      VALUES ( '$user_id', $product_id,$rate, '$content', '$time_send')";
     pdo_execute($sql);
 }
-function update_feedbacks($user_id, $product_id, $content, $time_send, $feedback_id){
-    $sql = "UPDATE feedbacks SET user_id='$user_id', product_id=$product_id, content='$content', time_send='$time_send' WHERE feedback_id=$feedback_id";
+function update_feedbacks($user_id, $product_id,$rate, $content, $time_send, $feedback_id){
+    $sql = "UPDATE feedbacks SET user_id='$user_id', product_id=$product_id,rate=$rate, content='$content', time_send='$time_send' WHERE feedback_id=$feedback_id";
     pdo_execute($sql);
 }
 function feedbacks_delete($feedback_id) {
     if(is_array($feedback_id)){
         foreach ($feedback_id as $ma) {
-    $sql = "DELETE FROM   WHERE feedback_id=$ma";
+    $sql = "DELETE FROM feedbacks  WHERE feedback_id=$ma";
 
             pdo_execute($sql);
         }
     }
     else{
-    $sql = "DELETE FROM   WHERE feedback_id=$feedback_id";
+    $sql = "DELETE FROM feedbacks  WHERE feedback_id=$feedback_id";
 
         pdo_execute($sql);
     }
@@ -46,5 +46,9 @@ function feedbacks_select_by_product_id($product_id) {
     $sql = "SELECT * FROM feedbacks WHERE product_id=$product_id";
     return pdo_query($sql);
 
+}
+function info_feedback($product_id){
+    $sql = "SELECT u.user_name,pro.product_name, fb.* FROM feedbacks fb join products pro on pro.product_id=fb.product_id join users u on fb.user_id=u.user_id WHERE fb.product_id=$product_id";
+    return pdo_query($sql);
 }
 ?>
