@@ -17,7 +17,7 @@ if (exist_param("btn_login")) {
                 delete_cookie("password");
             }
             $_SESSION["user"] = $user;
-
+            // header("location: " . "$SITE_URL/page/index.php");
             if (isset($_SESSION['request_uri'])) {
                 header("location: " . $_SESSION['request_uri']);
             }

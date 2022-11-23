@@ -19,6 +19,8 @@ if (exist_param("btn_forgot")) {
     } else {
         $MESSAGE = "Sai tên đăng nhập!";
     }
+} else {
+    global $user_name, $email;
 }
 
 require '../layout.php';
