@@ -6,13 +6,13 @@
                 <div class="form__group flex flex-col gap-2">
                     <label for="user_name">User name</label>
                     <input type="text" name="user_name" id="user_name" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" placeholder="Enter your registration user name ..."/>
+                  focus:border-orange-500 focus:outline-none" placeholder="Enter your registration user name ..." value="<?= $user_name?>"/>
                 </div>
 
                 <div class="form__group flex flex-col gap-2">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" placeholder="Enter your registration email ..."/>
+                  focus:border-orange-500 focus:outline-none" placeholder="Enter your registration email ..." value="<?= $email?>"/>
                 </div>
                 <?php
                 if (strlen($MESSAGE)) {

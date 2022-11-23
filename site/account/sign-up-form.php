@@ -7,18 +7,6 @@
         ?>
         <div class="form__login my-10 w-full flex justify-center">
           <form action="sign-up.php" method="post" enctype="multipart/form-data" class="form__login--content w-[300px] sm:w-[500px]  flex flex-col  gap-4">
-            <div class="form__group flex flex-col gap-2 ">
-              <label for="name">Full name</label>
-              <input type="text" name="name" id="name" placeholder="Name" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" value="<?= $name ?>" />
-              <span class="text-red-500 text-xs">
-                <?php
-                if (isset($error['name'])) {
-                  echo $error['name'];
-                }
-                ?>
-              </span>
-            </div>
             <div class="form__group flex flex-col gap-2">
               <label for="user_name">Username</label>
               <input type="text" name="user_name" id="username" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
@@ -31,6 +19,20 @@
                 ?>
               </span>
             </div>
+
+            <div class="form__group flex flex-col gap-2 ">
+              <label for="name">Full name</label>
+              <input type="text" name="name" id="name" placeholder="Name" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
+                  focus:border-orange-500 focus:outline-none" value="<?= $name ?>" />
+              <span class="text-red-500 text-xs">
+                <?php
+                if (isset($error['name'])) {
+                  echo $error['name'];
+                }
+                ?>
+              </span>
+            </div>
+
             <div class="form__group flex flex-col gap-2 ">
               <label for="password">Password</label>
               <input type="password" name="password" id="password" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm 
@@ -81,8 +83,8 @@
             </div>
 
             <div class="form__group flex flex-col gap-2">
-              <label for="avatar">Avatar</label>
-              <input type="file" name="avatar" id="avatar" class="form__input  text-xs border border-gray-700  p-[9px] w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="avatar" />
+              <label for="image_upload">Avatar</label>
+              <input type="file" name="image_upload" id="image_upload" class="form__input  text-xs border border-gray-700  p-[9px] w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="image_upload" />
             </div>
             <div class="form__group flex flex-col justify-center items-center gap-3">
               <!-- <a href="#" class="text-center">Forgot your password?</a> -->

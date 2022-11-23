@@ -10,17 +10,17 @@ if (exist_param("btn_register")) {
     } else if (users_exist_by_username($user_name)) {
         $MESSAGE = "Tên đăng nhập này đã được sử dụng!";
     } else {
-        $avatar = save_file("avatar", "$IMAGE_DIR/users/");
-        $hinh = strlen("$avatar") > 0 ? $avatar : "user.png";
+        $image_upload = save_file("image_upload", "$IMAGE_DIR/users/");
+        $image = strlen("$image_upload") > 0 ? $image_upload : "user.png";
         try {
-            insert_users($user_name, $password, $name, $email, $phone, $avatar, $role);
+            insert_users($user_name, $password, $name, $email, $phone, $image, $role);
             $MESSAGE = "Đăng ký thành viên thành công!";
         } catch (Exception $exc) {
             $MESSAGE = "Email này đã được sử dụng!";
         }
     }
 } else {
-    global $user_name, $password, $name, $email, $phone, $avatar, $role, $password2;
+    global $user_name, $password, $name, $email, $phone, $image, $role, $password2;
 }
 
 $VIEW_NAME = "account/sign-up-form.php";
