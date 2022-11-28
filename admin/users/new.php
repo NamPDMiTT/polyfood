@@ -57,7 +57,7 @@
                 <div>
                     <button name="btn_insert" >Thêm mới</button>
                     <button type="reset" >Nhập lại</button>
-                    <button><a href="index.php?btn_list" style="text-decoration:none; color:aliceblue;">Danh sách</a></button>
+                    <button><a href="<?= $ADMIN_URL ?>/users/index.php?btn_list">Danh sách</a></button>
                 </div>
             </div>
         </form>
