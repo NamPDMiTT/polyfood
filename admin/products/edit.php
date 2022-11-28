@@ -1,6 +1,6 @@
+
 <?php $cate_id = $category_id;
 $cates = categories_select_all()
-
 ?>
 <article class="w-[85%]">
     <header style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px #bebebe,
@@ -124,5 +124,4 @@ rounded-md text-sm hover:bg-gray-200 leading-4 ">
 </div>
 </div>
 </body>
-
 </html>
