@@ -1,13 +1,13 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
-function products_insert($product_name, $price, $discount, $image, $category_id, $quantity, $detail){
-    $sql = "INSERT INTO products(product_name, price, discount, image, category_id,  quantity, detail) 
-                      VALUES ( '$product_name', $price, $discount, '$image', $category_id , $quantity, '$detail')";
+function products_insert($product_name, $price, $discount, $image, $category_id, $quantity, $detail, $menu_id){
+    $sql = "INSERT INTO products(product_name, price, discount, image, category_id,  quantity, detail, menu_id) 
+                      VALUES ( '$product_name', $price, $discount, '$image', $category_id , $quantity, '$detail', $menu_id)";
     pdo_execute($sql);
 }
     
-function products_update($product_id,$product_name, $price, $discount, $image, $category_id,  $quantity, $detail){
-    $sql = "UPDATE products SET product_name='$product_name', price=$price, discount=$discount, image='$image', category_id=$category_id, quantity=$quantity, detail='$detail' WHERE product_id=$product_id";
+function products_update($product_id,$product_name, $price, $discount, $image, $category_id,  $quantity, $detail, $menu_id){
+    $sql = "UPDATE products SET product_name='$product_name', price=$price, discount=$discount, image='$image', category_id=$category_id, quantity=$quantity, detail='$detail', menu_id=$menu_id  WHERE product_id=$product_id";
     pdo_execute($sql);
 }
     
@@ -19,7 +19,6 @@ function products_delete($product_id){
     $sql = "DELETE FROM products WHERE  product_id=$id_tmp";
     // var_dump($sql);
     //     die;
-
     pdo_execute($sql);
         }
     }
@@ -53,7 +52,11 @@ function products_select_top10(){
     $sql = "SELECT * FROM products WHERE view > 0 ORDER BY view DESC LIMIT 0, 10";
     return pdo_query($sql);
 }
-    
+   
+function products_select_by_menu_id($menu_id){
+    $sql = "SELECT * FROM products WHERE menu_id=$menu_id";
+    return pdo_query($sql);
+}
     
 function products_select_by_categories($category_id){
     $sql = "SELECT * FROM products WHERE category_id=$category_id";

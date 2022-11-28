@@ -1,12 +1,12 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
-function comment_insert($user_id, $post_id, $content, $time_send){
-    $sql = "INSERT INTO comments(user_id, post_id, content, time_send) 
-                      VALUES ( '$user_id', $post_id, '$content', '$time_send')";
+function comment_insert($user_id, $post_id, $content){
+    $sql = "INSERT INTO comments(user_id, post_id, content) 
+                      VALUES ( '$user_id', $post_id, '$content')";
     pdo_execute($sql);
 
-    function comment_update($user_id, $post_id, $content, $time_send, $comment_id){
-        $sql = "UPDATE comments SET user_id=$user_id, post_id=$post_id, content='$content', time_send='$time_send' WHERE comment_id=$comment_id";
+    function comment_update($user_id, $post_id, $content, $comment_id){
+        $sql = "UPDATE comments SET user_id=$user_id, post_id=$post_id, content='$content' WHERE comment_id=$comment_id";
         pdo_execute($sql);
     }
 }
