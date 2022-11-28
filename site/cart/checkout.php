@@ -11,7 +11,7 @@ require_once '/xampp/htdocs/polyfood/site/layout/menu.php';
     </h1>
   </div>
 
-  <form action="index.php?action=order" method="post" class=" flex flex-col gap-3 mx-auto ">
+  <form action="index.php?order" method="post" class=" flex flex-col gap-3 mx-auto ">
     <h2 class="text-xl text-orange-500 flex items-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-700">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
