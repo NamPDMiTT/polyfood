@@ -5,7 +5,7 @@ function insert_users($user_name, $password,$name , $email, $phone, $image, $rol
                       VALUES ( '$user_name', '$password','$name', '$email', '$phone', '$image', $role)";
     pdo_execute($sql);
 }
-function update_users($user_name, $password,$name, $email, $phone, $image, $role, $user_id){
+function update_users($user_name, $password, $name, $email, $phone, $image, $role, $user_id){
     $sql = "UPDATE users SET user_name='$user_name', password='$password',name='$name', email='$email', phone='$phone', image='$image', role=$role WHERE user_id=$user_id";
     pdo_execute($sql);
 }

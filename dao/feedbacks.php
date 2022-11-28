@@ -1,12 +1,12 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
-function insert_feedbacks($user_id, $product_id,$rate, $content, $time_send){
-    $sql = "INSERT INTO feedbacks(user_id, product__id,rate, content, time_send) 
-                      VALUES ( '$user_id', $product_id,$rate, '$content', '$time_send')";
+function insert_feedbacks($user_id, $product_id,$rate, $content){
+    $sql = "INSERT INTO feedbacks(user_id, product__id,rate, content) 
+                      VALUES ( '$user_id', $product_id,$rate, '$content')";
     pdo_execute($sql);
 }
-function update_feedbacks($user_id, $product_id,$rate, $content, $time_send, $feedback_id){
-    $sql = "UPDATE feedbacks SET user_id='$user_id', product_id=$product_id,rate=$rate, content='$content', time_send='$time_send' WHERE feedback_id=$feedback_id";
+function update_feedbacks($user_id, $product_id,$rate, $content, $feedback_id){
+    $sql = "UPDATE feedbacks SET user_id='$user_id', product_id=$product_id,rate=$rate, content='$content' WHERE feedback_id=$feedback_id";
     pdo_execute($sql);
 }
 function feedbacks_delete($feedback_id) {
