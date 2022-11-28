@@ -1,86 +1,120 @@
-            @import url("https://fonts.googleapis.com/css2?family=Anton&family=Dongle:wght@300;400;700&family=Inconsolata:wght@300;400&family=Inter&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lobster&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mouse+Memoirs&family=Neonderthaw&family=Nunito:wght@200;300&family=Open+Sans:wght@300&family=Playfair+Display&display=swap");
-            .font {
-                font-family: "Lobster", cursive;
-            }
-            
-            .shadow__menu {
-                border-radius: 16px;
-                background: #ffffff;
-                box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-            }
-            
-            .shadow__logo {
-                border-radius: 40px;
-                background: linear-gradient(145deg, #e6e6e6, #ffffff);
-                box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
-            }
-            
-            main {
-                /* background: linear-gradient(145deg, #e6e6e6, #ffffff);
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Dongle:wght@300;400;700&family=Inconsolata:wght@300;400&family=Inter&family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Lobster&family=Luxurious+Roman&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mouse+Memoirs&family=Neonderthaw&family=Nunito:wght@200;300&family=Open+Sans:wght@300&family=Playfair+Display&display=swap");
+.font {
+    font-family: "Lobster", cursive;
+}
+
+.shadow__menu {
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+}
+
+.shadow__logo {
+    border-radius: 40px;
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
+}
+
+main {
+    /* background: linear-gradient(145deg, #e6e6e6, #ffffff);
   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff; */
-                background-image: url("../site/IMG/background.png");
-            }
-            
-            .shadow__products {
-                background: #ffffff;
-                box-shadow: 20px 20px 88px #d9d9d9, -20px -20px 88px #ffffff;
-            }
-            
-            .limited__content-2 {
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                overflow: hidden;
-                text-overflow: ellipsis;
-            }
-            /* FOOTER */
-            
-            .anh {
-                position: absolute;
-            }
-            
-            .content {
-                position: relative;
-                background: rgba(0, 0, 0, 0.5);
-                color: #f1f1f1;
-                width: 100%;
-                padding: 20px;
-                height: 500px;
-            }
-            /* trái phải di chuyển */
-            
-            .button-box {
-                position: relative;
-            }
-            
-            .toggle-btn {
-                cursor: pointer;
-                background: transparent;
-                outline: none;
-                position: relative;
-            }
-            
-            #btn {
-                position: absolute;
-                transition: .9s;
-            }
-            
-            #trai {
-                transition: .9s;
-            }
-            
-            #phai {
-                transition: .9s;
-            }
-            
-            #description {
-                transition: .9s;
-            }
-            
-            #comment {
-                transition: .9s;
-            }
-            
-            #them {
-                transition: .1s;
-            }
+    background-image: url("../site/IMG/background.png");
+}
+
+.shadow__products {
+    background: #ffffff;
+    box-shadow: 20px 20px 88px #d9d9d9, -20px -20px 88px #ffffff;
+}
+
+.limited__content-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* FOOTER */
+
+.anh {
+    position: absolute;
+}
+
+.content {
+    position: relative;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    height: 500px;
+}
+
+
+/* trái phải di chuyển */
+
+.button-box {
+    position: relative;
+}
+
+.toggle-btn {
+    cursor: pointer;
+    background: transparent;
+    outline: none;
+    position: relative;
+}
+
+#btn {
+    position: absolute;
+    transition: .9s;
+}
+
+#trai {
+    transition: .9s;
+}
+
+#phai {
+    transition: .9s;
+}
+
+#description {
+    transition: .9s;
+}
+
+#comment {
+    transition: .9s;
+}
+
+#them {
+    transition: .1s;
+}
+
+
+/* .toggle-btn {
+    border: 1px solid black;
+    border-radius: 3px;
+    width: 100px;
+    height: 30px;
+    display: block;
+    background: linear-gradient(to right, black 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all .5s ease-out;
+}
+
+.toggle-btn:hover {
+    background-position: left bottom;
+}
+
+.sili {
+    text-align: center;
+    font-size: 16px;
+    line-height: 30px;
+    color: black;
+    transition: all .6s ease-out;
+    display: block;
+}
+
+.sili:hover {
+    color: white;
+} */
