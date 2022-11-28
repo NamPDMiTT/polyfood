@@ -1,3 +1,6 @@
+ <?php
+    require_once 'xampp/htdocs/polyfood/site/layout/menu.php';
+    ?>
  <section class="text-gray-700 background min-w-[320px]">
      <div class="container mx-auto">
          <div class="swiper mySwiper h-auto max-h-[750px]">
@@ -430,3 +433,5 @@
          </form>
      </div>
  </section>
+ <?php
+    require_once 'xampp/htdocs/polyfood/site/layout/footer.php';
