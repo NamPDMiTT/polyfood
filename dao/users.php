@@ -2,7 +2,7 @@
 require_once "/xampp/htdocs/polyfood/dao/pdo.php";
 function insert_users($user_name, $password,$name , $email, $phone, $image, $role){
     $sql = "INSERT INTO users(user_name, password,name, email, phone, image, role) 
-                      VALUES ( '$user_name','$password','$name', '$email', '$phone', '$image', $role)";
+                      VALUES ( '$user_name', '$password','$name', '$email', '$phone', '$image', $role)";
     pdo_execute($sql);
 }
 function update_users($user_name, $password, $name, $email, $phone, $image, $role, $user_id){
