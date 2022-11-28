@@ -1,3 +1,6 @@
+<?php
+require_once "/xampp/htdocs/polyfood/site/layout/menu.php";
+?>
 <main class="w-full font-montserrat mt-10 py-5">
   <h1 class="text-2xl font-semibold text-gray-700 ml-5 flex items-center gap-2">
     CART<svg class="w-6 h-6 sm:w-7 sm:h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -180,3 +183,6 @@
     </div>
   </div>
 </main>
+<?php
+require_once '/xampp/htdocs/polyfood/site/layout/footer.php';
+?>
