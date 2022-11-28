@@ -4,6 +4,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
   $total_price += $cart[4];
 }
 
+
 ?>
 <main class="w-full font-montserrat mt-10 py-5">
   <h1 class="text-2xl font-semibold text-gray-700 ml-5 flex items-center gap-2">
@@ -40,7 +41,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
                 <td class="px-4 py-2 w-[40%]">
                   <div class="flex">
                     <div class="w-16 h-16">
-                      <img src="<?=$cart[8]?>" alt="" class="w-16 h-16" />
+                      <img src="<?= $cart[7] ?>" alt="" class="w-16 h-16" />
                     </div>
                     <div class="ml-4 lg:min-w-[200px] flex flex-col justify-between">
                       <p class="font-medium text-gray-600 text-xs sm:text-sm ">
@@ -89,7 +90,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
                   </a>
                 </td>
               </tr>
-
+              <?php } ?>
           </tbody>
         </table>
         <a href="index.php?action=index.php" class="hidden lg:flex font-semibold text-indigo-600 text-sm mt-5">
@@ -108,12 +109,12 @@ foreach ($_SESSION['my_cart'] as $cart) {
         <div class="pb-5">
           <div class="receipt">
             <div class="receipt__product flex gap-2 justify-between items-center p-2 border-b-[3px] border-dashed">
-              <span class="repcript__product-quantity  text-sm font-light">x<?= $cart[2]?></span>
+              <span class="repcript__product-quantity  text-sm font-light">x<?= $cart[2] ?></span>
               <h1 class="repcript__product-name text-xs text-gray-500 font-light">
-                <?=$cart[1]?>
+                <?= $cart[1] ?>
               </h1>
               <span class="repcript__product-price font-medium text-sm">
-                <?=$cart[4]?>
+                <?= $cart[4] ?>
               </span>
             </div>
 
@@ -123,7 +124,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
                   Tổng thanh toán
                 </span>
                 <span>
-                  <?=$total_price?>
+                  <?= $total_price ?>
                 </span>
               </div>
               <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
@@ -138,7 +139,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
     </div>
     <div class="list__prouduct__cart-mobile flex flex-col sm:hidden  gap-5 px-5">
       <div class="item__prouduct__cart-mobile border-b-[3px] border-dashed pb-2 flex gap-3">
-        <img src="' . $imageSrc . '" class="w-24 h-24 object-cover" />
+        <img src="<?= $items[7] ?>" class="w-24 h-24 object-cover" />
         <div class="item__prouduct__cart-mobile--info flex flex-col gap-2">
           <h1 class="text-xs font-medium">
             Tên sản phẩm
@@ -160,14 +161,15 @@ foreach ($_SESSION['my_cart'] as $cart) {
             </form>
             <div class="text flex gap-2">
               <span class="text-xs text-gray-500">
-                <?=$cart[2]?>
+                <?= $cart[2] ?>
               </span>
               <span class="text-xs text-gray-500">
-                <?=$cart[7]?>
+                <?= $cart[7] ?>
               </span>
             </div>
           </div>
         </div>
+      
       </div>
       <a href="index.php?action=index.php" class=" flex sm:hidden font-semibold text-indigo-600 text-sm">
         <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
@@ -179,7 +181,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
       <div class="total__checkout__price flex justify-between lg:hidden  gap-10 px-5">
         <span class="font-semibold text-sm uppercase">Tổng thanh toán</span>
         <span class="text-sm text-orange-600">
-          <?=$total_price?>
+          <?= $total_price ?>
         </span>
       </div>
       <div class="total__checkout__button px-5 pb-3 flex lg:hidden">
@@ -192,9 +194,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
     </div>
   </div>
 </main>
-<?php
-            }
-?>
+
 <?php
 require_once '/xampp/htdocs/polyfood/site/layout/footer.php';
 ?>
