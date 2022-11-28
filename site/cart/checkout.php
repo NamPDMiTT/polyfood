@@ -1,5 +1,9 @@
 <?php
 require_once '/xampp/htdocs/polyfood/site/layout/menu.php';
+$items = $_SESSION['my_cart'];
+$total_price_all = 0;
+echo '<pre>';
+var_dump($_SESSION['my_cart']);
 ?>
 <main class="w-full mt-14 px-8 lg:px-24 font-montserrat">
   <div class="header__checkout w-full mb-5 flex items-center gap-5">
@@ -11,7 +15,7 @@ require_once '/xampp/htdocs/polyfood/site/layout/menu.php';
     </h1>
   </div>
 
-  <form action="index.php?action=order" method="post" class=" flex flex-col gap-3 mx-auto ">
+  <form action="index.php?order" method="post" class=" flex flex-col gap-3 mx-auto ">
     <h2 class="text-xl text-orange-500 flex items-center gap-2">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-700">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -91,61 +95,77 @@ focus:border-orange-500 focus:outline-none" placeholder="Nhập email" value="" 
           </tr>
         </thead>
         <tbody>
-          <tr class="border border-dashed">
-            <td class="px-4 py-2 w-[40%]">
-              <div class="flex">
-                <div class="w-20 h-auto">
-                  <img src="https://cdn.tgdd.vn/Products/Images/42/220533/samsung-galaxy-a52-5g-128gb-1-400x460.png" alt="" class="w-26 h-auto" />
+          <?php
+          foreach ($_SESSION['my_cart'] as $item) {
+            $total_price_all += $item[3];
+          ?>
+            <tr class="border border-dashed">
+              <td class="px-4 py-2 w-[40%]">
+                <div class="flex">
+                  <div class="w-20 h-auto">
+                    <img src="https://cdn.tgdd.vn/Products/Images/42/220533/samsung-galaxy-a52-5g-128gb-1-400x460.png" alt="" class="w-26 h-auto" />
+                  </div>
+                  <div class="min-w-[200px] ml-4 flex flex-col gap-2">
+                    <p class="font-medium text-gray-600 text-xs ">
+                      <?= $item[1] ?>
+                    </p>
+                    <span class="block text-gray-400 text-xs">
+                      <?= $item[5] ?>
+
+                    </span>
+                  </div>
                 </div>
-                <div class="min-w-[200px] ml-4 flex flex-col gap-2">
-                  <p class="font-medium text-gray-600 text-xs ">
-                    Tên sản phẩm
-                  </p>
-                  <span class="block text-gray-400 text-xs">
-                    Danh mục
-                  </span>
-                </div>
-              </div>
-            </td>
-            <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
-              <span class="font-semibold text-gray-700">
-                111
-              </span>
-            </td>
-            <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
-              <span class="font-semibold text-gray-700">
-                111111đ
-              </span>
-            </td>
-            <td class="px-4 py-2 text-xs lg:text-sm  text-gray-600 text-center">
-              <span class="font-semibold text-gray-700">
-                1111111đ
-              </span>
-            </td>
-          </tr>
-          '
+              </td>
+              <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
+                <span class="font-semibold text-gray-700">
+
+                  <?= $item[2] ?>
+
+                </span>
+              </td>
+              <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
+                <span class="font-semibold text-gray-700">
+                  <?= $item[6] ?>
+
+                </span>
+              </td>
+              <td class="px-4 py-2 text-xs lg:text-sm  text-gray-600 text-center">
+                <span class="font-semibold text-gray-700">
+                  <?= $item[3] ?>
+
+                </span>
+              </td>
+            </tr>
+          <?php
+          }
+          ?>
         </tbody>
       </table>
 
       <div class="list__product__cart-mobile flex flex-col sm:hidden  gap-5">
         <div class="item__prouduct__cart-mobile border-b-[3px] border-dashed pb-2 flex gap-3">
-          <img src="' . $imageSrc . '" class="w-24 h-24 object-cover" />
-          <div class="item__product__cart-mobile--info flex flex-col justify-between">
-            <h1 class="text-xs font-medium">
-              Tên sản phẩm
-            </h1>
-            <div class="flex flex-col gap-2">
-              <span class="text-sm text-gray-700">Quantity : 111</span>
-              <div class="text flex gap-2">
-                <span class="text-xs text-gray-500">
-                  x111
-                </span>
-                <span class="text-xs text-gray-500">
-                  111111đ
-                </span>
+          <?php
+          foreach ($_SESSION['my_cart'] as $item) {
+          ?>
+            <img src="<?= $item[7] ?>" class="w-24 h-24 object-cover" />
+            <div class="item__product__cart-mobile--info flex flex-col justify-between">
+              <h1 class="text-xs font-medium">
+                <?= $item[1] ?>
+
+              </h1>
+              <div class="flex flex-col gap-2">
+                <span class="text-sm text-gray-700">Price : <?= $item[6] ?> </span>
+                <div class="text flex gap-2">
+                  <span class="text-xs text-gray-500">
+                    x <?= $item[2] ?>
+                  </span>
+                  <span class="text-xs text-gray-500">
+                    <?= $item[3] ?>
+                  </span>
+                </div>
               </div>
             </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
 
@@ -166,7 +186,7 @@ focus:border-orange-500 focus:outline-none" placeholder="Enter your note"></text
         <div class="total__price flex justify-between gap-4 items-center sm:mt-4">
           <h3 class="font-semibold text-gray-700">Tổng thanh toán</h3>
           <h3 class="text-lg text-orange-600">
-            1111111đ
+            <?= $total_price_all ?>
           </h3>
         </div>
       </div>

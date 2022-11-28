@@ -1,7 +1,7 @@
 <?php
     require_once '/xampp/htdocs/polyfood/global.php';
     require_once '/xampp/htdocs/polyfood/dao/categories.php';
-    // check_login();
+    check_login();
 
 extract($_REQUEST);
 if(exist_param('btn_insert')) {
@@ -9,9 +9,9 @@ if(exist_param('btn_insert')) {
     $category_image = strlen("$upload_category_image") > 0 ? $upload_category_image : 'category.png';
 
     try {
-        insert_categories($category_name,$category_image);
+        insert_categories($category_name,$category_image,$suggest);
         $MESSAGE = "Thêm danh mục thành công";
-        unset($category_name, $category_id,$category_image);
+        unset($category_name, $category_id,$category_image,$suggest);
     } catch (Exception $exc) {
         $MESSAGE = "Thêm danh mục thất bại";
     }
@@ -20,7 +20,7 @@ if(exist_param('btn_insert')) {
     $upload_category_image = save_file("upload_category_image", "$IMAGE_DIR/categories/");
     $category_image = strlen("$upload_category_image") > 0 ? $upload_category_image : $category_image;
     try {
-        update_categories($category_name, $category_image, $category_id);
+        update_categories($category_name, $category_image,$suggest, $category_id);
         $MESSAGE = "Cập nhật danh mục thành công";
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật danh mục thất bại";

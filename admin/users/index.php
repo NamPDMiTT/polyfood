@@ -2,7 +2,7 @@
 require_once "/xampp/htdocs/polyfood/global.php";
 require_once "../../dao/users.php";
 //--------------------------------//
-// check_login();
+check_login();
 extract($_REQUEST);
 if(exist_param("btn_insert")){
     $upload_image = save_file("image", "$IMAGE_DIR/users/");

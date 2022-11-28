@@ -62,4 +62,13 @@ function info_order($user_id){
     $sql = "SELECT o.*, p.product_name, p.price, p.image, u.user_name,u.name, u.phone FROM orders o JOIN products p ON o.product_id=p.product_id JOIN users u ON o.user_id=u.user_id WHERE o.user_id=$user_id";
     return pdo_query($sql);
 }
+function update_product_cart($quantity, $total, $id)
+{
+    foreach ($_SESSION['my_cart'] as $key => $cart) { //Duyệt mảng session
+        if ($cart[0] == $id) {
+            $_SESSION['my_cart'][$key][1] = $quantity;
+            $_SESSION['my_cart'][$key][4] = $total;
+        }
+    }
+}
 ?>

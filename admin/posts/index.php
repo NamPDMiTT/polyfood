@@ -1,7 +1,7 @@
 <?php
 require_once '/xampp/htdocs/polyfood-main/global.php';
 require_once '/xampp/htdocs/poly-food/dao/posts.php';
-// check_login();
+check_login();
 extract($_REQUEST);
 if(exist_param('btn_insert')) {
     try {

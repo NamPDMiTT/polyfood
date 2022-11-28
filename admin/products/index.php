@@ -2,14 +2,15 @@
 require_once '/xampp/htdocs/polyfood/global.php';
 require_once '/xampp/htdocs/polyfood/dao/products.php';
 require_once '/xampp/htdocs/polyfood/dao/categories.php';
-// check_login();
+require_once '/xampp/htdocs/polyfood/dao/menus.php';
+check_login();
 extract($_REQUEST);
 if(exist_param('btn_insert')) {
     $upload_image = save_file("image", "$IMAGE_DIR/products/");
     $image = strlen("$upload_image") > 0 ? $upload_image : 'product.png';
     try {
-        products_insert($product_name, $price, $discount, $image, $category_id, $quantity, $detail);
-        unset($product_name, $price, $discount, $image, $category_id, $quantity, $detail);
+        products_insert($product_name, $price, $discount, $image, $category_id, $quantity, $detail, $menu_id);
+        unset($product_name, $price, $discount, $image, $category_id, $quantity, $detail , $menu_id);
         $MESSAGE = "Thêm mới thành công!";
     } 
     catch (Exception $exc) {
@@ -21,7 +22,7 @@ if(exist_param('btn_update')){
     $upload_image = save_file("upload_image", "$IMAGE_DIR/products/");
     $image = strlen("$upload_image") > 0 ? $upload_image : $image;
     try {
-        products_update($product_id,$product_name, $price, $discount, $image, $category_id,  $quantity, $detail);
+        products_update($product_id,$product_name, $price, $discount, $image, $category_id,  $quantity, $detail, $menu_id);
         $MESSAGE = "Cập nhật thành công!";
     } 
     catch (Exception $exc) {
