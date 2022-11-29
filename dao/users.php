@@ -44,10 +44,17 @@ function users_exist_by_username($user_name){
     $sql = "SELECT count(*) FROM users WHERE user_name='$user_name'";
     return pdo_query_value($sql) > 0;
 }
-function select_users_by_role($role) {
-    $sql = "SELECT * FROM users WHERE role=$role";
+function users_exist_by_email($email){
+    $sql = "SELECT count(*) FROM users WHERE email='$email'";
+    return pdo_query_value($sql) > 0;
+}
+function users_exist_by_phone($phone){
+    $sql = "SELECT count(*) FROM users WHERE phone='$phone'";
+    return pdo_query_value($sql) > 0;
+}
+function select_users_by_role($role_id) {
+    $sql = "SELECT * FROM users WHERE role_id=$role_id";
     return pdo_query($sql);
-
 }
 function users_change_password_by_id($user_id, $password) {
     $sql = "UPDATE users SET password='$password' WHERE user_id=$user_id";
