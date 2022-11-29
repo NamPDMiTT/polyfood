@@ -1,12 +1,12 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
-function insert_order($product_id,$quantity,$user_id,$note,$total_price,$status){
-    $sql = "INSERT INTO orders(product_id,quantity,user_id,note,total_price,status) 
-                      VALUES ( $product_id, $quantity, '$user_id', '$note', $total_price, $status)";
+function insert_order($product_id,$quantity,$user_id,$note,$status){
+    $sql = "INSERT INTO orders(product_id,quantity,user_id,note,status) 
+                      VALUES ( $product_id, $quantity, '$user_id', '$note', $status)";
     pdo_execute($sql);
 } 
-function update_order($product_id,$quantity,$user_id,$note,$total_price,$status,$order_id){
-    $sql = "UPDATE orders SET product_id=$product_id, quantity=$quantity, user_id='$user_id', note='$note', total_price=$total_price, status=$status WHERE order_id=$order_id";
+function update_order($product_id,$quantity,$user_id,$note,$status,$order_id){
+    $sql = "UPDATE orders SET product_id=$product_id, quantity=$quantity, user_id='$user_id', note='$note', status=$status WHERE order_id=$order_id";
     pdo_execute($sql);
 }
 function order_delete($order_id) {
@@ -65,10 +65,21 @@ function info_order($user_id){
 function update_product_cart($quantity, $total, $id)
 {
     foreach ($_SESSION['my_cart'] as $key => $cart) { //Duyệt mảng session
-        if ($cart[0] == $id) {
-            $_SESSION['my_cart'][$key][1] = $quantity;
-            $_SESSION['my_cart'][$key][4] = $total;
+        if ($cart['product_id'] == $id) {
+            $_SESSION['my_cart'][$key]['quantity'] = $quantity;
+            $_SESSION['my_cart'][$key]['total_price'] = $total;
         }
     }
 }
+
+
+
+// function update_product_cart($quantity, $id)
+// {
+//     foreach ($_SESSION['my_cart'] as $key => $cart) { //Duyệt mảng session
+//         if ($cart['product_id'] == $id) {
+//             $_SESSION['my_cart'][$key]['quantity'] = $quantity;
+//         }
+//     }
+// }
 ?>
