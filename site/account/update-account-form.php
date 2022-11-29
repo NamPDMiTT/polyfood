@@ -1,16 +1,16 @@
       <main class="w-full mt-14">
-        <h1 class="text-3xl text-center">Update Profile</h1>
-        <?php
-        if (strlen($MESSAGE)) {
-          echo "<h5 class=''>$MESSAGE</h5>";
-        }
-        ?>
+        <h1 class="text-3xl text-center mt-10">Cài đặt tài khoản</h1>
         <div class="form__login my-10 w-full flex justify-center">
           <form action="update-account.php" method="post" enctype="multipart/form-data" class="form__login--content w-[300px] sm:w-[500px]  flex flex-col  gap-4">
+            <?php
+            if (strlen($MESSAGE)) {
+              echo "<h5 class=''>$MESSAGE</h5>";
+            }
+            ?>
             <div class="form__group flex flex-col gap-2">
-              <label for="user_name">Username</label>
-              <input type="text" name="user_name" id="username" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" placeholder="Username" readonly value="<?= $user_name ?>" />
+              <label for="user_name">Tên đăng nhập</label>
+              <input type="text" name="user_name" id="username" class="form__input  text-xs border border-gray-700 p-3 w-full rounded-sm
+                  focus:border-orange-500 focus:outline-none" placeholder="Tên đăng nhập" readonly value="<?= $user_name ?>" />
               <span class="text-red-500 text-xs">
                 <?php
                 if (isset($error['user_name'])) {
@@ -21,8 +21,8 @@
             </div>
 
             <div class="form__group flex flex-col gap-2 ">
-              <label for="name">Full name</label>
-              <input type="text" name="name" id="name" placeholder="Name" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
+              <label for="name">Họ và tên</label>
+              <input type="text" name="name" id="name" placeholder="Họ và tên" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
                   focus:border-orange-500 focus:outline-none" value="<?= $name ?>" />
               <span class="text-red-500 text-xs">
                 <?php
@@ -46,8 +46,8 @@
             </div>
 
             <div class="form__group flex flex-col gap-2">
-              <label for="phone">Phone</label>
-              <input type="tel" name="phone" id="phone" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="Phone" value="<?= $phone ?>" />
+              <label for="phone">Số điện thoại</label>
+              <input type="tel" name="phone" id="phone" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="Số điện thoại" value="<?= $phone ?>" />
               <span class="text-red-500 text-xs">
                 <?php
                 if (isset($error['phone'])) {
@@ -63,7 +63,6 @@
               <img class="w-full" src="<?= $CONTENT_URL ?>/images/users/<?= $image ?>">
             </div>
             <div class="form__group flex flex-col justify-center items-center gap-3">
-              <!-- <a href="#" class="text-center">Forgot your password?</a> -->
               <button type="submit" name="btn_update" class="text-white bg-orange-600 p-2 rounded-sm w-full sm:w-[100px] text-center">
                 UPDATE
               </button>

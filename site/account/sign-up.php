@@ -32,6 +32,8 @@ if (exist_param("btn_register")) {
         try {
             insert_users($user_name, $password, $name, $email, $phone, $image, $role_id);
             $MESSAGE = "Đăng ký thành viên thành công!";
+            header("location: " . "$SITE_URL/account/sign-in.php");
+            die;
         } catch (Exception $exc) {
             $MESSAGE = "Đăng ký thành viên thất bại!";
         }

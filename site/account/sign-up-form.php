@@ -1,12 +1,12 @@
       <main class="w-full mt-14">
         <h1 class="text-3xl text-center mt-10">Đăng ký</h1>
-        <?php
-        if (strlen($MESSAGE)) {
-          echo "<h5 class=''>$MESSAGE</h5>";
-        }
-        ?>
         <div class="form__login my-10 w-full flex justify-center">
           <form action="sign-up.php" method="post" enctype="multipart/form-data" class="form__login--content w-[300px] sm:w-[500px]  flex flex-col  gap-4">
+            <?php
+            if (strlen($MESSAGE)) {
+              echo "<h5 class=''>$MESSAGE</h5>";
+            }
+            ?>
             <div class="form__group flex flex-col gap-2">
               <label for="user_name">Tên đăng nhập</label>
               <input type="text" name="user_name" id="username" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
@@ -87,7 +87,6 @@
               <input type="file" name="image_upload" id="image_upload" class="form__input  text-xs border border-gray-700  p-[9px] w-full rounded-sm focus:border-orange-500 focus:outline-none" />
             </div>
             <div class="form__group flex flex-col justify-center items-center gap-3">
-              <!-- <a href="#" class="text-center">Forgot your password?</a> -->
               <button type="submit" name="btn_register" class="text-white bg-orange-600 p-2 rounded-sm w-full sm:w-[100px] text-center">
                 Đăng ký
               </button>
