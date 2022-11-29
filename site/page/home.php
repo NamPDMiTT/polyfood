@@ -116,7 +116,7 @@
                                 <span class="text-sm text-orange-600 font-medium"><?= number_format($price, 0, '', '.') ?>đ</span>
                             </div>
             </a>
-                            <form action="<?= $SITE_URL ?>/cart/index.php">
+                            <form action="<?= $SITE_URL ?>/cart/index.php?btn_order">
                             <input type="hidden" value="<?= $product_id ?>">
                             <button class="add-to-cart flex gap-2 sm:gap-3 items-center justify-center w-full px-4 py-2 text-xs font-medium text-white bg-orange-600 border border-transparent rounded-md hover:bg-indigo-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-600">
                             

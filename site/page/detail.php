@@ -51,13 +51,13 @@ $category_id = $items['category_id'];
                         </li>
 
                         <li class="cart">
-                            <a href="#">
+                            <a href="<?= $SITE_URL ?>/cart/all-my-cart.php<?php if(isset($_SESSION['user'])) echo "?user_id=".$_SESSION['user']['user_id'] ?>">
                                 <img class="w-12 h-auto" src="../IMG/cart.png" alt="" />
                             </a>
                         </li>
                         <li class="account">
-                            <a href="#">
-                                <img class="w-10 h-auto" src="../IMG/account1.png" alt="" />
+                            <a href="<?= $SITE_URL ?>/account/update-account.php">
+                                <img  class="w-10 h-auto rounded-2xl" src="<?= $CONTENT_URL ?>/images/users/<?php if(isset($_SESSION['user'])){ echo $_SESSION['user']['image'];  } else { echo 'user.png';} ?>" alt="" />
                             </a>
                         </li>
                     </ul>
