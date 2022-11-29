@@ -987,6 +987,18 @@ video {
   min-width: 200px;
 }
 
+.min-w-\[0px\]{
+  min-width: 0px;
+}
+
+.min-w-\[10px\]{
+  min-width: 10px;
+}
+
+.min-w-\[150px\]{
+  min-width: 150px;
+}
+
 .max-w-\[1400px\]{
   max-width: 1400px;
 }
@@ -1346,6 +1358,11 @@ video {
 
 .fill-current{
   fill: currentColor;
+}
+
+.object-contain{
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .object-cover{
@@ -2049,6 +2066,18 @@ video {
 
   .lg\:h-\[200px\]{
     height: 200px;
+  }
+
+  .lg\:h-\[0px\]{
+    height: 0px;
+  }
+
+  .lg\:h-\[150px\]{
+    height: 150px;
+  }
+
+  .lg\:h-\[180px\]{
+    height: 180px;
   }
 
   .lg\:w-2\/3{
