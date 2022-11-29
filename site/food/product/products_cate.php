@@ -6,10 +6,10 @@ foreach ($items as $item) {
     extract($item);
 ?>
     <form action="<?= $SITE_URL ?>/cart/index.php?btn_order" method="post">
-        <input type="hidden" value="<?=$product_id?>" value="product_id" name="product_id">
-        <input type="hidden" value="<?=$image?>" value="image" name="image">
+        <input type="hidden" value="<?= $product_id ?>" value="product_id" name="product_id">
+        <input type="hidden" value="<?= $image ?>" value="image" name="image">
         <div class="p-4 shadow__products  rounded-2xl bg-white space-y-2">
-        <a href="<?=$SITE_URL?>/page/detail.php?product_id=<?=$product_id?>">       <img src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" alt="" class="rounded"> </a>
+            <a href="<?= $SITE_URL ?>/page/detail.php?product_id=<?= $product_id ?>"> <img class="min-w-[200px] h-[150px] lg:h-[200px] object-cover object-contain" src=" <?= $CONTENT_URL ?>/images/products/<?= $image ?>" alt="" class="rounded"> </a>
             <h2 class="text-xl font"><?= $product_name ?></h2>
             <p class="text-xs font-semibold flex justify-between  text-red-500 mt-2">
                 <span class="text-sm text-red-600">★★★★★</span><?= number_format($price, 0, '', '.') ?>đ

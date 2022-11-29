@@ -73,7 +73,7 @@
             </div>
             <!--Default value-->
             <input name="user_id" value="<?= $user_id ?>" type="hidden">
-            <input name="role" value="<?= $role ?>" type="hidden">
+            <input name="role_id" value="<?= $role_id ?>" type="hidden">
             <input name="password" value="<?= $password ?>" type="hidden">
             <input name="image" value="<?= $image ?>" type="hidden">
           </form>
