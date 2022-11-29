@@ -163,8 +163,13 @@ $category_id = $items['category_id'];
                         <p class="font "><?= $items['view'] ?> Customer Reviews</p>
                     </div>
                     <div class="text-3xl font text-orange-600 flex space-x-2">
+
                         <strike class="text-zinc-500 text-3xl"><?= $price ?></strike>
                         <p class="text-3xl flex gap-2"> <span>-</span> <?= $price * (1- $discount /100) ?></p>
+
+                        <strike class="text-zinc-500 text-xl"><?= $items['price'] ?></strike>
+                        <p class="text-3xl"> <?= $items['price'] * $items['discount']/100?></p>
+
 
                     </div>
                     <span class="inline-block text-gray-400 font">Quốc gia:</span>
