@@ -54,14 +54,25 @@
                                  
                                  </button>";
                                     }else{
-                                        
+                                       
+                  
                                     echo " <button type='submit' class='text-gray-700 block w-full px-4 py-2 text-left text-sm uppercase' role='menuitem' tabindex='-1' id='menu-item-3'>
                                           
                                     Đăng nhập
                                  
                                  </button>";
+                          
                                     }
                                     ?>
+                                       
+                                    </form>
+                                    <form action="<?= $SITE_URL ?>/account/sign-up.php" method="post" enctype="multipart/form-data">
+                                    <?php if(!isset($_SESSION['user'])){
+echo " <button type='submit' class='text-gray-700 block w-full px-4 py-2 text-left text-sm uppercase' role='menuitem' tabindex='-1' id='menu-item-3'>
+                                          
+Đăng ký</button>";
+     
+                                     } ?>
                                        
                                     </form>
                                 </div>
