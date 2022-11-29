@@ -109,7 +109,7 @@
 
                                 <td class="p-2 whitespace-nowrap">
                                     <p class="text-xs text-gray-900">
-                                        <?= $role?"Admin":"Khách hàng" ?>
+                                        <?= $role_name?>
                                     </p>
                                 </td>
                                 <td class="px-2 mt-7 whitespace-nowrap flex gap-3 items-center justify-center">

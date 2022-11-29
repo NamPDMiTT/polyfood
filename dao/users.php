@@ -1,12 +1,12 @@
 <?php
 require_once "/xampp/htdocs/polyfood/dao/pdo.php";
-function insert_users($user_name, $password,$name , $email, $phone, $image, $role){
-    $sql = "INSERT INTO users(user_name, password,name, email, phone, image, role) 
-                      VALUES ( '$user_name', '$password','$name', '$email', '$phone', '$image', $role)";
+function insert_users($user_name, $password,$name , $email, $phone, $image, $role_id){
+    $sql = "INSERT INTO users(user_name, password,name, email, phone, image, role_id) 
+                      VALUES ( '$user_name', '$password','$name', '$email', '$phone', '$image', $role_id)";
     pdo_execute($sql);
 }
-function update_users($user_name, $password, $name, $email, $phone, $image, $role, $user_id){
-    $sql = "UPDATE users SET user_name='$user_name', password='$password',name='$name', email='$email', phone='$phone', image='$image', role=$role WHERE user_id=$user_id";
+function update_users($user_name, $password, $name, $email, $phone, $image, $role_id, $user_id){
+    $sql = "UPDATE users SET user_name='$user_name', password='$password',name='$name', email='$email', phone='$phone', image='$image', role_id=$role_id WHERE user_id=$user_id";
     pdo_execute($sql);
 }
 function delete_users($user_id) {
@@ -25,7 +25,7 @@ function delete_users($user_id) {
 
 }
 function select_all_users(){
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT u.*,r.role_name FROM users u join roles r on u.role_id = r.role_id";
     return pdo_query($sql);
 }
 function select_by_id_users($user_id){
@@ -44,8 +44,8 @@ function users_exist_by_username($user_name){
     $sql = "SELECT count(*) FROM users WHERE user_name='$user_name'";
     return pdo_query_value($sql) > 0;
 }
-function select_users_by_role($role) {
-    $sql = "SELECT * FROM users WHERE role=$role";
+function select_users_by_role_id($role_id_id) {
+    $sql = "SELECT * FROM users WHERE role_id_id=$role_id_id";
     return pdo_query($sql);
 
 }
