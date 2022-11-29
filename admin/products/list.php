@@ -4,20 +4,18 @@
 " class="w-full h-[60px] flex items-center justify-between px-5 py-2">
         <div class="logo-[100px] h-auto px-2 flex gap-2 items-center justify-center">
             <a href="../../index.php">
-                <img src="../../Site/IMG/lct-logo.png" alt="logo" class="w-16 h-auto" />
+                <img src="../../site/IMG/logo.png" alt="logo" class="w-16 h-auto" />
             </a>
-            <h1 class="text-xs font-bold italic text-orange-500">
-                CONGTIEN<span class="text-black">DEV</span>
-            </h1>
+           
         </div>
         <div class="account__admin flex items-center gap-2">
             <div class="account__admin--avatar">
 
-                <img src="' . $avatarSrc . '" alt="" class="w-10 h-10 rounded-full" />
+                <img src="<?= $CONTENT_URL  ?>/images/users/<?= $_SESSION['user']['image'] ?>" alt="" class="w-10 h-10 rounded-full" />
             </div>
             <div class="account__admin--name flex flex-col gap-1">
                 <p class="font-medium text-sm text-gray-500">
-                    Congtiendev
+                    <?= $_SESSION['user']['name'] ?>
                 </p>
                 <a href="index.php?action=logout" class="logout text-xs text-gray-500 flex items-center gap-1">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -54,6 +52,9 @@
                                 </th>
                                 <th class=" text-xs  px-2 py-2 font-medium">
                                     Sản phẩm
+                                </th>
+                                <th class=" text-xs  px-2 py-2 font-medium">
+                                    Thực đơn
                                 </th>
                                 <th class=" text-xs  px-2 py-2 font-medium">
                                     Loại
@@ -97,6 +98,11 @@
                               <td class="p-2 whitespace-nowrap">
                                   <p class="text-xs text-gray-900">
                                         <?= $product_name ?>
+                                  </p>
+                              </td>
+                              <td class="p-2 whitespace-nowrap">
+                                  <p class="text-xs text-gray-900">
+                                        <?= $menu_name ?>
                                   </p>
                               </td>
                               <td class="p-2 whitespace-nowrap">

@@ -1,6 +1,9 @@
 <?php
+require_once "/xampp/htdocs/polyfood/site/layout/header.php";
 require_once "/xampp/htdocs/polyfood/site/layout/menu.php";
+$total_price = 0;
 foreach ($_SESSION['my_cart'] as $cart) {
+  extract($cart);
   $total_price += $cart[4];
 }
 
@@ -19,7 +22,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
           <thead>
             <tr>
               <th class="px-4 py-2 text-left font-semibold text-gray-600 text-xs uppercase">
-                Chi tiết
+               Sản phẩm
               </th>
               <th class="px-4 py-2 font-semibold text-gray-600 text-xs uppercase">
                 Số lượng
@@ -48,7 +51,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
                         <?= $cart[1] ?>
                       </p>
                       <span class="block text-gray-400 text-xs">
-                        <?= $cart[6] ?>
+                        <?= $cart[7] ?>
                       </span>
                     </div>
                   </div>
@@ -73,7 +76,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
                 </td>
                 <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
                   <span class="font-semibold text-gray-700">
-                    <?= $cart[7] ?>
+                    <?= $cart[6] ?>
                   </span>
                 </td>
                 <td class="px-4 py-2 text-xs lg:text-sm  text-gray-600 text-center">

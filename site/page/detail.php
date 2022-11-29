@@ -1,7 +1,9 @@
 <?php
+require_once "/xampp/htdocs/polyfood/global.php";
 require_once '/xampp/htdocs/polyfood/dao/products.php';
 extract($_REQUEST);
 $items = products_select_by_id($product_id);
+extract($items);
 $category_id = $items['category_id'];
 ?>
 <!DOCTYPE html>
@@ -31,11 +33,10 @@ $category_id = $items['category_id'];
                     </div>
 
                     <ul class="menu w-[60%] justify-center flex gap-6  text-sm text-white uppercase">
-                        <li><a href="#">Trang chủ</a></li>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Sản Phẩm</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/index.php">Trang chủ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/product.php">Sản Phẩm</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/blog.php">Blog</a></li>
                     </ul>
                     <ul class="cart__account flex gap-7">
                         <li class="cart">
@@ -50,13 +51,13 @@ $category_id = $items['category_id'];
                         </li>
 
                         <li class="cart">
-                            <a href="#">
+                            <a href="<?= $SITE_URL ?>/cart/all-my-cart.php<?php if(isset($_SESSION['user'])) echo "?user_id=".$_SESSION['user']['user_id'] ?>">
                                 <img class="w-12 h-auto" src="../IMG/cart.png" alt="" />
                             </a>
                         </li>
                         <li class="account">
-                            <a href="#">
-                                <img class="w-10 h-auto" src="../IMG/account1.png" alt="" />
+                            <a href="<?= $SITE_URL ?>/account/update-account.php">
+                                <img  class="w-10 h-auto rounded-2xl" src="<?= $CONTENT_URL ?>/images/users/<?php if(isset($_SESSION['user'])){ echo $_SESSION['user']['image'];  } else { echo 'user.png';} ?>" alt="" />
                             </a>
                         </li>
                     </ul>
@@ -99,7 +100,7 @@ $category_id = $items['category_id'];
 
                 <nav class="menu__mobile relative animate-down border-t-2 w-full hidden p-5 bg-black">
                     <ul class="menu p-5 flex flex-col w-full justify-center gap-6  text-sm text-white uppercase">
-                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="<?= $SITE_URL ?>/layout.php">Trang chủ</a></li>
                         <li><a href="#">Giới thiệu</a></li>
                         <li><a href="#">Sản Phẩm</a></li>
                         <li><a href="#">Blog</a></li>
@@ -146,7 +147,7 @@ $category_id = $items['category_id'];
         </div>
         <div class="grid md:grid-cols-2 gap-12 px-6">
             <div class="rounded">
-                <img src="../IMG/bunbo.jpeg" alt="" class="rounded">
+                <img src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" alt="" class="rounded">
             </div>
             <div class="">
                 <form action="../cart/index.php?btn_order" method="POST">
@@ -162,8 +163,13 @@ $category_id = $items['category_id'];
                         <p class="font "><?= $items['view'] ?> Customer Reviews</p>
                     </div>
                     <div class="text-3xl font text-orange-600 flex space-x-2">
+
+                        <strike class="text-zinc-500 text-3xl"><?= $price ?></strike>
+                        <p class="text-3xl flex gap-2"> <span>-</span> <?= $price * (1- $discount /100) ?></p>
+
                         <strike class="text-zinc-500 text-xl"><?= $items['price'] ?></strike>
                         <p class="text-3xl"> <?= $items['price'] * $items['discount']/100?></p>
+
 
                     </div>
                     <span class="inline-block text-gray-400 font">Quốc gia:</span>
@@ -201,8 +207,7 @@ $category_id = $items['category_id'];
             <button type="button" class="toggle-btn" onclick="leftClick()"><span id="trai" class="inline-block font text-xl  py-2 px-8  text-white  rounded-xl  sili ">Mô tả</span></button>
             <button type="button" class="toggle-btn" onclick="rightClick()"><span id="phai" class="inline-block font text-xl  py-2 px-8  text-red-500 rounded-xl  ">Nhận xét ( 0 )</span></button>
         </div>
-        <p class="font text-md py-6 px-6" id="description">Món bún bò Huế là một trong những đặc sản của xứ Huế mộng mơ, mặc dù hiên nay món ăn này ở đâu cũng có. Nhưng nếu thưởng thức ngay tại quê hương của món ăn, du khách sẽ cảm nhận được ngay sự khác lạ bởi trong nước dùng của bún người
-            xứ Huế thường nêm vào một ít mắm ruốc, góp phần làm nên hương vị rất riêng của nồi bún bò Huế.</p>
+        <p class="font text-md py-6 px-6" id="description"><?= $detail ?></p>
         <div class="px-16 py-12 hidden" id="comment">
             <div class="grid grid-cols-[48px,auto] gap-8">
                 <div class="rounded-full rounded-2 rounded-red-500 w-[48px] h-[48px]">

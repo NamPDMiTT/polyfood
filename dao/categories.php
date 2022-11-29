@@ -1,12 +1,12 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
- function insert_categories($category_name,$category_image) {
-    $sql = "INSERT INTO categories (category_name,category_image) VALUES ('$category_name','$category_image')";
+ function insert_categories($category_name,$category_image,$suggest) {
+    $sql = "INSERT INTO categories (category_name,category_image,suggest) VALUES ('$category_name','$category_image','$suggest')";
 pdo_execute($sql);
 
  }
- function update_categories($category_name,$category_image,$category_id){
-    $sql = "UPDATE categories SET category_name = '$category_name',category_image='$category_image' WHERE category_id = $category_id";
+ function update_categories($category_name,$category_image,$suggest,$category_id){
+    $sql = "UPDATE categories SET category_name = '$category_name',category_image='$category_image',suggest='$suggest' WHERE category_id = $category_id";
     pdo_execute($sql);
  }
 

@@ -3,7 +3,7 @@ require_once '/xampp/htdocs/polyfood/global.php';
 require_once '/xampp/htdocs/polyfood/dao/comments.php';
 require_once '/xampp/htdocs/polyfood/dao/statistics.php';
 
-// check_login();
+check_login();
 
 
 //--------------------------------//

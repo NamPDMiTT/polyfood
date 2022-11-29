@@ -31,5 +31,5 @@ if (exist_param("btn_change")) {
     global $user_name, $password, $password2, $password3;
 }
 
-$VIEW_NAME = "account/change-password-form.php";
+$VIEW_NAME = "../account/change-password-form.php";
 require '../layout.php';

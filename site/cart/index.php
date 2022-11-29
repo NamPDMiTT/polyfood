@@ -12,10 +12,10 @@ if(exist_param("btn_order")){
     extract($order_product);
     $image = $_POST['image'];
     $quantity = 1;
-    $total_price = $price * $discount * $quantity;
+    $total_price = $price * (1- $discount/100) * $quantity;
     $status = 0;
-    // $user_id = $_SESSION['user']['user_id'];
-    $add_orders = [$product_id,$product_name,$quantity,$total_price,$status,$category_id,$price,$image];
+    $user_id = $_SESSION['user']['user_id'];
+    $add_orders = [$product_id,$product_name,$quantity,$total_price,$status,$category_id,$price,$image,$user_id];
     array_push($_SESSION['my_cart'],$add_orders);
     $VIEW_NAME = 'my-cart.php';
 }else if(exist_param("btn_re_quality")) {

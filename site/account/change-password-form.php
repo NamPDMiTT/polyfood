@@ -1,3 +1,4 @@
+<?php extract($_SESSION['user']) ?>
 <main class="w-full mt-14">
     <h1 class="text-3xl text-center">Change Password</h1>
 
