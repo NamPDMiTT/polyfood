@@ -102,10 +102,17 @@
                     <div class="rounded-xl">
                         <a href="<?= $SITE_URL ?>/page/detail.php?product_id=<?= $product_id ?>">
                             <div class="product__img">
+<<<<<<< HEAD
                                 <img class="w-full object-cover object-center rounded-t-xl min-w-[200px] lg:min-w-[230px] h-[150px] lg:min-h-[170px] lg:max-h-[171px]" src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" alt="content" />
                             </div>
                         </a>
                         <div class="product__info  flex flex-col gap-1 rounded-b-xl w-full p-3 border border-gray-300">
+=======
+                                <img class="w-full object-cover object-center rounded-t-xl" src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" alt="content" />
+                            </div>
+                        </a>
+                        <div class="product__info flex flex-col gap-1 rounded-b-xl w-full p-3 border border-gray-300">
+>>>>>>> phuongnamcoder
                             <a href="<?= $SITE_URL ?>/page/detail.php?product_id=<?= $product_id ?>">
                                 <h2 class="text-gray-900 font-medium title-font"><?= $product_name ?></h2>
                                 <p class="leading-relaxed text-xs limited__content-2">

@@ -1,8 +1,33 @@
 <?php
 require_once '/xampp/htdocs/polyfood/site/layout/header.php';
 require_once '/xampp/htdocs/polyfood/site/layout/menu.php';
+require_once '/xampp/htdocs/polyfood/dao/users.php';
 $items = $_SESSION['my_cart'];
 $total_price_all = 0;
+if(isset($_SESSION['my_cart'])){
+    foreach ($items as $item) {
+        extract($item);
+        $total_price_all += $total_price;
+    }
+}
+
+// $total_price = 0;
+// $count = 0;
+// // $_SESSION['my_cart']=[];
+// products_select_all();
+// foreach ($_SESSION['my_cart'] as $cart) {
+//   $total_price += $cart['total_price'];
+//   $count += 1;
+//   // echo '<pre>';
+//   // var_dump($cart) ;
+// }
+
+
+if(isset($_SESSION['user'])){
+    $user_id = $_SESSION['user']['user_id'];
+    $user = select_by_id_users($user_id);
+    extract($user);
+}
 ?>
 <main class="w-full mt-14 px-8 lg:px-24 font-montserrat">
   <div class="header__checkout w-full mb-5 flex items-center gap-5">
@@ -27,19 +52,19 @@ $total_price_all = 0;
       <div class="form__group flex flex-col gap-2">
         <label for="fullname">Họ và tên</label>
         <input type="text" name="fullname" id="fullname" class="form__input text-xs border border-gray-700 p-3 w-full rounded-sm
-focus:border-orange-500 focus:outline-none" placeholder="Nhập họ và tên" value="" />
+focus:border-orange-500 focus:outline-none" placeholder="Nhập họ và tên" value="<?=isset($_SESSION['user'])?$name : ''?>" />
       </div>
 
       <div class="form__group flex flex-col gap-2">
         <label for="phone">Số điện thoại</label>
         <input type="number" name="phone" id="phone" class="form__input text-xs border border-gray-700 p-3 w-full rounded-sm
-focus:border-orange-500 focus:outline-none" placeholder="Nhập số điện thoại" value="" />
+focus:border-orange-500 focus:outline-none" placeholder="Nhập số điện thoại" value="<?=isset($_SESSION['user'])?$phone : ''?>" />
       </div>
 
       <div class="form__group flex flex-col gap-2">
         <label for="email">Email</label>
         <input type="email" name="email" id="email" class="form__input text-xs border border-gray-700 p-3 w-full rounded-sm
-focus:border-orange-500 focus:outline-none" placeholder="Nhập email" value="" />
+focus:border-orange-500 focus:outline-none" placeholder="Nhập email" value="<?=isset($_SESSION['user'])?$email : ''?>" />
       </div>
     </div>
 
@@ -96,7 +121,7 @@ focus:border-orange-500 focus:outline-none" placeholder="Nhập email" value="" 
         <tbody>
           <?php
           foreach ($_SESSION['my_cart'] as $item) {
-            $total_price_all += $item[3];
+            // $total_price += $item['price'] * $item['quantity'];
           ?>
             <tr class="border border-dashed">
               <td class="px-4 py-2 w-[40%]">
@@ -106,10 +131,10 @@ focus:border-orange-500 focus:outline-none" placeholder="Nhập email" value="" 
                   </div>
                   <div class="min-w-[200px] ml-4 flex flex-col gap-2">
                     <p class="font-medium text-gray-600 text-xs ">
-                      <?= $item[1] ?>
+                      <?= $item['product_name'] ?>
                     </p>
                     <span class="block text-gray-400 text-xs">
-                      <?= $item[5] ?>
+                      <?= $item['price'] ?>
 
                     </span>
                   </div>
@@ -118,19 +143,19 @@ focus:border-orange-500 focus:outline-none" placeholder="Nhập email" value="" 
               <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
                 <span class="font-semibold text-gray-700">
 
-                  <?= $item[2] ?>
+                  <?= $item['category_id'] ?>
 
                 </span>
               </td>
               <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
                 <span class="font-semibold text-gray-700">
-                  <?= $item[6] ?>
+                  <?= $item['quantity'] ?>
 
                 </span>
               </td>
               <td class="px-4 py-2 text-xs lg:text-sm  text-gray-600 text-center">
                 <span class="font-semibold text-gray-700">
-                  <?= $item[3] ?>
+                  <?= $item['detail'] ?>
 
                 </span>
               </td>
@@ -146,20 +171,20 @@ focus:border-orange-500 focus:outline-none" placeholder="Nhập email" value="" 
           <?php
           foreach ($_SESSION['my_cart'] as $item) {
           ?>
-            <img src="<?= $item[7] ?>" class="w-24 h-24 object-cover" />
+            <img src="<?= $item['image'] ?>" class="w-24 h-24 object-cover" />
             <div class="item__product__cart-mobile--info flex flex-col justify-between">
               <h1 class="text-xs font-medium">
-                <?= $item[1] ?>
+                <?= $item['product_name'] ?>
 
               </h1>
               <div class="flex flex-col gap-2">
-                <span class="text-sm text-gray-700">Price : <?= $item[6] ?> </span>
+                <span class="text-sm text-gray-700">Price : <?= $item['detail'] ?> </span>
                 <div class="text flex gap-2">
                   <span class="text-xs text-gray-500">
-                    x <?= $item[2] ?>
+                    x <?= $item['category_id'] ?>
                   </span>
                   <span class="text-xs text-gray-500">
-                    <?= $item[3] ?>
+                    <?= $item['price'] ?>
                   </span>
                 </div>
               </div>
@@ -196,7 +221,7 @@ focus:border-orange-500 focus:outline-none" placeholder="Enter your note"></text
             polyfood
           </a>
         </p>
-
+          
         <button name="order" class="form__input--submit w-full sm:w-1/4  bg-orange-600 text-white p-3 rounded-sm
 focus:outline-none">
           Đặt hàng
