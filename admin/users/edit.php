@@ -1,129 +1,144 @@
-<article class="w-[85%]">
-    <header style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px #bebebe,
+<?php 
+require_once "/xampp/htdocs/polyfood/global.php";
+check_login();
+?>
+ <article class="w-[85%]">
+          <header
+            style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px #bebebe,
 -35px -35px 70px #ffffff;
-" class="w-full h-[60px] flex items-center justify-between px-5 py-2">
-        <div class="logo-[100px] h-auto px-2 flex gap-2 items-center justify-center">
-            <a href="../../index.php">
-                <img src="../../Site/IMG/lct-logo.png" alt="logo" class="w-16 h-auto" />
-            </a>
-            <h1 class="text-xs font-bold italic text-orange-500">
-                CONGTIEN<span class="text-black">DEV</span>
-        </div>
-        <div class="account__admin flex items-center gap-2">
-            <div class="account__admin--avatar">
-
-                <img src="' . $avatarSrc . '" alt="" class="w-10 h-10 rounded-full" />
+"
+            class="w-full h-[60px] flex items-center justify-between px-5 py-2"
+          >
+            <div
+              class="logo-[100px] h-auto px-2 flex gap-2 items-center justify-center"
+            >
+              <a href="../../index.php">
+                <img
+                  src="../../site/IMG/logo.png"
+                  alt="logo"
+                  class="w-16 h-auto"
+                />
+              </a>
+           
             </div>
-            <div class="account__admin--name flex flex-col gap-1">
+            <div class="account__admin flex items-center gap-2">
+              <div class="account__admin--avatar">
+               
+                             <img src="<?= $CONTENT_URL?>/images/users/<?= $_SESSION['user']['image'] ?>" alt="" class="w-10 h-10 rounded-full" />
+              </div>
+              <div class="account__admin--name flex flex-col gap-1">
                 <p class="font-medium text-sm text-gray-500">
-                    Congtiendev
+                <?= $_SESSION['user']['name'] ?>
                 </p>
-                <a href="index.php?action=logout" class="logout text-xs text-gray-500 flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
-                    </svg>
-                    Logout
+                <a
+                  href="index.php?action=logout"
+                  class="logout text-xs text-gray-500 flex items-center gap-1"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-4 h-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"
+                    />
+                  </svg>
+                  Logout
                 </a>
+              </div>
             </div>
-        </div>
-    </header>
+          </header>
     <!-- End header -->
-    <main style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px
+    <main style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70pxrole
 #bebebe, -35px -35px 70px #ffffff; " class="w-full  p-5 mt-5 bg-gray-100">
-  
-  <?php if (strlen($MESSAGE)) {
-        echo "<h5>$MESSAGE</h5>";
-    }
-    ?>
-        <section class="edit__account w-full mt-5">
-            <section class="edit__products-title flex  items-center gap-1">
+  <?php
+            if(strlen($MESSAGE)){
+                echo "<h5>$MESSAGE</h5>";
+            }
+        ?>
+        <section class="add__user w-full mt-5">
+            <section class="add__products-title flex  items-center gap-1">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-gray-500">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-              
-  
-                <h1 class="text-left lg:text-xl text-gray-500 uppercase">edit account</h1>
+                <h1 class="text-left lg:text-xl text-gray-500">EDIT USER</h1>
             </section>
 
             <section class="mt-5  w-full">
-                <form action="index.php" class="form__edit-account w-full" method="post" enctype="multipart/form-data">
+                <form action="index.php" class="form__add-user w-full" method="post" enctype="multipart/form-data">
                     <div class="list__form-group w-full grid  grid-cols-1 gap-10">
                         <div class="form__group flex flex-col">
-                            <label for="accounttid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">ACCOUNT ID</label>
-                            <input type="text" name="user_id" value="<?= $user_id ?>" id="user_id" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
+                            <label for="usertid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">USER ID</label>
+                            <input  readonly type="text" name="user_id" id="user__id" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none
 text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
 rounded-md text-gray-500
-" readonly/>
+" value="<?= $user_id ?>" />
                         </div>
                         <div class="form__group flex flex-col">
-                            <label for="accounttid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">Full Name</label>
-                            <input type="text" name="name" value="<?= $name ?>" id="name" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
-text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
-rounded-md text-gray-500
-" />
-                        </div>
-                        <div class="form__group flex flex-col">
-                            <label for="accounttid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">User Name</label>
-                            <input  type="text" name="user_name" value="<?= $user_name ?>" id="user_name" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
-text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
-rounded-md text-gray-500
-" />
-                        </div>
-                        <div class="form__group flex flex-col">
-                            <label for="accounttid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">Password</label>
-                            <input  type="text" name="password" value="<?= $password ?>" id="password" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
-text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
-rounded-md text-gray-500
-" />
-                        </div>
-                        <div class="form__group flex flex-col">
-                            <label for="accounttid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">Email</label>
-                            <input  type="text" name="email" value="<?= $email ?>" id="email" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
-text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
-rounded-md text-gray-500
-" />
-                        </div>
-                        <div class="form__group flex flex-col">
-                            <label for="accounttid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">Phone</label>
-                            <input  type="text" name="phone" value="<?= $phone ?>" id="phone" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
-text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
-rounded-md text-gray-500
-" />
-                        </div>
-                        <div class="form__group flex flex-col">
-                            <label for="accounttid" class="text-gray-500 text-xs sm:text-sm md:text-base lg:text-base">Image</label>
-                            <input  type="hidden" name="image" value="<?= $image ?>" id="image" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
-text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
-rounded-md text-gray-500
-" />
-<input  type="file" name="upload_image" id="upload_image" class="form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none
-text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
-rounded-md text-gray-500
-" /> (<?= $image ?>)
+                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">USER NAME</label>
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="user_name" id="name" placeholder="user name" value="<?=$user_name?>" />
                         </div>
                         <div class="form__group flex flex-col ">
-                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">ROLE</label>
-                            <select class="form__input form__input-edit__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base  bg-gray-100
-                                    mt-2 p-2 px-3 rounded-md text-gray-500" name="role" id="role">
-                                <option value="0" <?= $role==0?"selected":"" ?>>USER</option>
-                                <option value="1" <?= $role==1?"selected":"" ?>>ADMIN</option>
-                            </select>
+                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">FULL NAME</label>
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="name" id="name" placeholder="full name" value="<?=$name?>" />
                         </div>
+                        <div class="form__group flex flex-col ">
+                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">PASSWORD</label>
+                            <input type="password" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="password" id="name" placeholder="********" value="<?= $password ?>" />
+                        </div>       
+                        <div class="form__group flex flex-col ">
+                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">EMAIL</label>
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="email" id="name" placeholder="your email" value="<?=$email?>" />
+                        </div>
+                        <div class="form__group flex flex-col ">
+                        
+                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">IMAGE</label>
+                            <input type="hidden" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="image" id="name" value="<?=$image?>" />
+                            <input type="file" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="upload_image" id="name"  />
+                        </div> (<?= $image ?>)
+                        <div class="form__group flex flex-col ">
+                            <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">PHONE</label>
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="phone" id="name" placeholder="your phone number" value="<?= $phone ?>" />
+                        </div>
+                        <div class="form__group flex flex-col ">
+                        <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">ROLE</label>
 
-                        <div class="form__edit-account--list-button w-full mt-7 flex gap-3 justify-center items-center">
+                        <select name="role_id" class="mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm  bg-gray-100 rounded-md text-gray-500">
+            <?php foreach($roles as $role): ?>
+                <?php extract($role) ?>
+             <option value="<?=$role_id?>" <?= $role_check==$role_id?"selected":""; ?>><?=$role_name?></option>
+              <?php endforeach; ?>
+          </select>
+
+                        </div>
+                        <div class="form__add-user--list-button w-full mt-7 flex gap-3 justify-center items-center">
                             <button type="submit" name="btn_update" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
 2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
 rounded-md text-sm hover:bg-gray-200 leading-4 ">
-                                SAVE
+                                Save
                             </button>
-                            <button><a href="<?= $ADMIN_URL ?>/users/index.php?btn_list">Danh sách</a></button>
+                            <button type="reset" name="reset" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
+2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
+rounded-md text-sm hover:bg-gray-200 leading-4 ">
+                                Reset
+                            </button>
+                            <button type="submit" name="btn_list" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
+2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center
+rounded-md text-sm hover:bg-gray-200 leading-4 ">
+                              List
+                            </button>
                         </div>
+                    </div>
                 </form>
             </section>
         </section>
-        <!-- End edit_product -->
+        <!-- End add_product -->
     </main>
-
 </article>
 </div>
 </div>
