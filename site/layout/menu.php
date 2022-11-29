@@ -1,7 +1,6 @@
-
-            <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+<nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <ul class="menu flex w-full justify-center gap-6 text-sm uppercase">
-                    <li><a href="<?= $SITE_URL ?>/layout.php">Trang chủ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/index.php">Trang chủ</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/product.php">Sản Phẩm</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/blog.php">Blog</a></li>

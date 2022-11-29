@@ -33,11 +33,10 @@ $category_id = $items['category_id'];
                     </div>
 
                     <ul class="menu w-[60%] justify-center flex gap-6  text-sm text-white uppercase">
-                        <li><a href="#">Trang chủ</a></li>
-                        <li><a href="#">Giới thiệu</a></li>
-                        <li><a href="#">Sản Phẩm</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Liên hệ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/index.php">Trang chủ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/product.php">Sản Phẩm</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/blog.php">Blog</a></li>
                     </ul>
                     <ul class="cart__account flex gap-7">
                         <li class="cart">

@@ -24,7 +24,7 @@ if(exist_param("category_id")){
     <link rel="stylesheet" href="../../css/style.css" />
     <link rel="stylesheet" href="../../css/base.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <script src="./Javascript/main.js"></script>
+    <script src="../Javascript/main.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
 </head>
 
@@ -37,7 +37,7 @@ if(exist_param("category_id")){
 
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <ul class="menu flex w-full justify-center gap-6 text-sm uppercase">
-                    <li><a href="<?= $SITE_URL ?>/layout.php">Trang chủ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/page/index.php">Trang chủ</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/product.php">Sản Phẩm</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/blog.php">Blog</a></li>
@@ -59,16 +59,42 @@ if(exist_param("category_id")){
                                     <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
                                         Hỗ trợ
                                     </a>
-                                    <a href="<?= $SITE_URL ?>/cart/all-my-cart.php?user_id=<?= $_SESSION['user']['user_id'] ?>" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
+                                    <a href="<?= $SITE_URL ?>/cart/all-my-cart.php<?php if(isset($_SESSION['user'])) echo "?user_id=".$_SESSION['user']['user_id'] ?>" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
                                         Đơn hàng của tôi
                                     </a>
                                     <a href="<?= $SITE_URL ?>/account/change-password.php" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
                                         Đổi mật khẩu
                                     </a>
-                                    <form method="POST" action="#" role="none">
-                                        <button type="submit" class="text-gray-700 block w-full px-4 py-2 text-left text-sm uppercase" role="menuitem" tabindex="-1" id="menu-item-3">
-                                            Đăng xuất
-                                        </button>
+                                    <?php if(isset($_SESSION['user'])) {?>
+                                      
+                                  <?php   extract($_SESSION['user']); ?>
+                                      
+                                    <?php if($role == 1) { ?>
+                                        <a href="<?= $ADMIN_URL ?>/page/index.php" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
+                                            Trang quản trị
+                                        </a>
+
+                                   <?php  } ?>        
+                                     <?php } ?>   
+                                    <form method="POST" action="<?= $SITE_URL ?>/account/sign-in.php" role="none">
+                                    <?php if(isset($_SESSION['user'])){
+
+                                    
+                                    echo " <button type='submit' name='btn_logoff' class='text-gray-700 block w-full px-4 py-2 text-left text-sm uppercase' role='menuitem' tabindex='-1' id='menu-item-3'>
+                                          
+                                    Đăng xuất
+                                 
+                                 </button>";
+                                    }else{
+                                        
+                                    echo " <button type='submit' class='text-gray-700 block w-full px-4 py-2 text-left text-sm uppercase' role='menuitem' tabindex='-1' id='menu-item-3'>
+                                          
+                                    Đăng nhập
+                                 
+                                 </button>";
+                                    }
+                                    ?>
+                                       
                                     </form>
                                 </div>
                             </div>
@@ -224,8 +250,8 @@ if(exist_param("category_id")){
                    <?php foreach($items as $item): ?>
 <?php extract($item); ?>
                     <div class="p-4 shadow__products  rounded-2xl bg-white space-y-2">
-                     <a href="">
-                     <img src="../IMG/bunbo.jpeg" alt="" class="rounded">
+                     <a href="<?= $SITE_URL ?>/page/detail.php?product_id=<?= $product_id ?>">
+                     <img src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" alt="" class="rounded">
                         <h2 class="text-xl font"><?= $product_name ?></h2>
                         <p class="text-xs font-semibold flex justify-between  text-red-500 mt-2">
                             <span class="text-sm text-red-600">★★★★★</span><?= number_format($price, 0, '', '.') ?>đ
@@ -234,9 +260,13 @@ if(exist_param("category_id")){
                             <?= $detail ?>
                         </p>
                      </a>
-                        <button class="btn__add w-full bg-orange-600 text-white px-2 py-2 rounded">
+                     <form action="<?= $SITE_URL ?>/cart/index.php" method="post">
+                     <input type="hidden" value="<?= $product_id ?>">
+                     <button class="btn__add w-full bg-orange-600 text-white px-2 py-2 rounded">
                             Thêm vào giỏ
                           </button>
+                    </form>
+                        
 
                     </div>
 
