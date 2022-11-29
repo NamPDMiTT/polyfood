@@ -302,7 +302,7 @@ if (exist_param("category_id")) {
     <footer class="text-gray-700 pt-24 mx-auto">
         <section class="w-full grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-8 md:px-14 lg:px-20">
             <div class="footer__item-logo ml-5">
-                <img class="h-16" src="./IMG/logo.png" alt="logo" />
+                <img class="h-16" src="../IMG/logo.png" alt="logo" />
                 <p class="footer-item-title--desc mt-4 text-gray-500 text-sm max-w-[220px]">
                     Website được phát triển bởi đội ngũ sinh viên FPT Polytechnic.
                 </p>
