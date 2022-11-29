@@ -1,9 +1,7 @@
 
 <article class="lg:px-10">
   <form id="new__post" action="./index.php" class="bg-white shadow rounded-lg mb-6 p-4" method="post" enctype="multipart/form-data">
-    <textarea name="content" placeholder="Bạn đang nghĩ gì..." class="w-full rounded-lg p-3 text-sm focus:outline-none bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400">
-
-      </textarea>
+    <textarea name="content" placeholder="Bạn đang nghĩ gì..." class="w-full rounded-lg p-3 text-sm focus:outline-none bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"></textarea>
     <div class="flex items-center justify-center w-full">
       <label for="dropzone-file" class="flex flex-col items-center justify-center w-full h-28 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
         <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -16,11 +14,11 @@
         </div>
         <input id="dropzone-file" name="image[]" type="file" class="hidden" multiple />
         <input name="post_id" type="number" class="hidden" value="<?php if (check_exist() > 0) {
-                                                                  echo check_exist() + 1;
-                                                                } else {
-                                                                  echo 1;
-                                                                }
-                                                                ?>" multiple />
+                                                                    echo check_exist() + 1;
+                                                                  } else {
+                                                                    echo 1;
+                                                                  }
+                                                                  ?>" multiple />
       </label>
     </div>
 

@@ -20,7 +20,9 @@
             </a>
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <ul class="menu flex w-full justify-center gap-6 text-sm uppercase">
-                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="
+                    
+                    ">Trang chủ</a></li>
                     <li><a href="#">Giới thiệu</a></li>
                     <li><a href="#">Sản Phẩm</a></li>
                     <li><a href="#">Blog</a></li>
