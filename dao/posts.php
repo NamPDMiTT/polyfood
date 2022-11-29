@@ -1,21 +1,15 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
-function insert_post($post_id,$user_id, $content,$image, $status) {
-    $sql = "INSERT INTO posts(post_id,user_id, content, time_post, status) 
+function insert_post($post_id,$user_id, $content, $status) {
+    $sql = "INSERT INTO posts(post_id,user_id, content, status) 
                       VALUES ($post_id, $user_id, '$content', $status)";
     pdo_execute($sql);
-    if(is_array($image)){
-        foreach ($image as $image_tmp) {
-            $sql = "INSERT INTO post_image (post_id,image) VALUES ($post_id,'$image_tmp')";
-            pdo_execute($sql);
-        }
-    }
-    else{
-        $sql = "INSERT INTO post_image (post_id,image) VALUES ('$post_id','$image')";
-            pdo_execute($sql);
-    }
-    
+ 
 
+}
+function insert_image_post($post_id,$image) {
+    $sql = "INSERT INTO post_image (post_id,image) VALUES ($post_id,'$image')";
+    pdo_execute($sql);
 }
 function update_post($user_id, $content, $status, $post_id){
     $sql = "UPDATE posts SET user_id=$user_id, content='$content', status=$status WHERE post_id=$post_id";

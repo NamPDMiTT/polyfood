@@ -1,3 +1,14 @@
+<?php
+require_once "/xampp/htdocs/polyfood/site/layout/header.php";
+require_once "/xampp/htdocs/polyfood/site/layout/menu.php";
+$total_price = 0;
+foreach ($_SESSION['my_cart'] as $cart) {
+  extract($cart);
+  $total_price += $cart[4];
+}
+
+
+?>
 <main class="w-full font-montserrat mt-10 py-5">
   <h1 class="text-2xl font-semibold text-gray-700 ml-5 flex items-center gap-2">
     CART<svg class="w-6 h-6 sm:w-7 sm:h-7" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -11,7 +22,7 @@
           <thead>
             <tr>
               <th class="px-4 py-2 text-left font-semibold text-gray-600 text-xs uppercase">
-                Chi tiết
+               Sản phẩm
               </th>
               <th class="px-4 py-2 font-semibold text-gray-600 text-xs uppercase">
                 Số lượng
@@ -26,58 +37,63 @@
             </tr>
           </thead>
           <tbody>
-            <tr class="border border-dashed">
-              <td class="px-4 py-2 w-[40%]">
-                <div class="flex">
-                  <div class="w-16 h-16">
-                    <img src="' . $imageSrc . '" alt="" class="w-16 h-16" />
+            <?php
+            foreach ($_SESSION['my_cart'] as $cart) {
+            ?>
+              <tr class="border border-dashed">
+                <td class="px-4 py-2 w-[40%]">
+                  <div class="flex">
+                    <div class="w-16 h-16">
+                      <img src="<?= $cart[7] ?>" alt="" class="w-16 h-16" />
+                    </div>
+                    <div class="ml-4 lg:min-w-[200px] flex flex-col justify-between">
+                      <p class="font-medium text-gray-600 text-xs sm:text-sm ">
+                        <?= $cart[1] ?>
+                      </p>
+                      <span class="block text-gray-400 text-xs">
+                        <?= $cart[7] ?>
+                      </span>
+                    </div>
                   </div>
-                  <div class="ml-4 lg:min-w-[200px] flex flex-col justify-between">
-                    <p class="font-medium text-gray-600 text-xs sm:text-sm ">
-                      Tên sản phẩm
-                    </p>
-                    <span class="block text-gray-400 text-xs">
-                      Danh mục
-                    </span>
+                </td>
+                <td class="min-w-[130px] px-4 py-2">
+                  <div class="flex items-center justify-center">
+                    <form class="w-full" action="index.php?btn_re_quality" method="POST">
+                      <button type="submit" value="0" name="choose" class=" text-gray-600 w-3">
+                        <svg class="text-gray-600 w-3" viewBox="0 0 448 512">
+                          <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                      </button>
+                      <input name="quantity" id="quantity" class=" mx-2 border text-center w-10" type="number" min="1" value="<?= $cart[2] ?>" />
+                      <input type="hidden" name="product_id" value="<?= $cart[0] ?>" />
+                      <button type="submit" value="1" name="choose" class=" text-gray-600 w-3">
+                        <svg class=" text-gray-600 w-3" viewBox="0 0 448 512">
+                          <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
+                        </svg>
+                      </button>
+                    </form>
                   </div>
-                </div>
-              </td>
-              <td class="min-w-[130px] px-4 py-2">
-                <div class="flex items-center justify-center">
-                  <form class="w-full" action="index.php?action=viewCart" method="POST">
-                    <button type="submit" name="decqty" class=" text-gray-600 w-3">
-                      <svg class="text-gray-600 w-3" viewBox="0 0 448 512">
-                        <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                      </svg>
-                    </button>
-                    <input name="quantity" id="quantity" class=" mx-2 border text-center w-10" type="number" min="1" value="' . $cart[5] . '" />
-                    <input type="hidden" name="product_id" value="' . $cart[0] . '" />
-                    <button type="submit" name="incqty" class=" text-gray-600 w-3">
-                      <svg class=" text-gray-600 w-3" viewBox="0 0 448 512">
-                        <path d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
-                      </svg>
-                    </button>
-                  </form>
-                </div>
-              </td>
-              <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
-                <span class="font-semibold text-gray-700">
-                  1.000.000đ
-                </span>
-              </td>
-              <td class="px-4 py-2 text-xs lg:text-sm  text-gray-600 text-center">
-                <span class="font-semibold text-gray-700">
-                  1.000.000đ
-                </span>
-              </td>
-              <td class="px-5 py-2 text-xs lg:text-sm  text-gray-600 text-">
-                <a href="' . $deleteUrl . '" class="text-red-500 hover:text-red-600">
-                  <svg class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
-                  </svg>
-                </a>
-              </td>
-            </tr>
+                </td>
+                <td class="px-4 py-2 text-xs lg:text-sm text-gray-600 text-center">
+                  <span class="font-semibold text-gray-700">
+                    <?= $cart[6] ?>
+                  </span>
+                </td>
+                <td class="px-4 py-2 text-xs lg:text-sm  text-gray-600 text-center">
+                  <span class="font-semibold text-gray-700">
+                    <?= $cart[4] ?>
+
+                  </span>
+                </td>
+                <td class="px-5 py-2 text-xs lg:text-sm  text-gray-600 text-">
+                  <a href="' . $deleteUrl . '" class="text-red-500 hover:text-red-600">
+                    <svg class="w-5 h-5" viewBox="0 0 24 24">
+                      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                    </svg>
+                  </a>
+                </td>
+              </tr>
+              <?php } ?>
           </tbody>
         </table>
         <a href="index.php?action=index.php" class="hidden lg:flex font-semibold text-indigo-600 text-sm mt-5">
@@ -96,12 +112,12 @@
         <div class="pb-5">
           <div class="receipt">
             <div class="receipt__product flex gap-2 justify-between items-center p-2 border-b-[3px] border-dashed">
-              <span class="repcript__product-quantity  text-sm font-light">x10</span>
+              <span class="repcript__product-quantity  text-sm font-light">x<?= $cart[2] ?></span>
               <h1 class="repcript__product-name text-xs text-gray-500 font-light">
-                Tên sản phẩm
+                <?= $cart[1] ?>
               </h1>
               <span class="repcript__product-price font-medium text-sm">
-                1.000.000đ
+                <?= $cart[4] ?>
               </span>
             </div>
 
@@ -111,11 +127,11 @@
                   Tổng thanh toán
                 </span>
                 <span>
-                  1.000.000đ
+                  <?= $total_price ?>
                 </span>
               </div>
               <button class="bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
-                <a href="index.php?action=checkout">
+                <a href="index.php?btn_checkout">
                   Thanh toán
                 </a>
               </button>
@@ -126,7 +142,7 @@
     </div>
     <div class="list__prouduct__cart-mobile flex flex-col sm:hidden  gap-5 px-5">
       <div class="item__prouduct__cart-mobile border-b-[3px] border-dashed pb-2 flex gap-3">
-        <img src="' . $imageSrc . '" class="w-24 h-24 object-cover" />
+        <img src="<?= $items[7] ?>" class="w-24 h-24 object-cover" />
         <div class="item__prouduct__cart-mobile--info flex flex-col gap-2">
           <h1 class="text-xs font-medium">
             Tên sản phẩm
@@ -148,14 +164,15 @@
             </form>
             <div class="text flex gap-2">
               <span class="text-xs text-gray-500">
-                x111
+                <?= $cart[2] ?>
               </span>
               <span class="text-xs text-gray-500">
-                1.000.000đ
+                <?= $cart[7] ?>
               </span>
             </div>
           </div>
         </div>
+      
       </div>
       <a href="index.php?action=index.php" class=" flex sm:hidden font-semibold text-indigo-600 text-sm">
         <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
@@ -167,7 +184,7 @@
       <div class="total__checkout__price flex justify-between lg:hidden  gap-10 px-5">
         <span class="font-semibold text-sm uppercase">Tổng thanh toán</span>
         <span class="text-sm text-orange-600">
-          1.000.000đ
+          <?= $total_price ?>
         </span>
       </div>
       <div class="total__checkout__button px-5 pb-3 flex lg:hidden">
@@ -180,3 +197,7 @@
     </div>
   </div>
 </main>
+
+<?php
+require_once '/xampp/htdocs/polyfood/site/layout/footer.php';
+?>

@@ -1,4 +1,7 @@
-
+<?php 
+require_once "/xampp/htdocs/polyfood/global.php";
+check_login();
+?>
 <!DOCTYPE html>
 <html>
     <body>

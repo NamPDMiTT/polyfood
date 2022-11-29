@@ -8,7 +8,6 @@ if (exist_param("btn_login")) {
     if ($user) {
         if ($user['password'] == $password) {
             $MESSAGE = "Đăng nhập thành công!";
-
             if (exist_param("remember")) {
                 add_cookie("user_name", $user_name, 30);
                 add_cookie("password", $password, 30);
@@ -17,10 +16,12 @@ if (exist_param("btn_login")) {
                 delete_cookie("password");
             }
             $_SESSION["user"] = $user;
-
+            // header("location: " . "$SITE_URL/page/index.php");
             if (isset($_SESSION['request_uri'])) {
                 header("location: " . $_SESSION['request_uri']);
             }
+            header("location: " . "$SITE_URL/page/index.php");
+            die;
         } else {
             $MESSAGE = "Thông tin mật khẩu không chính xác!";
         }
@@ -34,6 +35,7 @@ if (exist_param("btn_login")) {
     }
     $user_name = get_cookie("user_name");
     $password = get_cookie("password");
+  
 }
 
 $VIEW_NAME = "account/sign-in-form.php";

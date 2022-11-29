@@ -11,23 +11,21 @@
             >
               <a href="../../index.php">
                 <img
-                  src="../../Site/IMG/lct-logo.png"
+                  src="../../site/IMG/logo.png"
                   alt="logo"
                   class="w-16 h-auto"
                 />
               </a>
-              <h1 class="text-xs font-bold italic text-orange-500">
-                CONGTIEN<span class="text-black">DEV</span>
-              </h1>
+           
             </div>
             <div class="account__admin flex items-center gap-2">
               <div class="account__admin--avatar">
                
-                             <img src="' . $avatarSrc . '" alt="" class="w-10 h-10 rounded-full" />
+                             <img src="<?= $CONTENT_URL  ?>/images/users/<?= $_SESSION['user']['image'] ?>" alt="" class="w-10 h-10 rounded-full" />
               </div>
               <div class="account__admin--name flex flex-col gap-1">
                 <p class="font-medium text-sm text-gray-500">
-                Congtiendev
+                <?= $_SESSION['user']['name'] ?>
                 </p>
                 <a
                   href="index.php?action=logout"
