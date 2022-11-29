@@ -38,6 +38,11 @@ if (exist_param("category_id")) {
             <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <ul class="menu flex w-full justify-center gap-6 text-sm uppercase">
                     <li><a href="<?= $SITE_URL ?>/page/index.php">Trang chủ</a></li>
+                    <?php if (isset($_SESSION['user'])) { ?>
+                        <?php if ($_SESSION['user']['role_id'] != 3) { ?>
+                            <li><a href='<?= $STAFF_URL ?>/page/index.php'>Danh sách đặt hàng</a></li>
+                        <?php } ?>
+                    <?php } ?>
                     <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/product.php">Sản Phẩm</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/blog.php">Blog</a></li>
@@ -69,7 +74,7 @@ if (exist_param("category_id")) {
 
                                         <?php extract($_SESSION['user']); ?>
 
-                                        <?php if ($role == 1) { ?>
+                                        <?php if ($role_id == 1) { ?>
                                             <a href="<?= $ADMIN_URL ?>/page/index.php" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
                                                 Trang quản trị
                                             </a>
@@ -87,6 +92,7 @@ if (exist_param("category_id")) {
                                  </button>";
                                         } else {
 
+
                                             echo " <button type='submit' class='text-gray-700 block w-full px-4 py-2 text-left text-sm uppercase' role='menuitem' tabindex='-1' id='menu-item-3'>
                                           
                                     Đăng nhập
@@ -94,6 +100,22 @@ if (exist_param("category_id")) {
                                  </button>";
                                         }
                                         ?>
+
+                                    </form>
+                                    <form action="<?= $SITE_URL ?>/account/forgot-password.php">
+                                        <?php if (!isset($_SESSION['user'])) {
+                                            echo " <button type='submit' class='text-gray-700 block w-full px-4 py-2 text-left text-sm uppercase' role='menuitem' tabindex='-1' id='menu-item-3'>
+                                          
+Quên mật khẩu</button>";
+                                        } ?>
+
+                                    </form>
+                                    <form action="<?= $SITE_URL ?>/account/sign-up.php" method="post" enctype="multipart/form-data">
+                                        <?php if (!isset($_SESSION['user'])) {
+                                            echo " <button type='submit' class='text-gray-700 block w-full px-4 py-2 text-left text-sm uppercase' role='menuitem' tabindex='-1' id='menu-item-3'>
+                                          
+Đăng ký</button>";
+                                        } ?>
 
                                     </form>
                                 </div>
