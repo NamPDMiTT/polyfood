@@ -1,9 +1,11 @@
 <?php
 require '../../global.php';
 require '../../dao/users.php';
+
 extract($_REQUEST);
 
 if (exist_param("btn_login")) {
+    $error = [];
     $user = select_by_name_users($user_name);
     if ($user) {
         if ($user['password'] == $password) {
@@ -16,17 +18,16 @@ if (exist_param("btn_login")) {
                 delete_cookie("password");
             }
             $_SESSION["user"] = $user;
-            // header("location: " . "$SITE_URL/page/index.php");
             if (isset($_SESSION['request_uri'])) {
                 header("location: " . $_SESSION['request_uri']);
             }
             header("location: " . "$SITE_URL/page/index.php");
             die;
         } else {
-            $MESSAGE = "Thông tin mật khẩu không chính xác!";
+            $error['password'] = "Thông tin mật khẩu không chính xác!";
         }
     } else {
-        $MESSAGE = "Thông tin tài khoản không chính xác!";
+        $error['user_name'] = "Thông tin tài khoản không chính xác!";
     }
 } else {
     if (exist_param("btn_logoff")) {
@@ -35,7 +36,6 @@ if (exist_param("btn_login")) {
     }
     $user_name = get_cookie("user_name");
     $password = get_cookie("password");
-  
 }
 
 $VIEW_NAME = "account/sign-in-form.php";
