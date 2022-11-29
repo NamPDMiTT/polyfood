@@ -163,7 +163,7 @@ $category_id = $items['category_id'];
                     </div>
                     <div class="text-3xl font text-orange-600 flex space-x-2">
                         <strike class="text-zinc-500 text-xl"><?= $items['price'] ?></strike>
-                        <p class="text-3xl"> -<?= $items['price'] * $items['discount'] ?></p>
+                        <p class="text-3xl"> <?= $items['price'] * $items['discount']/100?></p>
 
                     </div>
                     <span class="inline-block text-gray-400 font">Quốc gia:</span>

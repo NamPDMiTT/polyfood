@@ -114,7 +114,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
                 <?= $cart[1] ?>
               </h1>
               <span class="repcript__product-price font-medium text-sm">
-                <?= $cart[4] ?>
+                <?= $cart[3] ?>
               </span>
             </div>
 

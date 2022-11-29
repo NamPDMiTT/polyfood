@@ -2,8 +2,7 @@
 require_once '/xampp/htdocs/polyfood/site/layout/menu.php';
 $items = $_SESSION['my_cart'];
 $total_price_all = 0;
-echo '<pre>';
-var_dump($_SESSION['my_cart']);
+
 ?>
 <main class="w-full mt-14 px-8 lg:px-24 font-montserrat">
   <div class="header__checkout w-full mb-5 flex items-center gap-5">
