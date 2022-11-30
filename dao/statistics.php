@@ -15,8 +15,8 @@ return pdo_query($sql);
 function statistic_feedbacks(){
     $sql = "SELECT pro.product_id,pro.product_name, "
     . " COUNT(*) total,"
-    . " MIN(fb.time_send) new,"
-    . " MAX(fb.time_send) old"
+    . " MIN(fb.time_send) old,"
+    . " MAX(fb.time_send) new"
     . " FROM feedbacks fb "
     . " JOIN products pro ON pro.product_id=fb.product_id "
     . " JOIN users u ON u.user_id=fb.user_id "
@@ -28,8 +28,8 @@ function statistic_feedbacks(){
 function statistic_comments(){
     $sql = "SELECT po.post_id,"
     . " COUNT(*) total,"
-    . " MIN(cmt.time_send) new,"
-    . " MAX(cmt.time_send) old"
+    . " MIN(cmt.time_send) old,"
+    . " MAX(cmt.time_send) new"
     . " FROM comments cmt "
     . " JOIN posts po ON po.post_id=cmt.post_id "
     . " GROUP BY po.post_id"
@@ -39,10 +39,21 @@ function statistic_comments(){
 function statistic_orders(){
     $sql = "SELECT u.user_id, u.user_name,u.name,"
     . " COUNT(*) total,"
-    . " MIN(o.time_order) new,"
-    . " MAX(o.time_order) old"
+    . " MIN(o.time_order) old,"
+    . " MAX(o.time_order) new"
     . " FROM orders o "
     . " JOIN users u ON u.user_id=o.user_id "
+    . " GROUP BY u.user_id, u.user_name, u.name"
+    . " HAVING total > 0";
+    return pdo_query($sql);
+}
+function statistic_posts(){
+    $sql = "SELECT u.user_id, u.user_name,u.name,"
+    . " COUNT(*) total,"
+    . " MIN(p.time_post) old,"
+    . " MAX(p.time_post) new"
+    . " FROM posts p"
+    . " JOIN users u ON u.user_id=p.user_id "
     . " GROUP BY u.user_id, u.user_name, u.name"
     . " HAVING total > 0";
     return pdo_query($sql);

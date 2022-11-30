@@ -20,14 +20,16 @@ function update_post($user_id, $content, $status, $post_id)
 function post_delete($post_id)
 {
     if (is_array($post_id)) {
-        foreach ($post_id as $ma) {
+        foreach ($post_id as $ma) {           
+                $sql="DELETE FROM post_image WHERE post_id=$ma";
+                pdo_execute($sql);
             $sql = "DELETE FROM posts WHERE post_id=$ma";
-
             pdo_execute($sql);
         }
     } else {
+        $sql="DELETE FROM post_image WHERE post_id=$post_id";
+        pdo_execute($sql);
         $sql = "DELETE FROM posts WHERE post_id=$post_id";
-
         pdo_execute($sql);
     }
 }
@@ -65,6 +67,17 @@ function post_reject()
     $sql = "SELECT * FROM posts WHERE status=0";
     return pdo_query($sql);
 }
+function select_image_by_post_id($post_id)
+{
+    $sql = "SELECT * FROM post_image WHERE post_id=$post_id";
+    return pdo_query($sql);
+}
+function post_select_by_user_id($user_id)
+{
+    $sql = "SELECT * FROM posts WHERE user_id=$user_id";
+    return pdo_query($sql);
+}
+
 //post theo người dùng
 
 function post_by_user($user_id)
@@ -99,4 +112,15 @@ function post_image_select_by_post_id($post_id)
     $sql = "SELECT * FROM post_image WHERE post_id=$post_id";
     return pdo_query($sql);
 }
+function count_image($post_id)
+{
+    $sql = "SELECT count(*) FROM post_image WHERE post_id=$post_id";
+    return pdo_query_value($sql);
+}
+
+function info_post($user_id){
+    $sql = "SELECT p.*,u.user_name,u.name,u.user_id FROM posts p join users u on u.user_id=p.user_id   WHERE p.user_id=$user_id";
+    return pdo_query($sql);
+}
+
 
