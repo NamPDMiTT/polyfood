@@ -8,7 +8,7 @@
         <?php } ?>
         <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
         <li><a href="<?= $SITE_URL ?>/page/product.php">Sản Phẩm</a></li>
-        <li><a href="<?= $SITE_URL ?>/page/blog.php">Blog</a></li>
+        <li><a href="<?= $SITE_URL ?>/post/index.php">Blog</a></li>
         <li>
             <div class="relative inline-block text-left">
                 <div>

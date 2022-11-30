@@ -12,8 +12,8 @@ $STAFF_URL = "$ROOT_URL/staff";
 /*
  * Định nghĩa đường dẫn chứa ảnh sử dụng trong upload
  */
-$IMAGE_DIR = $_SERVER["DOCUMENT_ROOT"] . "$ROOT_URL/content/images";
-
+$IMAGE_DIR = $_SERVER["DOCUMENT_ROOT"] . "$ROOT_URL/content/images/";
+//$_SERVER["DOCUMENT_ROOT"] = /xampp/htdocs
 /*
  * 2 biến toàn cục cần thiết để chia sẻ giữa controller và view
  */

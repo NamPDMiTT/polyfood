@@ -108,7 +108,7 @@
                         <div class="product__info  flex flex-col gap-1 rounded-b-xl w-full p-3 border border-gray-300">
                             <a href="<?= $SITE_URL ?>/page/detail.php?product_id=<?= $product_id ?>">
                                 <h2 class="text-gray-900 font-medium title-font"><?= $product_name ?></h2>
-                                <p class="leading-relaxed text-xs limited__content-2">
+                                <p class="leading-relaxed text-xs limited__content-2 h-10">
                                     <?= $detail ?>
                                 </p>
                                 <div class="product__cart-rate flex justify-between items-center my-1">
