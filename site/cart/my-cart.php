@@ -27,7 +27,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
         <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">
           Sản phẩm
         </h3>
-        <h3 class="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">
+        <h3 class="font-semibold text-gray-600 text-xs uppercase w-[17%] text-center">
           Số lượng
         </h3>
         <h3 class="font-semibold text-gray-600 text-xs uppercase w-1/5 text-center">
@@ -60,7 +60,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
             </div>
           </div>
           <form action="index.php?btn_re_quantity" method="POST">
-            <div class="flex justify-center w-1/5">
+            <div class="flex justify-center w-[17%]">
               <button name="choose" value="0"> <svg class="fill-current text-gray-600 w-3" viewBox="0 0 448 512">
                   <path d="M416 208H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h384c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z" />
                 </svg> </button>
