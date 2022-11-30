@@ -1,5 +1,7 @@
 <?php
 require_once "/xampp/htdocs/polyfood/global.php";
+check_login();
+require_once "/xampp/htdocs/polyfood/site/layout/header.php";
 require_once '/xampp/htdocs/polyfood/site/layout/menu.php';
 ?>
 
