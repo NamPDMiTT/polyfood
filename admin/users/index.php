@@ -25,7 +25,8 @@ if (exist_param("btn_insert")) {
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật thất bại!";
     }
-    $VIEW_NAME = "../users/edit.php";
+    $items = select_all_users();
+    $VIEW_NAME = "../users/list.php";
 } else if (exist_param("btn_delete")) {
     try {
         delete_users($user_id);

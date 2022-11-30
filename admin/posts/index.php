@@ -1,17 +1,37 @@
 <?php
-require_once '/xampp/htdocs/polyfood-main/global.php';
-require_once '/xampp/htdocs/poly-food/dao/posts.php';
-check_login();
-extract($_REQUEST);
-if(exist_param('btn_insert')) {
-    try {
-        insert_post($user_id, $content, $time_post, $status);
-        $MESSAGE = "Thêm bài viết thành công";
-        unset($user_id, $content, $time_post, $status, $post_id);
-    } catch (Exception $exc) {
-        $MESSAGE = "Thêm bài viết thất bại";
-    }
-    $VIEW_NAME ="../posts/new.php";
-}
+require_once '/xampp/htdocs/polyfood/global.php';
+require_once '/xampp/htdocs/polyfood/dao/posts.php';
+require_once '/xampp/htdocs/polyfood/dao/statistics.php';
 
-?>
+check_login();
+
+
+//--------------------------------//
+
+extract($_REQUEST);
+if(exist_param("user_id")){
+    if(exist_param("btn_delete")){
+        try {
+            // var_dump($post_id);
+            post_delete($post_id);
+            $MESSAGE = "Xóa thành công!";
+        } 
+        catch (Exception $exc) {
+            $MESSAGE = "Xóa thất bại!";
+        }
+    }
+    $items = post_select_by_user_id($user_id);
+    if(count($items) == 0){
+        $items = statistic_posts();
+        $VIEW_NAME = "../posts/list.php";
+    }
+    else{
+        $items = info_post($user_id);
+        $VIEW_NAME = "../posts/detail.php";
+    }
+}
+else{
+    $items = statistic_posts();
+    $VIEW_NAME = "../posts/list.php";
+}
+require "../page/layout.php";
