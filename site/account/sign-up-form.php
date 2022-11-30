@@ -12,11 +12,7 @@
               <input type="text" name="user_name" id="username" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
                   focus:border-orange-500 focus:outline-none" placeholder="Tên đăng nhập" value="<?= $user_name ?>" />
               <span class="text-red-500 text-xs">
-                <?php
-                if (isset($error['user_name'])) {
-                  echo $error['user_name'];
-                }
-                ?>
+                <?php echo isset($error['user_name']) ? $error['user_name'] : ''; ?>
               </span>
             </div>
 
@@ -25,11 +21,7 @@
               <input type="text" name="name" id="name" placeholder="Họ và tên" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
                   focus:border-orange-500 focus:outline-none" value="<?= $name ?>" />
               <span class="text-red-500 text-xs">
-                <?php
-                if (isset($error['name'])) {
-                  echo $error['name'];
-                }
-                ?>
+                <?php echo isset($error['name']) ? $error['name'] : ''; ?>
               </span>
             </div>
 
@@ -38,11 +30,7 @@
               <input type="password" name="password" id="password" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm 
                   focus:border-orange-500 focus:outline-none" placeholder="Mật khẩu" value="<?= $password ?>" />
               <span class="text-red-500 text-xs">
-                <?php
-                if (isset($error['password'])) {
-                  echo $error['password'];
-                }
-                ?>
+                <?php echo isset($error['password']) ? $error['password'] : ''; ?>
               </span>
             </div>
 
@@ -50,11 +38,7 @@
               <label for="password2">Xác nhận mật khẩu</label>
               <input type="password" name="password2" id="password2" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="Xác nhận mật khẩu" value="<?= $password2 ?>" />
               <span class="text-red-500 text-xs">
-                <?php
-                if (isset($error['password2'])) {
-                  echo $error['password2'];
-                }
-                ?>
+                <?php echo isset($error['password2']) ? $error['password2'] : ''; ?>
               </span>
             </div>
 
@@ -62,11 +46,7 @@
               <label for="email">Email</label>
               <input type="email" name="email" id="email" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="Email" value="<?= $email ?>" />
               <span class="text-red-500 text-xs">
-                <?php
-                if (isset($error['email'])) {
-                  echo $error['email'];
-                }
-                ?>
+                <?php echo isset($error['email']) ? $error['email'] : ''; ?>
               </span>
             </div>
 
@@ -74,11 +54,7 @@
               <label for="phone">Số điện thoại</label>
               <input type="tel" name="phone" id="phone" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm focus:border-orange-500 focus:outline-none" placeholder="Số điện thoại" value="<?= $phone ?>" />
               <span class="text-red-500 text-xs">
-                <?php
-                if (isset($error['phone'])) {
-                  echo $error['phone'];
-                }
-                ?>
+                <?php echo isset($error['phone']) ? $error['phone'] : ''; ?>
               </span>
             </div>
 

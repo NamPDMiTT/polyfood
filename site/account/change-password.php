@@ -14,13 +14,21 @@ function users_exist_by_password_id($password, $user_id)
 
 if (exist_param("btn_change")) {
     $error = [];
+    $password2 = trim($password2);
+    $flag = true;
     if (strlen($password2) < 6) {
         $error['password2'] = "Mật khẩu mới phải có ít nhất 6 ký tự!";
-    } else if (users_exist_by_password_id($password2, $user_id)) {
+        $flag = false;
+    }
+    if (users_exist_by_password_id($password2, $user_id)) {
         $error['password2'] = "Mật khẩu mới phải khác mật khẩu hiện tại!";
-    } else if ($password2 != $password3) {
+        $flag = false;
+    }
+    if ($password2 != $password3) {
         $error['password3'] = "Xác nhận mật khẩu mới không đúng!";
-    } else {
+        $flag = false;
+    }
+    if ($flag) {
         $user = select_by_name_users($user_name);
         if ($user) {
             if ($user['password'] == $password) {
@@ -28,6 +36,8 @@ if (exist_param("btn_change")) {
                     users_change_password_by_username($user_name, $password2);
                     $_SESSION['user'] = select_by_name_users($user_name);
                     $MESSAGE = "Đổi mật khẩu thành công!";
+                    // header("location: " . "$SITE_URL/page/index.php");
+                    // die;
                 } catch (Exception $exc) {
                     $MESSAGE = "Đổi mật khẩu thất bại !";
                 }

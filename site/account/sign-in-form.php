@@ -20,11 +20,7 @@
                 <input type="password" name="password" id="password" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm 
                   focus:border-orange-500 focus:outline-none" placeholder="Mật khẩu" value="<?= $password ?>" />
                 <span class="text-red-500 text-xs">
-                    <?php
-                    if (isset($error['password'])) {
-                        echo $error['password'];
-                    }
-                    ?>
+                    <?php echo isset($error['password']) ? $error['password'] : ''; ?>
                 </span>
                 <span class="text-red-500 text-xs">
                     <?php

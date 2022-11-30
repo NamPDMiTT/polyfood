@@ -9,15 +9,10 @@
             }
             ?>
             <div class="form__group flex flex-col gap-2">
-                <label for="user_name">Tên đăng nhập</label>
-                <input type="text" name="user_name" id="user_name" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
-                  focus:border-orange-500 focus:outline-none" placeholder="Tên đăng nhập" value="<?= $user_name ?>" />
+                <input type="hidden" name="user_name" id="user_name" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
+                  focus:border-orange-500 focus:outline-none" placeholder="Tên đăng nhập" value="<?= $user_name ?>" readonly />
                 <span class="text-red-500 text-xs">
-                    <?php
-                    if (isset($error['user_name'])) {
-                        echo $error['user_name'];
-                    }
-                    ?>
+                    <?php echo isset($error['user_name']) ? $error['user_name'] : ''; ?>
                 </span>
             </div>
 
@@ -26,11 +21,7 @@
                 <input type="password" name="password" id="password" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
                   focus:border-orange-500 focus:outline-none" placeholder="Mật khẩu hiện tại" value="<?= $password ?>" />
                 <span class="text-red-500 text-xs">
-                    <?php
-                    if (isset($error['password'])) {
-                        echo $error['password'];
-                    }
-                    ?>
+                    <?php echo isset($error['password']) ? $error['password'] : ''; ?>
                 </span>
             </div>
 
@@ -39,11 +30,7 @@
                 <input type="password" name="password2" id="password2" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
                   focus:border-orange-500 focus:outline-none" placeholder="Mật khẩu mới" value="<?= $password2 ?>" />
                 <span class="text-red-500 text-xs">
-                    <?php
-                    if (isset($error['password2'])) {
-                        echo $error['password2'];
-                    }
-                    ?>
+                    <?php echo isset($error['password2']) ? $error['password2'] : ''; ?>
                 </span>
             </div>
 
@@ -53,11 +40,7 @@
                 <input type="password" name="password3" id="password3" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-sm
                   focus:border-orange-500 focus:outline-none" placeholder="Xác nhận mật khẩu mới" value="<?= $password3 ?>" />
                 <span class="text-red-500 text-xs">
-                    <?php
-                    if (isset($error['password3'])) {
-                        echo $error['password3'];
-                    }
-                    ?>
+                    <?php echo isset($error['password3']) ? $error['password3'] : ''; ?>
                 </span>
             </div>
             <div class="form__group flex flex-col justify-center items-center gap-3">
