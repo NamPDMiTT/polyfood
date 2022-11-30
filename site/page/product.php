@@ -45,7 +45,7 @@ if (exist_param("category_id")) {
                     <?php } ?>
                     <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
                     <li><a href="<?= $SITE_URL ?>/page/product.php">Sản Phẩm</a></li>
-                    <li><a href="<?= $SITE_URL ?>/page/blog.php">Blog</a></li>
+                    <li><a href="<?= $SITE_URL ?>/post/index.php">Blog</a></li>
                     <li>
                         <div class="relative inline-block text-left">
                             <div>
@@ -165,7 +165,7 @@ Quên mật khẩu</button>";
 
     <section class="max-w-6xl mx-auto">
         <div class="grid md:grid-cols-[190px,auto] mt-20 p-4">
-            <div class="hidden md:block font">
+            <div class="hidden md:block ">
                 <h1 class="text-3xl ">Category</h1>
                 <div class="bg-black py-0.5 my-6"></div>
                 <div class="">
@@ -261,7 +261,7 @@ Quên mật khẩu</button>";
             <div class="px-4">
                 <div class="">
                     <div class="products__title text-center">
-                        <p class="text-2xl font-semibold text-black mt-5 font">
+                        <p class="text-2xl font-semibold text-black mt-5 ">
                             " Ăn đã – chuyện khác để sau "
                         </p>
                     </div>
@@ -272,18 +272,19 @@ Quên mật khẩu</button>";
                     <?php foreach ($items as $item) : ?>
                         <?php extract($item); ?>
                         <div class="p-4 shadow__products  rounded-2xl bg-white space-y-2">
-                            <a href="<?= $SITE_URL ?>/page/detail.php?product_id=<?= $product_id ?>">
+                            <a class="mt-2" href="<?= $SITE_URL ?>/page/detail.php?product_id=<?= $product_id ?>">
                                 <img class="min-w-[150px] h-[150px] lg:h-[180px] object-cover object-contain" src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" alt="" class="rounded">
-                                <h2 class="text-xl font"><?= $product_name ?></h2>
+                                <h2 class="text-sm truncate"><?= $product_name ?></h2>
                                 <p class="text-xs font-semibold flex justify-between  text-red-500 mt-2">
                                     <span class="text-sm text-red-600">★★★★★</span><?= number_format($price, 0, '', '.') ?>đ
                                 </p>
-                                <p class="text-gray-500 text-xs mt-1 limited__content-2  font">
+                                <p class="leading-relaxed text-xs limited__content-2 h-10">
                                     <?= $detail ?>
                                 </p>
                             </a>
-                            <form action="<?= $SITE_URL ?>/cart/index.php" method="post">
-                                <input type="hidden" value="<?= $product_id ?>">
+                            <form action="<?= $SITE_URL ?>/cart/index.php?btn_order" method="post">
+                                <input type="hidden" name="product_id" value="<?= $product_id ?>">
+                                <input type="hidden" name="image" value="<?= $image ?>">
                                 <button class="btn__add w-full bg-orange-600 text-white px-2 py-2 rounded">
                                     Thêm vào giỏ
                                 </button>
@@ -299,26 +300,42 @@ Quên mật khẩu</button>";
             </div>
         </div>
         <div class="py-14">
-            <ul class="paging flex justify-center mt-10 gap-5">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 p-1  text-white rounded-[50%] bg-orange-600">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
-                </svg>
+            <div class="text-center">
+                <div class="inline-flex rounded-xl border border-[#e4e4e4] bg-white p-4">
+                    <ul class="-mx-[6px] flex items-center">
+                        <li class="px-[6px]">
+                            <a href="javascript:void(0)" class="hover:bg-primary hover:border-primary flex h-9 w-9 items-center justify-center rounded-md border border-[#EDEFF1] text-xs text-[#838995] hover:text-white">
+                                Đầu
+                            </a>
+                        </li>
+                        <li class="px-[6px] ">
+                            <a href="javascript:void(0)" class="hover:bg-primary hover:border-primary flex h-9 w-9 items-center justify-center rounded-md border border-[#EDEFF1] text-base text-[#838995] hover:text-white">
+                                <span>
+                                    <svg width="8" height="15" viewBox="0 0 8 15" class="fill-current stroke-current">
+                                        <path d="M7.12979 1.91389L7.1299 1.914L7.1344 1.90875C7.31476 1.69833 7.31528 1.36878 7.1047 1.15819C7.01062 1.06412 6.86296 1.00488 6.73613 1.00488C6.57736 1.00488 6.4537 1.07206 6.34569 1.18007L6.34564 1.18001L6.34229 1.18358L0.830207 7.06752C0.830152 7.06757 0.830098 7.06763 0.830043 7.06769C0.402311 7.52078 0.406126 8.26524 0.827473 8.73615L0.827439 8.73618L0.829982 8.73889L6.34248 14.6014L6.34243 14.6014L6.34569 14.6047C6.546 14.805 6.88221 14.8491 7.1047 14.6266C7.30447 14.4268 7.34883 14.0918 7.12833 13.8693L1.62078 8.01209C1.55579 7.93114 1.56859 7.82519 1.61408 7.7797L1.61413 7.77975L1.61729 7.77639L7.12979 1.91389Z" stroke-width="0.3"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
 
-                <li>
-                    <a class="px-4 py-2 rounded-3xl shadow-md border text-gray-500" href="">1</a>
-                </li>
-                <li>
-                    <a class="px-4 py-2 rounded-3xl shadow-md border text-gray-500" href="">2</a>
-                </li>
-                <li>
-                    <a class="px-4 py-2 rounded-3xl shadow-md border text-gray-500" href="">3</a>
-                </li>
+                        <li class="px-[6px]">
+                            <a href="javascript:void(0)" class="hover:bg-primary hover:border-primary flex h-9 w-9 items-center justify-center rounded-md border border-[#EDEFF1] text-base text-[#838995] hover:text-white">
+                                <span>
+                                    <svg width="8" height="15" viewBox="0 0 8 15" class="fill-current stroke-current">
+                                        <path d="M0.870212 13.0861L0.870097 13.086L0.865602 13.0912C0.685237 13.3017 0.684716 13.6312 0.895299 13.8418C0.989374 13.9359 1.13704 13.9951 1.26387 13.9951C1.42264 13.9951 1.5463 13.9279 1.65431 13.8199L1.65436 13.82L1.65771 13.8164L7.16979 7.93248C7.16985 7.93243 7.1699 7.93237 7.16996 7.93231C7.59769 7.47923 7.59387 6.73477 7.17253 6.26385L7.17256 6.26382L7.17002 6.26111L1.65752 0.398611L1.65757 0.398563L1.65431 0.395299C1.454 0.194997 1.11779 0.150934 0.895299 0.373424C0.695526 0.573197 0.651169 0.908167 0.871667 1.13067L6.37922 6.98791C6.4442 7.06886 6.43141 7.17481 6.38592 7.2203L6.38587 7.22025L6.38271 7.22361L0.870212 13.0861Z" stroke-width="0.3"></path>
+                                    </svg>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="px-[6px]">
+                            <a href="javascript:void(0)" class="hover:bg-primary hover:border-primary flex h-9 w-9 items-center justify-center rounded-md border border-[#EDEFF1] text-xs text-[#838995] hover:text-white">
+                                Cuối
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 p-1 text-white rounded-[50%] bg-orange-600">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-
-        </div>
     </section>
 
     <footer class="text-gray-700 pt-24 mx-auto">
@@ -496,7 +513,7 @@ Quên mật khẩu</button>";
                 </a>
             </li>
             <li>
-                <a href="<?= $SITE_URL ?>/page/blog.php">
+                <a href="<?= $SITE_URL ?>/post/index.php">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 sm:w-10">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
                     </svg>
