@@ -283,7 +283,7 @@ Quên mật khẩu</button>";
                                 <img class="min-w-[150px] h-[150px] lg:h-[180px] object-cover object-contain" src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" alt="" class="rounded">
                                 <h2 class="text-sm truncate"><?= $product_name ?></h2>
                                 <p class="text-xs font-semibold flex justify-between  text-red-500 mt-2">
-                                    <span class="text-sm text-red-600">★★★★★</span><?= number_format($price, 0, '', '.') ?>đ
+                                    <span class="text-sm text-red-600">★★★★★</span><?= number_format($price*(1-$discount/100), 0, '', '.') ?>đ
                                 </p>
                                 <p class="leading-relaxed text-xs limited__content-2 h-10">
                                     <?= $detail ?>
