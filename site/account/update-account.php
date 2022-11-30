@@ -12,7 +12,7 @@ if (exist_param("btn_update")) {
     // var_dump($avatar);
     // die;
     try {
-        update_users($user_name, $password, $name, $email, $phone, $image, $role, $user_id);
+        update_users($user_name, $password, $name, $email, $phone, $image, $role_id, $user_id);
         $MESSAGE = "Cập nhật thông tin thành viên thành công!";
         $_SESSION['user'] = select_by_name_users($user_name);
         // var_dump($_SESSION['user']);

@@ -2,6 +2,7 @@
 require_once '/xampp/htdocs/polyfood/global.php';
 require_once '/xampp/htdocs/polyfood/dao/orders.php';
 require_once '/xampp/htdocs/polyfood/dao/products.php';
+check_login();
 extract($_REQUEST);
 if (!isset($_SESSION['my_cart'])) {
     $_SESSION['my_cart'] = [];
@@ -43,7 +44,6 @@ if (exist_param("btn_order")) {
 
             $items_tmp = products_select_by_id($product_id);
             extract($items_tmp);
-            echo $_SESSION['my_cart'][$cart]['quantity'];
             $_SESSION['my_cart'][$cart]['quantity'] += 1;
             $quantity = $_SESSION['my_cart'][$cart]['quantity'];
             update_product_cart($quantity, $quantity * $price, $product_id);
@@ -113,6 +113,7 @@ if (exist_param("btn_order")) {
         extract($cart);
         insert_order($product_id, $quantity, $user_id, $note, $status);
     }
+    unset($_SESSION['my_cart']);
 } else {
     $VIEW_NAME = "my-cart.php";
 }

@@ -52,18 +52,18 @@
   <!-- End header -->
   <main style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px
 #bebebe, -35px -35px 70px #ffffff; " class="w-full  p-5 mt-5 bg-gray-100">
-    <section class="list__accounts w-full">
-      <section class="list__accounts-title  flex items-center gap-2">
+    <section class="list__comments w-full">
+      <section class="list__comments-title  flex items-center gap-2">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-gray-500">
           <path fill-rule="evenodd" d="M2.625 6.75a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875 0A.75.75 0 018.25 6h12a.75.75 0 010 1.5h-12a.75.75 0 01-.75-.75zM2.625 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zM7.5 12a.75.75 0 01.75-.75h12a.75.75 0 010 1.5h-12A.75.75 0 017.5 12zm-4.875 5.25a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875 0a.75.75 0 01.75-.75h12a.75.75 0 010 1.5h-12a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
         </svg>
 
         <h1 class="text-left text-xl text-gray-500 uppercase">
-          LIST accounts
+          LIST comments
         </h1>
       </section>
       <form action="index.php" method="post">
-        <div class="list__accounts-table w-full mt-4">
+        <div class="list__comments-table w-full mt-4">
           <table class="w-full text-center rounded-md shadow-md my-3">
             <thead class="boder bg-gray-200 px-2 rounded-t-md">
               <tr>

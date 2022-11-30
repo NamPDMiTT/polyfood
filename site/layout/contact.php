@@ -82,14 +82,14 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3723.863855883132!2d105.74459305018287!3d21.038132792766206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x313454b991d80fd5%3A0x53cefc99d6b0bf6f!2zVHLGsOG7nW5nIENhbyDEkeG6s25nIEZQVCBQb2x5dGVjaG5pYw!5e0!3m2!1svi!2s!4v1669010289456!5m2!1svi!2s" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0" title="map" scrolling="no"></iframe>
     </div>
     <div class="container px-5 py-24 mx-auto flex">
-        <form style="
+        <form  style="
             background: rgba(255, 255, 255, 0.8);
             box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
             backdrop-filter: blur(2.5px);
             -webkit-backdrop-filter: blur(2.5px);
             border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.18);
-          " class="lg:w-1/3 md:w-1/2 rounded-3xl bg-no-repeat bg-center bg-cover md:ml-auto w-full mt-10 md:mt-0 relative z-10" action="index.php">
+          " class="lg:w-1/3 md:w-1/2 rounded-3xl bg-no-repeat bg-center bg-cover md:ml-auto w-full mt-10 md:mt-0 relative z-10" action="../page/contact.php" method="post">
             <div class="form__group rounded-3xl w-full h-full flex flex-col p-8">
                 <h2 class="text-black text-lg mb-1 font-medium title-font">
                     Liên hệ
@@ -104,8 +104,8 @@
                 -webkit-backdrop-filter: blur(2.5px);
                 border-radius: 10px;
                 border: 1px solid rgba(255, 255, 255, 0.18);
-              " class="rounded border focus:outline-none focus:border-orange-600 text-base px-4 py-2 mb-4" placeholder="Email" type="email" />
-                <textarea style="
+              " class="rounded border focus:outline-none focus:border-orange-600 text-base px-4 py-2 mb-4" placeholder="Email" name="email" type="email" />
+                <textarea name="content" style="
                 background: rgba(255, 255, 255, 0.2);
                 box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
                 backdrop-filter: blur(2.5px);
