@@ -6,10 +6,12 @@ extract($_REQUEST);
 $cates = categories_select_all();
 if (exist_param("category_id")) {
     $items = products_select_by_categories($category_id);
-    $VIEW_NAME = "site/page/product.php";
-} else {
+} else if(exist_param("search_product")){
+  $items=products_select_keyword($keyword);
+
+}
+else {
     $items = products_select_all();
-    $VIEW_NAME = "site/page/index.php";
 }
 ?>
 
@@ -170,6 +172,11 @@ Quên mật khẩu</button>";
                 <div class="bg-black py-0.5 my-6"></div>
                 <div class="">
                     <ul class="space-y-4">
+                    <a href="<?= $SITE_URL ?>/page/product.php">
+                                <li class="rounded py-2 px-2 hover:bg-gray-200">
+                                    Tất cả
+                                </li>
+                            </a>
 
                         <?php foreach ($cates as $cate) : ?>
                             <?php extract($cate) ?>
@@ -437,12 +444,12 @@ Quên mật khẩu</button>";
 
         <div class="border-t border-gray-200">
             <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
-                <form class="search__form flex md:flex-no-wrap flex-wrap justify-center md:justify-start">
-                    <input style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)" class="sm:w-64 w-40 bg-gray-100 rounded sm:mr-4 mr-2 border focus:outline-none focus:border-orange-600 text-base py-2 px-4" placeholder="Nhập tên món ăn..." type="text" />
-                    <button style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)" class="inline-flex text-white bg-orange-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                        Tìm kiếm
-                    </button>
-                </form>
+            <form class="search__form flex md:flex-no-wrap flex-wrap justify-center md:justify-start" action="./product.php" method="post">
+                <input name="keyword" style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)" class="sm:w-64 w-40 bg-gray-100 rounded sm:mr-4 mr-2 border focus:outline-none focus:border-orange-600 text-base py-2 px-4" placeholder="Nhập tên món ăn..." type="text" />
+                <button name="search_product" style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)" class="inline-flex text-white bg-orange-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
+                    Tìm kiếm
+                </button>
+            </form>
                 <span class="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
                     <a class="text-gray-500">
                         <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">

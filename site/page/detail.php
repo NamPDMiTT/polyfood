@@ -343,12 +343,14 @@ Quên mật khẩu</button>";
 
         <div class="border-t border-gray-200">
             <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
-                <form class="search__form flex md:flex-no-wrap flex-wrap justify-center md:justify-start">
-                    <input style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)" class="sm:w-64 w-40 bg-gray-100 rounded sm:mr-4 mr-2 border focus:outline-none focus:border-orange-600 text-base py-2 px-4" placeholder="Nhập tên món ăn..." type="text" />
-                    <button style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)" class="inline-flex text-white bg-orange-600 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">
-                        Tìm kiếm
-                    </button>
-                </form>
+            <div>
+        <div class="container mx-auto py-4 px-5 flex justify-center items-center sm:flex-row flex-col">
+            <p class="text-gray-500 text-sm text-center sm:text-left">
+                © 2022 polyfood —
+                <a href="#" class="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">@fptpolytechnic</a>
+            </p>
+        </div>
+    </div>
                 <span class="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
                     <a class="text-gray-500">
                         <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
@@ -373,14 +375,6 @@ Quên mật khẩu</button>";
                         </svg>
                     </a>
                 </span>
-            </div>
-        </div>
-        <div class="bg-gray-200">
-            <div class="container mx-auto py-4 px-5 flex justify-center items-center sm:flex-row flex-col">
-                <p class="text-gray-500 text-sm text-center sm:text-left">
-                    © 2022 polyfood —
-                    <a href="#" class="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">@fptpolytechnic</a>
-                </p>
             </div>
         </div>
     </footer>
