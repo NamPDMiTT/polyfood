@@ -99,7 +99,7 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">MENU</label>
 
-                            <select name="category_id" class="mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm  bg-gray-100 rounded-md text-gray-500">
+                            <select name="menu_id" class="mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm  bg-gray-100 rounded-md text-gray-500">
                                 <?php foreach ($menus as $menu) : ?>
                                     <?php extract($menu) ?>
                                     <option value="<?= $menu_id ?>" <?= $menu_id_check==$menu_id ? "selected" : "" ?>><?= $menu_name ?></option>
