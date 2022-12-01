@@ -37,7 +37,7 @@
 
                 <h1 class="text-left text-xl text-gray-500 uppercase">LIST accounts</h1>
             </section>
-            <form action="index.php?action=deleteSelectedAccount" method="post">
+            <form action="index.php" method="post">
                 <div class="list__accounts-table w-full mt-4">
                     <table class="w-full text-center rounded-md shadow-md my-3">
                         <thead class="boder bg-gray-200 px-2 rounded-t-md">
