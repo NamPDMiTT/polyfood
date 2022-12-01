@@ -12,7 +12,9 @@ if (exist_param("btn_insert")) {
         insert_users($user_name, $password, $name, $email, $phone, $image, $role_id);
         unset($user_name, $password, $name, $email, $phone, $image, $role_id);
         $MESSAGE = "Thêm mới thành công!";
+
     } catch (Exception $exc) {
+        
         $MESSAGE = "Thêm mới thất bại!";
     }
     $VIEW_NAME = "../users/new.php";
@@ -25,7 +27,8 @@ if (exist_param("btn_insert")) {
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật thất bại!";
     }
-    $VIEW_NAME = "../users/edit.php";
+    $items = select_all_users();
+    $VIEW_NAME = "../users/list.php";
 } else if (exist_param("btn_delete")) {
     try {
         delete_users($user_id);

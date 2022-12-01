@@ -62,7 +62,7 @@
           LIST orders
         </h1>
       </section>
-      <form action="index.php?post_id=<?=$post_id?>" method="post">
+      <form action="index.php?user_id=<?=$user_id?>" method="post">
       <h3>User Name: <?= $items[0]['name']?></h3>
         <div class="list__accounts-table w-full mt-4">
           <table class="w-full text-center rounded-md shadow-md my-3">
@@ -177,6 +177,10 @@
           <button style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow:
 1.5px 1.5px 2.5px #babecc, -2px -2px 5px #fff;" type="submit" name="btn_delete" class=" p-3  border rounded-md w-[120px] text-center   text-xs hover:bg-gray-200 leading-4 ">
             Delete selected
+          </button>
+          <button style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow:
+1.5px 1.5px 2.5px #babecc, -2px -2px 5px #fff;" type="submit" name="btn_list" class=" p-3  border rounded-md w-[120px] text-center   text-xs hover:bg-gray-200 leading-4 ">
+            List
           </button>
           <input type="checkbox" hidden id="checkAll" name="checkAll" />
         </div>
