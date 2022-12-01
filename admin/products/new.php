@@ -58,10 +58,14 @@ text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
 rounded-md text-gray-500
 " />
             </div>
-            <div class="form__group flex flex-col ">
-              <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">PRODUCT NAME</label>
-              <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="product_name" id="name" placeholder="Product name" />
+            <div class="form__group flex flex-col">
+              <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="product_name">PRODUCT NAME</label>
+              <input type="text" class="form__input-add__prodcut mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md text-gray-500" name="product_name" id="product_name" placeholder="Product name" value="<?= $product_name ?>" />
+              <span class="text-red-500 text-xs">
+                <?= isset($error['product_name']) ? $error['product_name'] : ''; ?>
+              </span>
             </div>
+
             <div class="form__group flex flex-col ">
               <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">CATEGORY</label>
 
@@ -86,23 +90,34 @@ rounded-md text-gray-500
             </div>
             <div class="form__group flex flex-col ">
               <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">PRICE</label>
-              <input type="number" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="price" id="name" placeholder="Price" />
+              <input type="number" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="price" id="name" placeholder="Price" value="<?= $price ?>" />
+              <span class="text-red-500 text-xs">
+                <?= isset($error['price']) ? $error['price'] : ''; ?>
+              </span>
             </div>
             <div class="form__group flex flex-col ">
               <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">DISCOUNT</label>
-              <input type="number" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="discount" id="name" placeholder="Discount" />
+              <input type="number" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="discount" id="name" placeholder="Discount" value="<?= $discount ?>" />
+              <span class="text-red-500 text-xs">
+                <?= isset($error['discount']) ? $error['discount'] : ''; ?>
+              </span>
             </div>
             <div class="form__group flex flex-col">
               <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="quantity">Quantity</label>
-              <input type="number" min="0" class="form__input-add__prodcut mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md text-gray-500" name="quantity" id="quantity" placeholder="Quantity" value="" />
+              <input type="number" min="0" class="form__input-add__prodcut mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md text-gray-500" name="quantity" id="quantity" placeholder="Quantity" value="<?= $quantity ?>" />
+              <span class="text-red-500 text-xs">
+                <?= isset($error['quantity']) ? $error['quantity'] : ''; ?>
+              </span>
             </div>
             <div class="form__group flex flex-col ">
               <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">IMAGE</label>
               <input type="file" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="image" id="name" />
             </div>
             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="detail">Detail</label>
-            <textarea cols="30" rows="10" name="detail" id="detail" class="mt-2 p-2 px-3   shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md  text-gray-500">
-                         </textarea>
+            <textarea cols="30" rows="10" name="detail" id="detail" class="mt-2 p-2 px-3   shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 rounded-md  text-gray-500"><?= $detail ?></textarea>
+            <span class="text-red-500 text-xs">
+              <?= isset($error['detail']) ? $error['detail'] : ''; ?>
+            </span>
             <div class="form__add-category--list-button w-full mt-7 flex gap-3 justify-center items-center">
               <button type="submit" name="btn_insert" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
 2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center

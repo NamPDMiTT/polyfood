@@ -3,14 +3,7 @@ require '../../global.php';
 require '../../dao/users.php';
 
 check_login();
-
 extract($_REQUEST);
-
-function users_exist_by_password_id($password, $user_id)
-{
-    $sql = "SELECT count(*) FROM users WHERE password='$password' AND user_id = $user_id";
-    return pdo_query_value($sql) > 0;
-}
 
 if (exist_param("btn_change")) {
     $error = [];

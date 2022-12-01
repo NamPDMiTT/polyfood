@@ -59,18 +59,30 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">USER NAME</label>
                             <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="user_name" id="name" placeholder="user name" value="<?= $user_name ?>" />
+                            <span class="text-red-500 text-xs">
+                                <?= isset($error['user_name']) ? $error['user_name'] : ''; ?>
+                            </span>
                         </div>
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">FULL NAME</label>
                             <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="name" id="name" placeholder="full name" value="<?= $name ?>" />
+                            <span class="text-red-500 text-xs">
+                                <?= isset($error['name']) ? $error['name'] : ''; ?>
+                            </span>
                         </div>
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">PASSWORD</label>
                             <input type="password" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="password" id="name" placeholder="******" value="<?= $password ?>" />
+                            <span class="text-red-500 text-xs">
+                                <?= isset($error['password']) ? $error['password'] : ''; ?>
+                            </span>
                         </div>
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">EMAIL</label>
                             <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="email" id="name" placeholder="your email" value="<?= $email ?>" />
+                            <span class="text-red-500 text-xs">
+                                <?= isset($error['email']) ? $error['email'] : ''; ?>
+                            </span>
                         </div>
                         <div class="form__group flex flex-col ">
 
@@ -81,6 +93,9 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">PHONE</label>
                             <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="phone" id="name" placeholder="your phone number" value="<?= $phone ?>" />
+                            <span class="text-red-500 text-xs">
+                                <?= isset($error['phone']) ? $error['phone'] : ''; ?>
+                            </span>
                         </div>
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">ROLE</label>

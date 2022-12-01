@@ -42,6 +42,18 @@ function products_exist($product_id){
     $sql = "SELECT count(*) FROM products WHERE product_id=$product_id";
     return pdo_query_value($sql) > 0;
 }
+
+function products_name_exist($product_name)
+{
+    $sql = "SELECT count(*) FROM products WHERE product_name='$product_name'";
+    return pdo_query_value($sql) > 0;
+}
+
+function products_name_exist_id($product_name, $product_id)
+{
+    $sql = "SELECT count(*) FROM products WHERE product_name='$product_name' AND product_id != $product_id";
+    return pdo_query_value($sql) > 0;
+}
     
 function products_view_up($product_id){
     $sql = "UPDATE products SET view = view + 1 WHERE product_id=$product_id";
