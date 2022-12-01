@@ -127,7 +127,7 @@
                 </td>
                 <td class="p-2 whitespace-nowrap">
                   <p class="text-xs text-gray-900 flex justify-center">
-                    <img src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" class="w-20 h-20 object-cover" type=""  alt="">
+                    <img src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" class="w-20 h-20 object-cover" alt="">
                   </p>
                 </td>
                 <td class="p-2 w-20 ">

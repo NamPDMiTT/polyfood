@@ -24,6 +24,9 @@ if(exist_param("user_id")){
     if(count($items) == 0){
         $items = statistic_posts();
         $VIEW_NAME = "../posts/list.php";
+    }else if(exist_param("btn_list")){
+        $items = statistic_posts();
+        $VIEW_NAME = "../posts/list.php";
     }
     else{
         $items = info_post($user_id);
