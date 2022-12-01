@@ -51,4 +51,12 @@ function info_feedback($product_id){
     $sql = "SELECT u.user_name,pro.product_name, fb.* FROM feedbacks fb join products pro on pro.product_id=fb.product_id join users u on fb.user_id=u.user_id WHERE fb.product_id=$product_id";
     return pdo_query($sql);
 }
+function join_feedbacks_user(){
+    $sql = "SELECT f.*,u.image as img_user,u.name as name_user FROM feedbacks f join users u on u.user_id = f.user_id";
+    return pdo_query($sql);
+}
+function count_feedbacks($product_id){
+    $sql = "SELECT count(*) FROM feedbacks WHERE product_id=$product_id";
+    return pdo_query_value($sql);
+}
 ?>
