@@ -5,13 +5,12 @@ require_once '/xampp/htdocs/polyfood/dao/feedbacks.php';
 
 $product_id = $_GET['product_id'];
 
-$user_feedbacks = join_feedbacks_user();
+$user_feedbacks = join_feedbacks_user($product_id);
 $count = count_feedbacks($product_id);
 extract($_REQUEST);
 $items = products_select_by_id($product_id);
 extract($items);
 $category_id = $items['category_id'];
-
 
 
 
@@ -160,7 +159,28 @@ Quên mật khẩu</button>";
 
                     <div class="font-bold text-5xl font text-orange-600"><?= $items['product_name'] ?></div>
                     <div class="flex items-center space-x-2 py-4 ">
-                        <p class="text-orange-600">★★★★</p>
+                        <p class="text-orange-600">
+                            
+
+                        <?php 
+                        $avg = avg_feedbacks($items['product_id']);
+                        if ($avg==0) {
+                            echo "Chưa có đánh giá";
+                        }else if ($avg<=1) {
+                            echo "★";
+                        }else if (1<$avg && $avg<=2) {
+                            echo "★★";
+                        }else if (2<$avg && $avg<=3) {
+                            echo "★★★";
+                        }else if (3<$avg && $avg<=4) {
+                            echo "★★★★";
+                        }else if (4<$avg && $avg<=5) {
+                            echo "★★★★★";
+                        }
+
+                        ?>
+
+                        </p>
                         <p class="text-black">|</p>
                         <p class="font "><?= $count ?> Customer Reviews</p>
                     </div>
@@ -217,7 +237,7 @@ Quên mật khẩu</button>";
 
 
             foreach ($user_feedbacks as $fb) :
-                $second_date = strtotime($user_feedbacks[2]['time_send']);
+                $second_date = strtotime($fb['time_send']);
                 $datediff = abs($first_date - $second_date);
                 $count_date = floor($datediff / (24 * 60 * 60));
             ?>
@@ -231,7 +251,24 @@ Quên mật khẩu</button>";
                             <h1 class="text-md font-bold"><?= $fb['name_user'] ?></h1>
                             <p class="text-gray-400 text-md"> <?= $count_date < 30 ? $count_date . ' ngày' : floor($count_date / 30) . ' tháng' ?> trước</p>
                         </div>
-                        <div class="text-yellow-500">★★★★★</div>
+                        <div class="text-yellow-500">
+
+                        <?php
+                        if($fb['rate'] == 1){
+                            echo '★';
+                        }else if($fb['rate'] == 2){
+                            echo '★★';
+                        }else if($fb['rate'] == 3){
+                            echo '★★★';
+                        }else if($fb['rate'] == 4){
+                            echo '★★★★';
+                        }else if($fb['rate'] == 5){
+                            echo '★★★★★';
+                        }
+
+                        ?>
+
+                        </div>
                         <div class="text-md"><?= $fb['content'] ?></div>
                     </div>
                 </div>
@@ -239,7 +276,16 @@ Quên mật khẩu</button>";
             <?php endforeach; ?>
 
             <form action="index.php?feedback" method="post" enctype="multipart/form-data">
-                <div class=" grid grid-cols-[48px,auto] gap-8 mt-10">
+            <input type="hidden" id="product_id" name="product_id" value="<?=$product_id?>">  
+            <?php
+            if(isset($_SESSION['user'])){ ?>
+                
+            <input type="hidden" id="user_id" name="user_id" value="<?=$_SESSION['user']['user_id']?>">
+            <?php
+            }
+            ?>
+
+            <div class=" grid grid-cols-[48px,auto] gap-8 mt-10">
                     <div class="rounded-full rounded-2 rounded-red-500 w-[48px] h-[48px]">
                         <img src="<?= $CONTENT_URL . '/images/users/' ?><?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : 'user.png' ?>" alt="" class="">
                     </div>
@@ -254,8 +300,14 @@ Quên mật khẩu</button>";
                             </fieldset>
                             <p class="text-black text-md">(Vui lòng chọn đánh giá)</p>
                         </div>
-                        <textarea id="note" placeholder="Điền đánh giá ...." class="md:w-[612px] md:h-[97px] border-2 rounded px-4 py-1"></textarea>
+                        <textarea id="note" name="note" placeholder="Điền đánh giá ...." class="md:w-[612px] md:h-[97px] border-2 rounded px-4 py-1"></textarea>
                         <br>
+                        <?php
+                        if(isset($_SESSION['error'])) {
+                            $err=$_SESSION['error'];
+                            echo "<h5 class='text-red-500'>$err</h5>";
+                        }
+                        ?>
                         <button type="submit" class="rounded py-2 px-10 bg-red-500 font text-white">Gửi</button>
                     </div>
                 </div>

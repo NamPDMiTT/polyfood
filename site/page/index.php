@@ -15,7 +15,22 @@ if(exist_param("btn_insert_contact")){
 else if(exist_param("introduce")){
     $VIEW_NAME = "page/introduce.php";
 }else if(exist_param("feedback")){
-    $VIEW_NAME = "detail.php";
+    require_once '/xampp/htdocs/polyfood/dao/feedbacks.php';
+    check_login();
+    extract($_REQUEST);
+    $user_id = $_SESSION['user']['user_id'];
+    // $product_id = $_POST['product_id'];
+    // echo $product_id;
+    echo $rating;
+    echo $note;
+    try {
+        insert_feedbacks($user_id, $product_id,$rating, $note);
+        unset($contact_name,$contact_email,$contact_phone,$contact_content);
+        unset($_SESSION['error']);
+    } catch (Exception $exc) {
+        $_SESSION['error'] = "Vui lòng đăng nhập để bình luận";
+    }
+    header("location: /polyfood/site/page/detail.php?product_id=$product_id");
 }
 else{
     require_once '/xampp/htdocs/polyfood/dao/products.php';
