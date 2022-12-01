@@ -15,10 +15,12 @@ foreach ($_SESSION['my_cart'] as $cart) {
 
 
 ?>
-
 <div class="container mx-auto mt-10">
-  <div class="lg:flex shadow-md my-10">
-    <div class="mx-auto lg:w-3/4 bg-white px-10 py-10 ">
+  <div class="lg:flex  my-10">
+    <div style="background: rgba( 255, 255, 255, 0.25 ); box-shadow: 0 8px 32px 0 rgba( 31, 38,
+135, 0.37 ); backdrop-filter: blur( 4px ); -webkit-backdrop-filter: blur( 4px );
+border-radius: 10px; border: 1px solid rgba( 255, 255, 255, 0.18 );
+" class="mx-auto lg:w-3/4 bg-white px-5 lg:px-10 py-10 min-w-[640px] ">
       <div class="flex justify-between pb-8 border-b-[3px] border-dashed">
         <h1 class="font-semibold text-2xl">Giỏ hàng</h1>
         <h2 class="font-semibold text-2xl"><?= $count ?> sản phẩm</h2>
@@ -46,7 +48,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
           <div class="flex w-2/5">
             <!-- product -->
             <div class="w-20">
-              <img class="h-24" src="<?= $CONTENT_URL ?>/images/products/<?= $item['image'] ?>" alt="" />
+              <img class=" h-24 rounded-md object-cover" src="<?= $CONTENT_URL ?>/images/products/<?= $item['image'] ?>" alt="" />
             </div>
             <div class="flex flex-col justify-between ml-4 flex-grow">
               <!-- name -->
