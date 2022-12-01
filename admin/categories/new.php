@@ -55,6 +55,7 @@ check_login();
 text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3
 rounded-md text-gray-500
 " />
+
             </div>
             <div class="form__group flex flex-col ">
               <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">CATEGORY NAME</label>

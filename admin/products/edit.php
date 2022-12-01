@@ -35,6 +35,7 @@ $menus = menus_select_all();
   <!-- End header -->
   <main style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px
 #bebebe, -35px -35px 70px #ffffff; " class="w-full  p-5 mt-5 bg-gray-100">
+
     <?php
     if (strlen($MESSAGE)) {
       echo "<h5>$MESSAGE</h5>";
