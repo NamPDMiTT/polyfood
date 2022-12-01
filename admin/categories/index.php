@@ -5,19 +5,6 @@ require_once '/xampp/htdocs/polyfood/dao/categories.php';
 check_login();
 extract($_REQUEST);
 
-// hàm kiểm tra dữ liệu
-function categories_name_exist($category_name)
-{
-    $sql = "SELECT count(*) FROM categories WHERE category_name='$category_name'";
-    return pdo_query_value($sql) > 0;
-}
-
-function categories_name_exist_id($category_name, $category_id)
-{
-    $sql = "SELECT count(*) FROM categories WHERE category_name='$category_name' AND category_id != $category_id";
-    return pdo_query_value($sql) > 0;
-}
-
 if (exist_param('btn_insert')) {
     $error = [];
     $category_name = trim($category_name);

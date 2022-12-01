@@ -56,8 +56,11 @@ rounded-md text-gray-500
                         <input type="hidden" name="menu_id" value="<?= $menu_id ?>" id="">
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">MENU NAME</label>
-                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="menu_name" id="name"  value="<?= $menu_name ?>" />
-                        </div>              
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="menu_name" id="name" value="<?= $menu_name ?>" />
+                            <span class="text-red-500 text-xs">
+                                <?= isset($error['menu_name']) ? $error['menu_name'] : ''; ?>
+                            </span>
+                        </div>
                         <div class="form__add-category--list-button w-full mt-7 flex gap-3 justify-center items-center">
                             <button type="submit" name="btn_update" style="text-shadow: 0.6px 0.6px 0 #fff; color: #61677c; box-shadow: 1.5px 1.5px
 2.5px #babecc, -2px -2px 5px #fff;" class="p-2 border w-[120px] text-center

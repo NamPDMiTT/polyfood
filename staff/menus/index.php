@@ -9,6 +9,7 @@ check_login();
 //--------------------------------//
 
 extract($_REQUEST);
+
 if (exist_param("menu_id")) {
     if (exist_param("btn_delete")) {
         try {
@@ -24,19 +25,30 @@ if (exist_param("menu_id")) {
         extract($menu);
         $VIEW_NAME = "../menus/edit.php";
     } else if (exist_param("btn_update")) {
-        try {
-            update_menus($menu_name, $menu_id);
-            $MESSAGE = "Cập nhật danh mục thành công";
-        } catch (Exception $exc) {
-            $MESSAGE = "Cập nhật danh mục thất bại";
+        $error = [];
+        $menu_name = trim($menu_name);
+        $flag = true;
+        if ($menu_name == '') {
+            $error['menu_name'] = "Tên menu không được để trống!";
+            $flag = false;
+        }
+        if (menus_exist_menuname_by_id($menu_name, $menu_id)) {
+            $error['menu_name'] = "Tên menu đã tồn tại!";
+            $flag = false;
+        }
+        if ($flag) {
+            try {
+                update_menus($menu_name, $menu_id);
+                $MESSAGE = "Cập nhật danh mục thành công";
+            } catch (Exception $exc) {
+                $MESSAGE = "Cập nhật danh mục thất bại";
+            }
         }
         $VIEW_NAME = "../menus/edit.php";
     } else if (exist_param("btn_list")) {
         $items = statistic_menus();
         $VIEW_NAME = "../menus/list.php";
     }
-
-
 
     $items = products_select_by_menu_id($menu_id);
     if (count($items) == 0) {
@@ -79,12 +91,22 @@ if (exist_param("menu_id")) {
         $items = statistic_menus();
         $VIEW_NAME = "../menus/list.php";
     } else if (exist_param("btn_add_product")) {
-        try {
-            add_product($menu_id, $product_id);
-            $MESSAGE = "Thêm sản phẩm thành công";
-            unset($product_id);
-        } catch (Exception $exc) {
-            $MESSAGE = "Thêm sản phẩm thất bại";
+        $error = [];
+        // var_dump($product_id);die;
+        $flag = true;
+        if (!isset($product_id)) {
+            $error['product_id'] = "Vui lòng chọn ít nhất 1 sản phẩm!";
+            $flag = false;
+        }
+        if ($flag) {
+            try {
+                add_product($menu_id, $product_id);
+                $MESSAGE = "Thêm sản phẩm thành công";
+                unset($product_id);
+                global $menu_id, $product_id;
+            } catch (Exception $exc) {
+                $MESSAGE = "Thêm sản phẩm thất bại";
+            }
         }
         $items = info_menu($menu_id);
         // var_dump($items);die;
@@ -98,12 +120,26 @@ if (exist_param("menu_id")) {
     }
 } else {
     if (exist_param("btn_insert")) {
-        try {
-            insert_menus($menu_name);
-            $MESSAGE = "Thêm danh mục thành công";
-            unset($menu_name, $menu_id);
-        } catch (Exception $exc) {
-            $MESSAGE = "Thêm danh mục thất bại";
+        $error = [];
+        $menu_name = trim($menu_name);
+        $flag = true;
+        if ($menu_name == '') {
+            $error['menu_name'] = "Tên menu không được để trống!";
+            $flag = false;
+        }
+        if (menus_exist_by_menuname($menu_name)) {
+            $error['menu_name'] = "Tên menu đã tồn tại!";
+            $flag = false;
+        }
+        if ($flag) {
+            try {
+                insert_menus($menu_name);
+                $MESSAGE = "Thêm danh mục thành công";
+                unset($menu_name, $menu_id);
+                global $menu_name;
+            } catch (Exception $exc) {
+                $MESSAGE = "Thêm danh mục thất bại";
+            }
         }
         $VIEW_NAME = "../menus/new.php";
     } else if (exist_param("btn_list")) {
@@ -139,6 +175,7 @@ if (exist_param("menu_id")) {
         }
         $VIEW_NAME = "../menus/edit.php";
     } else {
+        global $menu_name;
         $VIEW_NAME = "../menus/new.php";
     }
 }
