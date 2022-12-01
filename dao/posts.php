@@ -68,12 +68,12 @@ function post_reject()
     return pdo_query($sql);
 }
 function select_image_by_post_id($post_id)
-{
+{ 
     $sql = "SELECT * FROM post_image WHERE post_id=$post_id";
     return pdo_query($sql);
 }
 function post_select_by_user_id($user_id)
-{
+{ 
     $sql = "SELECT * FROM posts WHERE user_id=$user_id";
     return pdo_query($sql);
 }
@@ -81,7 +81,7 @@ function post_select_by_user_id($user_id)
 //post theo người dùng
 
 function post_by_user($user_id)
-{
+{  
     $sql = "SELECT count(*) FROM posts WHERE user_id=$user_id";
     return pdo_query_value($sql) > 0;
 }
@@ -108,15 +108,16 @@ function post_like_down($post_id)
     pdo_execute($sql);
 }
 function post_image_select_by_post_id($post_id)
-{
-    $sql = "SELECT * FROM post_image WHERE post_id=$post_id";
+{ 
+    $sql = "SELECT * FROM post_image WHERE post_id=$post_id LIMIT 3";
     return pdo_query($sql);
 }
-function count_image($post_id)
-{
+function count_image_post($post_id)
+{  
     $sql = "SELECT count(*) FROM post_image WHERE post_id=$post_id";
     return pdo_query_value($sql);
 }
+
 
 function info_post($user_id){
     $sql = "SELECT p.*,u.user_name,u.name,u.user_id FROM posts p join users u on u.user_id=p.user_id   WHERE p.user_id=$user_id";

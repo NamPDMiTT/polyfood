@@ -1,8 +1,8 @@
 <?php
 require_once '/xampp/htdocs/polyfood/dao/pdo.php';
-function comment_insert($user_id, $post_id, $content){
-    $sql = "INSERT INTO comments(user_id, post_id, content) 
-                      VALUES ( '$user_id', $post_id, '$content')";
+function comment_insert($user_id, $post_id, $content,$image){
+    $sql = "INSERT INTO comments(user_id, post_id, content, image) 
+                      VALUES ( '$user_id', $post_id, '$content','$image')";
     pdo_execute($sql);
 
     function comment_update($user_id, $post_id, $content, $comment_id){

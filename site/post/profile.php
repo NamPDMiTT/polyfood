@@ -1,4 +1,4 @@
-  <main class="grid grid-cols-1 gap-6 my-5 w-full container px-2 mx-auto">
+  <section  class="grid grid-cols-1 gap-6 my-5 w-full container px-2 mx-auto">
       <aside class="">
           <div style="background-image: url('../IMG/anh-bia.jpg')" class="shadow rounded-lg">
               <div class="flex flex-col gap-1 text-center items-center backdrop-blur-sm p-16">
@@ -10,7 +10,7 @@
                           <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                           <circle cx="12" cy="10" r="3"></circle>
                       </svg>
-                    Fpoly, Việt Nam
+                      Fpoly, Việt Nam
                   </div>
               </div>
           </div>
