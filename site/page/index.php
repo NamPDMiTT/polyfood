@@ -14,6 +14,8 @@ if(exist_param("btn_insert_contact")){
 }
 else if(exist_param("introduce")){
     $VIEW_NAME = "page/introduce.php";
+}else if(exist_param("feedback")){
+    $VIEW_NAME = "detail.php";
 }
 else{
     require_once '/xampp/htdocs/polyfood/dao/products.php';
