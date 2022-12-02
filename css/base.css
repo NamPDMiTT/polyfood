@@ -88,7 +88,7 @@ main {
 .limited__content-2 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
     overflow: hidden;
     text-overflow: ellipsis;
 }
@@ -101,12 +101,8 @@ main {
 }
 
 .content {
-    position: relative;
     background: rgba(0, 0, 0, 0.5);
     color: #f1f1f1;
-    width: 100%;
-    padding: 20px;
-    height: 500px;
 }
 
 
@@ -193,15 +189,6 @@ a.button.one:hover:after {
 
 /* hover:thanh useer */
 
-.button {
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
-    font-size: 20px;
-    position: relative;
-    padding: 10px;
-}
-
 
 /* BUTTON DRIE */
 
@@ -276,4 +263,42 @@ a.button.three:hover:after {
         height: 95%;
         opacity: 1;
     }
+}
+
+
+/* Button eight */
+
+a.button.eight:before,
+a.button.eight:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-radius: 5px;
+}
+
+a.button.eight:after {
+    height: 100%;
+    border-bottom: 2px solid red;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.2s ease;
+}
+
+a.button.eight:before {
+    height: 0%;
+    border-top: 2px solid red;
+    bottom: 0;
+    left: 0;
+    transition: height .3s ease;
+}
+
+a.button.eight:hover:before {
+    height: 100%;
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+}
+
+a.button.eight:hover:after {
+    transform: scale(1.08);
+    transition: transform 0.4s ease;
 }
