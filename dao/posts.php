@@ -19,15 +19,20 @@ function update_post($user_id, $content, $status, $post_id)
 }
 function post_delete($post_id)
 {
+
     if (is_array($post_id)) {
-        foreach ($post_id as $ma) {           
-                $sql="DELETE FROM post_image WHERE post_id=$ma";
-                pdo_execute($sql);
+        foreach ($post_id as $ma) {
+            $sql = "DELETE FROM post_image WHERE post_id=$ma";
+            pdo_execute($sql);
+            $sql = "DELETE FROM comments WHERE post_id=$ma";
+            pdo_execute($sql);
             $sql = "DELETE FROM posts WHERE post_id=$ma";
             pdo_execute($sql);
         }
     } else {
-        $sql="DELETE FROM post_image WHERE post_id=$post_id";
+        $sql = "DELETE FROM comments WHERE post_id=$post_id";
+        pdo_execute($sql);
+        $sql = "DELETE FROM post_image WHERE post_id=$post_id";
         pdo_execute($sql);
         $sql = "DELETE FROM posts WHERE post_id=$post_id";
         pdo_execute($sql);
@@ -52,8 +57,20 @@ function post_exist($post_id)
 
 function check_exist()
 {
-    $sql = "SELECT count(*) FROM posts";
-    return pdo_query_value($sql);
+    $sql = "SELECT * FROM posts ORDER BY post_id DESC LIMIT 1";
+    return pdo_query_one($sql);
+}
+//Duyệt bài viết
+function post_confirm($post_id)
+{
+    $sql = "UPDATE posts SET status=1 WHERE post_id=$post_id";
+    pdo_execute($sql);
+}
+//Hủy bài viết
+function post_cancel($post_id)
+{
+    $sql = "UPDATE posts SET status=0 WHERE post_id=$post_id";
+    pdo_execute($sql);
 }
 //post được phép đăng
 function post_accept()
@@ -67,13 +84,14 @@ function post_reject()
     $sql = "SELECT * FROM posts WHERE status=0";
     return pdo_query($sql);
 }
+
 function select_image_by_post_id($post_id)
-{ 
+{
     $sql = "SELECT * FROM post_image WHERE post_id=$post_id";
     return pdo_query($sql);
 }
 function post_select_by_user_id($user_id)
-{ 
+{
     $sql = "SELECT * FROM posts WHERE user_id=$user_id";
     return pdo_query($sql);
 }
@@ -81,7 +99,7 @@ function post_select_by_user_id($user_id)
 //post theo người dùng
 
 function post_by_user($user_id)
-{  
+{
     $sql = "SELECT count(*) FROM posts WHERE user_id=$user_id";
     return pdo_query_value($sql) > 0;
 }
@@ -108,20 +126,19 @@ function post_like_down($post_id)
     pdo_execute($sql);
 }
 function post_image_select_by_post_id($post_id)
-{ 
+{
     $sql = "SELECT * FROM post_image WHERE post_id=$post_id LIMIT 3";
     return pdo_query($sql);
 }
 function count_image_post($post_id)
-{  
+{
     $sql = "SELECT count(*) FROM post_image WHERE post_id=$post_id";
     return pdo_query_value($sql);
 }
 
 
-function info_post($user_id){
+function info_post($user_id)
+{
     $sql = "SELECT p.*,u.user_name,u.name,u.user_id FROM posts p join users u on u.user_id=p.user_id   WHERE p.user_id=$user_id";
     return pdo_query($sql);
 }
-
-

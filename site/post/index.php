@@ -15,35 +15,48 @@ if (exist_param("btn_insert")) {
     }
     $status = 0;
     $image = $_FILES['image']['name'];
-    insert_post(
-        $post_id,
-        $user_id,
-        $content,
-        $status
-    );
+    insert_post($post_id, $user_id, $content, $status);
+    header('location: ' . $_SERVER['HTTP_REFERER']);
     foreach ($image as $key => $value) { //lấy tên file
-        $image = uniqid() . '_' . $value; //tên file
+        if (empty($image[$key])) {
+            continue;
+        } else {
+            $image = uniqid() . '_' . $value; //tên file
+        }
         $image_tmp = $_FILES['image']['tmp_name'][$key]; //đường dẫn file
         move_uploaded_file($image_tmp, $IMAGE_DIR . 'posts/' . $image); //di chuyển file vào thư mục
         insert_image_post($post_id, $image);
+        
     }
-    echo "<script>alert('Đăng bài thành công!');</script>";
-} else if (exist_param("btn_delete")) {
-    $post_id = $_POST["post_id"];
+    echo "<scrip>alert('Đăng bài thành công!');</script>";
+    header("location:./index.php");
+} else if (exist_param("btn_delete_post")) {
     post_delete($post_id);
-    header("location:post.php");
-}else if (exist_param("btn_confirm")) {
-    $VIEW_NAME = "./home.php?btn";
+    header('location: ' . $_SERVER['HTTP_REFERER']);
+} else if (exist_param("btn_check")) {
+    $VIEW_NAME = "./manager_post.php";
+} else if (exist_param("btn_confirm")) {
+    post_confirm($post_id);
+    $VIEW_NAME = "./manager_post.php";
+} else if (exist_param("btn_cancel")) {
+    post_delete($post_id);
+    $VIEW_NAME = "./manager_post.php";
 } else if (exist_param("btn_add_comment")) {
     $user_id = $_SESSION['user']['user_id'];
     $image = save_file("image", "$IMAGE_DIR/comments/");
     $image = strlen("$image") > 0 ? $image : '';
-   try {
-        comment_insert($user_id, $post_id, $content,$image);
-   } catch (Exception $exc) {
+    try {
+        comment_insert($user_id, $post_id, $content, $image);
+        header('location: ' . $_SERVER['HTTP_REFERER']);
+    } catch (Exception $exc) {
         $_SESSION['error'] = "Vui lòng đăng nhập để bình luận";
-   }
+    }
+} else if (exist_param("btn_delete_comment")) {
+    $comment_id = $_POST["comment_id"];
+    comment_delete($comment_id);
+    header('location: ' . $_SERVER['HTTP_REFERER']);
+} else {
+    $VIEW_NAME = "./home.php";
 }
 
-$VIEW_NAME = "./home.php";
 require "./layout.php";

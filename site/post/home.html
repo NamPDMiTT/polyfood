@@ -100,10 +100,12 @@
             <circle cx="12" cy="10" r="3"></circle>
           </svg>
           Hà Nội, Việt Nam
+
         </div>
       </div>
     </div>
   </aside>
+
 
 <article class="lg:px-10">
  <form id="new__post" action="./index.php" class="relative bg-white shadow rounded-lg mb-6 p-4" method="post" enctype="multipart/form-data">
@@ -126,11 +128,11 @@
                                                                 }
                                                                 ?>" multiple />
     </div>
-<div class="btn__group flex justify-between">
+<div class="btn__group flex justify-between gap-1">
     <button style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); backdrop-filter: blur(2.5px);
 -webkit-backdrop-filter: blur(2.5px); border-radius: 10px; border: 1px solid
 rgba(255, 255, 255, 0.18);
-" name="btn_insert" class="flex items-center mt-3 py-2 px-4 rounded-lg text-sm bg-blue-600 text-white shadow-lg">
+" name="btn_insert" class="flex items-center mt-3 py-2 px-3 right-4 rounded-lg text-sm bg-blue-600 text-white shadow-lg">
       Đăng
       <svg class="ml-1" viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
         <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -163,8 +165,53 @@ rgba(255, 255, 255, 0.18);
 </a>
 </div>
   </form>
-  <div class="bg-white shadow-lg rounded-lg mb-6 ">
-  
+  <div class="bg-white shadow-lg rounded-lg mb-6 relative">
+    <!-- Xóa post -->
+    <div class="menu__post absolute top-0 right-0">
+  <form  id="delete_post" class="relative" method="post" action="./index.php">
+    <button type="button" id="post__menu">
+      <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  class="w-10 h-10"
+>
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M6.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM12.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0zM18.75 12a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"
+  />
+</svg>
+    </button>
+    <div style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); backdrop-filter:
+blur(2.5px); -webkit-backdrop-filter: blur(2.5px); border-radius: 10px; border:
+1px solid rgba(255, 255, 255, 0.18); "
+  class="post__menu__dropdown animate-popup absolute top-6 right-2 h-12 px-2 py-3  hidden">
+      <button class="btn__delete flex gap-2 items-center text-lg text-gray-500 font-medium" name="btn_delete">
+        <span>Xóa</span>
+        <svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  class="w-6 h-6"
+>
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"
+  />
+</svg>
+
+      </button>
+    </div>
+    <button class="" name="btn_delete" type="submit"></button>
+    <input type="number" name="post_id" class="hidden" value="<?php echo $post_id; ?>" />
+    </form>
+    </div>
     <div class="flex flex-row px-2 py-3 mx-3">
       <div class="w-auto h-auto rounded-full">
         <img class="w-12 h-12 object-cover rounded-full shadow cursor-pointer" alt="User avatar" src="../../content/images/posts/son.jpg" />
@@ -173,6 +220,7 @@ rgba(255, 255, 255, 0.18);
         <div class="text-gray-600 text-sm font-semibold">
           Nguyễn Công Sơn
         </div>
+        
         <div class="flex w-full mt-1">
           <div class="text-gray-700 font-light text-xs">1 giờ trước</div>
         </div>
