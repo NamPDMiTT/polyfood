@@ -159,3 +159,160 @@ main {
 .sili:hover {
     color: white;
 } */
+/* hover: admin:người bán hàng */
+
+.button {
+    font-weight: bold;
+    font-size: 20px;
+    position: relative;
+}
+
+
+/* BUTTON EEN */
+
+a.button.one:before,
+a.button.one:after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    transition: all 0.3s ease;
+}
+
+a.button.one:before {
+    top: -2.5%;
+    left: -1%;
+    border-top: 2px solid white;
+    border-left: 2px solid white;
+}
+
+a.button.one:after {
+    bottom: -2.5%;
+    right: -1%;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+}
+
+a.button.one:hover:before,
+a.button.one:hover:after {
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+}
+
+
+/* hover:thanh useer */
+
+
+/* BUTTON DRIE */
+
+a.button.three:before,
+a.button.three:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-radius: 10px;
+}
+
+a.button.three:before {
+    top: 0;
+    left: 0;
+    border-top: 2px solid red;
+    border-right: 2px solid white;
+}
+
+a.button.three:after {
+    bottom: 0;
+    right: 0;
+    border-bottom: 2px solid red;
+    border-left: 2px solid white;
+}
+
+a.button.three:hover:before {
+    animation: first 0.9s forwards;
+    opacity: 1;
+}
+
+a.button.three:hover:after {
+    animation: second 0.4s forwards;
+}
+
+@keyframes first {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+    25% {
+        width: 100%;
+        height: 0%;
+    }
+    50% {
+        width: 100%;
+        height: 100%;
+    }
+    100% {
+        width: 100%;
+        height: 95%;
+    }
+}
+
+@keyframes second {
+    0% {
+        width: 0%;
+        height: 0%;
+    }
+    50% {
+        width: 0%;
+        height: 0%;
+    }
+    75% {
+        width: 100%;
+        height: 0%;
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        height: 95%;
+        opacity: 1;
+    }
+}
+
+
+/* Button eight */
+
+a.button.eight:before,
+a.button.eight:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    border-radius: 5px;
+}
+
+a.button.eight:after {
+    height: 100%;
+    border-bottom: 2px solid red;
+    bottom: 0;
+    left: 0;
+    transition: transform 0.2s ease;
+}
+
+a.button.eight:before {
+    height: 0%;
+    border-top: 2px solid red;
+    bottom: 0;
+    left: 0;
+    transition: height .3s ease;
+}
+
+a.button.eight:hover:before {
+    height: 100%;
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+}
+
+a.button.eight:hover:after {
+    transform: scale(1.08);
+    transition: transform 0.4s ease;
+}

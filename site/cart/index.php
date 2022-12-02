@@ -114,7 +114,10 @@ if (exist_param("btn_order")) {
         insert_order($product_id, $quantity, $user_id, $note, $status);
     }
     unset($_SESSION['my_cart']);
-} else {
+} else if (exist_param("all-my-cart")) {
+    $VIEW_NAME = "all-my-cart.php";
+    // echo $VIEW_NAME;
+}else{
     $VIEW_NAME = "my-cart.php";
 }
 require_once $VIEW_NAME;

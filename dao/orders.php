@@ -74,12 +74,12 @@ function update_product_cart($quantity, $total, $id)
 
 
 
-// function update_product_cart($quantity, $id)
-// {
-//     foreach ($_SESSION['my_cart'] as $key => $cart) { //Duyệt mảng session
-//         if ($cart['product_id'] == $id) {
-//             $_SESSION['my_cart'][$key]['quantity'] = $quantity;
-//         }
-//     }
-// }
+function join_order_product($user_id) {
+    $sql = "SELECT o.*,p.product_id as product_id, p.product_name as product_name, p.price as price, p.image as image, p.category_id as category_id FROM orders o JOIN products p ON o.product_id=p.product_id JOIN users u ON o.user_id=u.user_id WHERE o.user_id=$user_id";
+    return pdo_query($sql);
+}
+function count_order_by_user($user_id) {
+    $sql = "SELECT count(*) FROM orders WHERE user_id=$user_id";
+    return pdo_query_value($sql);
+}
 ?>
