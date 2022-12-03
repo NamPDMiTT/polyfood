@@ -47,7 +47,8 @@ rgba(255, 255, 255, 0.18);
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
           </svg>
-          </a>
+        </button>
+      <?php } ?>
     </div>
   </form>
   <?php foreach ($list_posts as $post) : ?>
@@ -166,9 +167,9 @@ rgba(255, 255, 255, 0.18);
 
       <!--Đổ Comment -->
       <?php
-          $list_comments = comment_select_by_post_id($post_id);
-          foreach ($list_comments as $comment) :
-            extract($comment);
+      $list_comments = comment_select_by_post_id($post_id);
+      foreach ($list_comments as $comment) :
+        extract($comment);
       ?>
         <div class="text-black p-4 w-full flex">
           <a href="<?= $SITE_URL ?>/post/profile.php?user_id=<?= $user_id ?>">
@@ -217,7 +218,7 @@ rgba(255, 255, 255, 0.18);
 -webkit-backdrop-filter: blur(2.5px); border-radius: 10px; border: 1px solid
 rgba(255, 255, 255, 0.18);
 " name="btn_add_comment" class="flex items-center h-8 px-3 rounded-lg text-sm bg-blue-600 text-white shadow-lg">
-         Gửi
+          Gửi
         </button>
       </form>
 
@@ -229,7 +230,6 @@ rgba(255, 255, 255, 0.18);
 
 
   </div>
-<?php  } ?>
 
 
 
