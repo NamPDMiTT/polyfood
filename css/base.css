@@ -132,5 +132,9 @@ main {
 #them {
     transition: .1s;
 }
-
+.list__product__orded-item{
+  width: 500px;
+  /* scroll ngang */
+  overflow-y: auto;
+}
 
