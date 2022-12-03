@@ -50,9 +50,24 @@ function users_exist_by_username($user_name)
     $sql = "SELECT count(*) FROM users WHERE user_name='$user_name'";
     return pdo_query_value($sql) > 0;
 }
+function users_exist_by_username_id($user_name, $user_id)
+{
+    $sql = "SELECT count(*) FROM users WHERE user_name='$user_name' AND user_id != $user_id";
+    return pdo_query_value($sql) > 0;
+}
 function users_exist_by_email($email)
 {
     $sql = "SELECT count(*) FROM users WHERE email='$email'";
+    return pdo_query_value($sql) > 0;
+}
+function users_exist_by_email_id($email, $user_id)
+{
+    $sql = "SELECT count(*) FROM users WHERE email='$email' AND user_id != $user_id";
+    return pdo_query_value($sql) > 0;
+}
+function users_exist_by_phone_id($phone, $user_id)
+{
+    $sql = "SELECT count(*) FROM users WHERE phone='$phone' AND user_id != $user_id";
     return pdo_query_value($sql) > 0;
 }
 function users_exist_by_phone($phone)
@@ -74,4 +89,9 @@ function users_change_password_by_username($user_name, $password)
 {
     $sql = "UPDATE users SET password='$password' WHERE user_name='$user_name'";
     pdo_execute($sql);
+}
+function users_exist_by_password_id($password, $user_id)
+{
+    $sql = "SELECT count(*) FROM users WHERE password='$password' AND user_id = $user_id";
+    return pdo_query_value($sql) > 0;
 }

@@ -34,12 +34,12 @@ function exist_param($fieldname){
  * @param string $target_dir thư mục lưu file
  * @return tên file upload
  */
-function save_file($fieldname, $target_dir){
-    $file_uploaded = $_FILES[$fieldname];
-    $file_name = basename($file_uploaded["name"]);
-    $target_path = $target_dir . $file_name;
-    move_uploaded_file($file_uploaded["tmp_name"], $target_path);
-    return $file_name;
+function save_file($fieldname, $target_dir){ // Hàm lưu file, $fieldname là tên trường file, $target_dir là thư mục lưu file
+    $file_uploaded = $_FILES[$fieldname]; // mảng chứa thông tin file
+    $file_name = basename($file_uploaded["name"]); // lấy tên file
+    $target_path = $target_dir . $file_name; // đường dẫn file
+    move_uploaded_file($file_uploaded["tmp_name"], $target_path); // di chuyển file vào thư mục
+    return $file_name; // trả về tên file
 }
 /**
  * Tạo cookie
@@ -72,14 +72,10 @@ function get_cookie($name){
  **/
 function check_login(){
     global $SITE_URL;
-  
     if(isset($_SESSION['user'])){
-        if($_SESSION['user']['role_id'] == 1){
-          
+        if($_SESSION['user']['role_id'] == 1){      
             return;
         }else if($_SESSION['user']['role_id'] == 2){
-            // var_dump(strpos($_SERVER["REQUEST_URI"], '/staff/'));
-            // die;
             if(strpos($_SERVER["REQUEST_URI"], '/admin/') == FALSE){
                 return;
             }

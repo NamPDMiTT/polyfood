@@ -77,11 +77,18 @@ else {
                                         <?php extract($_SESSION['user']); ?>
 
                                         <?php if ($role_id == 1) { ?>
-                                            <a href="<?= $ADMIN_URL ?>/page/index.php" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
-                                                Trang quản trị
-                                            </a>
+                                <a href="<?= $ADMIN_URL ?>/page/index.php" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
+                                    Trang quản trị
+                                </a>
+                                <a href="<?= $STAFF_URL ?>/page/index.php" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
+                                    Trang nhân viên
+                                </a>
 
-                                        <?php  } ?>
+                            <?php  } else if($role_id ==2 ) {?>
+                                <a href="<?= $STAFF_URL ?>/page/index.php" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
+                                    Trang nhân viên
+                                </a>
+                                <?php } ?>
                                     <?php } ?>
                                     <form method="POST" action="<?= $SITE_URL ?>/account/sign-in.php" role="none">
                                         <?php if (isset($_SESSION['user'])) {
