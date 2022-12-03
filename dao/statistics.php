@@ -58,4 +58,12 @@ function statistic_posts(){
     . " HAVING total > 0";
     return pdo_query($sql);
 }
+function statistic_menus(){
+    $sql = "SELECT m.menu_id,m.menu_name,"
+    . " COUNT(*) total"
+    . " FROM products p"
+    . " JOIN menus m ON p.menu_id=m.menu_id "
+    . " GROUP BY m.menu_id, m.menu_name";
+    return pdo_query($sql);
+}
 ?>

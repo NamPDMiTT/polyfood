@@ -54,7 +54,7 @@
 #bebebe, -35px -35px 70px #ffffff; " class="w-full  p-5 mt-5 bg-gray-100">
     <section class="list__accounts w-full">
       <section class="list__accounts-title  flex items-center gap-2">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-7 h-7 text-gray-500">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-10 h-10 text-gray-500">
           <path fill-rule="evenodd" d="M2.625 6.75a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875 0A.75.75 0 018.25 6h12a.75.75 0 010 1.5h-12a.75.75 0 01-.75-.75zM2.625 12a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zM7.5 12a.75.75 0 01.75-.75h12a.75.75 0 010 1.5h-12A.75.75 0 017.5 12zm-4.875 5.25a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0zm4.875 0a.75.75 0 01.75-.75h12a.75.75 0 010 1.5h-12a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
         </svg>
 
@@ -126,8 +126,8 @@
                   </p>
                 </td>
                 <td class="p-2 whitespace-nowrap">
-                  <p class="text-xs text-gray-900">
-                    <img src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" width="80" height="80" alt="">
+                  <p class="text-xs text-gray-900 flex justify-center">
+                    <img src="<?= $CONTENT_URL ?>/images/products/<?= $image ?>" class="w-20 h-20 object-cover" type=""  alt="">
                   </p>
                 </td>
                 <td class="p-2 w-20 ">
@@ -152,7 +152,7 @@
                 </td>
                 <td class="p-2 whitespace-nowrap">
                   <p class="text-xs text-gray-900">
-                    <?= $price*$quantity ?> VNĐ
+                    <?= $price*$quantity*(1-$discount/100) ?> VNĐ
                   </p>
                 </td>
                 <td class="px-2 mt-7 whitespace-nowrap flex gap-3 items-center justify-center">
