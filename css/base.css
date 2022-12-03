@@ -58,35 +58,13 @@
 .image-upload > input {
   display: none;
 }
-.inputfile {
-  width: 0.1px;
-  height: 0.1px;
-  opacity: 0;
-  overflow: hidden;
-  position: absolute;
-  z-index: -1;
-}
-.inputfile + label {
-  font-size: 1.25em;
-  font-weight: 700;
-  color: white;
-  background-color: black;
-  display: inline-block;
-}
-
-.inputfile:focus + label,
-.inputfile + label:hover {
-  background-color: red;
-}
 
 
 
 main {
-    /* 
-  box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff; */
     background-image: url("../site/IMG/background.png");
 }
-/* css input type = file*/
+
 
 .shadow__products {
     background: #ffffff;
@@ -102,7 +80,6 @@ main {
 }
 
 
-/* FOOTER */
 
 .anh {
     position: absolute;
