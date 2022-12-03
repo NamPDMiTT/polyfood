@@ -201,19 +201,28 @@ blur(2.5px); -webkit-backdrop-filter: blur(2.5px); border-radius: 10px; border:
                         </div>
                     </div>
                 <?php endforeach; ?>
-                <form action="./index.php" method="post" enctype="multipart/form-data" class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
-                    <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="<?= $CONTENT_URL ?>/images/users/<?= $_SESSION['user']['image'] ?>" />
-                    <input type="hidden" name="post_id" value="<?= $post_id ?>" />
-                    <span class="absolute inset-y-0 right-0 flex items-center pr-6">
-                        <input type="file" name="image">
-                    </span>
+                <form action="./index.php" method="post" enctype="multipart/form-data" class="flex items-center gap-1">
+                    <div class="relative flex items-center self-center w-full max-w-xl p-4 overflow-hidden text-gray-600 focus-within:text-gray-400">
+                        <img class="w-10 h-10 object-cover rounded-full shadow mr-2 cursor-pointer" alt="User avatar" src="<?= $CONTENT_URL ?>/images/users/<?= $_SESSION['user']['image'] ?>" />
+                        <input type="hidden" name="post_id" value="<?= $post_id ?>" />
+                        <span class="absolute inset-y-0 right-4 flex items-center">
+                            <input type="file" name="image" id="file" class="inputfile hidden" />
+                            <label for="file"><span class="flex items-center transition ease-out duration-300 hover:bg-blue-500 hover:text-white bg-blue-100 w-8 h-8 px-2 rounded-full text-blue-400 cursor-pointer">
+                                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                        <polyline points="21 15 16 10 5 21"></polyline>
+                                    </svg>
+                                </span></label>
+                        </span>
 
-                    <input type="search" name="content" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400" style="border-radius: 25px" placeholder="Nhập bình luận..." autocomplete="off" />
-                    <button class="" type="submit" name="btn_add_comment" class="">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 004.5 9.75v7.5a2.25 2.25 0 002.25 2.25h7.5a2.25 2.25 0 002.25-2.25v-7.5a2.25 2.25 0 00-2.25-2.25h-.75m0-3l-3-3m0 0l-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 012.25 2.25v7.5a2.25 2.25 0 01-2.25 2.25h-7.5a2.25 2.25 0 01-2.25-2.25v-.75" />
-                        </svg>
-
+                        <input type="search" name="content" class="w-full py-2 pl-4 pr-10 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400" style="border-radius: 25px" placeholder="Nhập bình luận..." autocomplete="off" />
+                    </div>
+                    <button style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37); backdrop-filter: blur(2.5px);
+-webkit-backdrop-filter: blur(2.5px); border-radius: 10px; border: 1px solid
+rgba(255, 255, 255, 0.18);
+" name="btn_add_comment" class="flex items-center h-8 px-3 rounded-lg text-sm bg-blue-600 text-white shadow-lg">
+                        Gửi
                     </button>
                 </form>
 

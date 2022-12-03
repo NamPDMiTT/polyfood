@@ -23,6 +23,9 @@ if(exist_param("user_id")){
     if(count($items) == 0){
         $items = statistic_orders();
         $VIEW_NAME = "../orders/list.php";
+    }else if(exist_param("btn_list")){
+        $items = statistic_orders();
+        $VIEW_NAME = "../orders/list.php";
     }
     else{
         $items = info_order($user_id);
