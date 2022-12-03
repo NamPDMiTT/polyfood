@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header class="hidden lg:block text-gray-700 bg-white border-b border-gray-200 sticky top-0 z-50">
+<header class="hidden lg:block text-gray-700 bg-white border-b border-gray-200 sticky top-0 z-50">
         <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
             <a class="flex font title-font font-medium items-center mb-4 md:mb-0" href="#" target="_blank">
                 <span class="text-orange-600">poly</span><span class="text-blue-600 font-semibold">F</span><span class="text-orange-600 font-semibold">oo</span><span class="text-green-600 font-semibold">d</span>
@@ -147,183 +147,127 @@ Quên mật khẩu</button>";
             </script>
         </div>
     </section>
-    <div class="bg-gray-100 sm:p-4 rounded  mx-auto">
-        <section class="mx-auto max-w-6xl mt-10 font-semibold">
-            <div class="grid md:grid-cols-[254px,auto] gap-2">
-                <div class=" hidden md:block">
-                    <div class="flex gap-4 p-2  " style="
-                    
-                    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-                    backdrop-filter: blur(4px);
-                    -webkit-backdrop-filter: blur(4px);
-                    border-radius: 10px;
-                    border: 1px solid rgba(255, 255, 255, 0.18);
-                  ">
-                        <div class="w-[48px] h-[48px] rounded">
-                            <img src="../IMG/249948135_361544512438841_2048733435536947929_n.jpg" alt="">
-                        </div>
-                        <div class="">
-                            <h1>Gái hàng</h1>
-                            <div class="">detail</div>
-                        </div>
+    <main style="border-radius: 10px; background: #fff; box-shadow: 35px 35px 70px
+#bebebe, -35px -35px 70px #ffffff; " class="w-full  p-5 mt-5 bg-gray-100">
+    <section class="list__accounts w-full ">
+      <form action="" method="post"   >
+        <div class="list__accounts-table w-full mt-4 px-2">
+          <table class="w-full text-center rounded-md shadow-md my-3">
+            <thead class="boder bg-gray-200 px-2 rounded-t-md">
+              <tr>
+                <th class=" text-xs  pl-4 font-medium">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-brush " viewBox="0 0 16 16">
+                    <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.118 8.118 0 0 1-3.078.132 3.659 3.659 0 0 1-.562-.135 1.382 1.382 0 0 1-.466-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.394-.197.625-.453.867-.826.095-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.201-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.176-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04zM4.705 11.912a1.23 1.23 0 0 0-.419-.1c-.246-.013-.573.05-.879.479-.197.275-.355.532-.5.777l-.105.177c-.106.181-.213.362-.32.528a3.39 3.39 0 0 1-.76.861c.69.112 1.736.111 2.657-.12.559-.139.843-.569.993-1.06a3.122 3.122 0 0 0 .126-.75l-.793-.792zm1.44.026c.12-.04.277-.1.458-.183a5.068 5.068 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.59 1.927-5.566 4.66-7.302 6.792-.442.543-.795 1.243-1.042 1.826-.121.288-.214.54-.275.72v.001l.575.575zm-4.973 3.04.007-.005a.031.031 0 0 1-.007.004zm3.582-3.043.002.001h-.002z"/>
+                    </svg>
+                </th>
+                <th class=" text-xs  p-2 w-20 font-medium">
+                  Order ID
+                </th>
+                <th class=" text-xs  p-2  font-medium">
+                  User Name
+                </th>
+                <th class=" text-xs  px-6 py-2 font-medium">
+                 Sản phẩm
+                </th>
+                <th class=" text-xs  px-2 py-2 font-medium">
+                 Hình ảnh
+                </th>
+                <th class=" text-xs  px-2 py-2 font-medium">
+                  Số lượng
+                </th>
+                <th class=" text-xs  px-2 py-2 font-medium">
+                  Time Order
+                </th>
+                <th class=" text-xs  px-2 py-2 font-medium">
+                  Ghi chú
+                </th>
+                <th class=" text-xs  px-2 py-2 font-medium">
+                  Trạng thái
+                </th>
+                <th class=" text-xs  px-2 py-2 font-medium">
+                  Total
+                </th>
+              </tr>
+            </thead>
+            
+           
+          </table>
+        </div>
+        <div class="list__accounts-table w-full mt-4 px-2">
+          <table class="w-full text-center rounded-md shadow-md my-3">
+            
+          <tbody >
+<tr class="border-t-2 border-dashed my-2 flex justify-between "  style="
+                    box-shadow: 0 8px 32px 0 rgba(17, 18, 39, 0.37);
+                  backdrop-filter: blur(4px);
+                  -webkit-backdrop-filter: blur(4px);
+                  border-radius: 10px;
+                  border: 1px solid rgba(255, 255, 255, 0.18);
+                ">
+                <td class=" whitespace-nowrap px-2 items-center flex">
+                  <input type="checkbox" class="checkbox px-2" />
+                </td>
+                <td class=" whitespace-nowrap text-center items-center flex">
+                  <p class="text-xs px-2 text-gray-900">
+                   12
+                  </p>
+                </td>
+                <td class=" whitespace-nowrap text-center  items-center flex">
+                  <p class="text-xs px-4 text-gray-900 text-center">
+                   Nguyễn Gia Thái
+                  </p>
+                </td>
+                <td class=" whitespace-nowrap px-2 text-center  items-center flex">
+                  <p class="text-xs px-2 text-gray-900">
+                    bún trả cá đậu
+             </p>
+                </td>
+                <td class=" whitespace-nowrap ">
+                  <p class="text-xs px-4 text-gray-900  items-center flex" >
+                    <img src="../IMG/xiao.jpeg" alt="" height="80" width="80" class="w-[80px] h-[80px]">
+                  </p>
+                </td>
+                <td class="px-4  items-center flex">
+                  <p class="text-xs px-2 text-gray-900 truncate  overflow-hidden">
+                    x   1
+                 </p>
+                </td>
+                <td class=" whitespace-nowrap  items-center flex">
+                  <p class="text-xs px-2 text-gray-900">
+                    20/11/2022
+                  </p>
+                </td>
+                <td class=" whitespace-nowrap  items-center flex">
+                  <p class="text-xs px-4 text-gray-900">
+                  Giảm 50% giá
 
-                    </div>
-                    <div class="space-y-2 p-4 my-2" style="
-                    background: rgba(255, 255, 255, 0.25);
-                    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-                    backdrop-filter: blur(4px);
-                    -webkit-backdrop-filter: blur(4px);
-                    border-radius: 10px;
-                    border: 1px solid rgba(255, 255, 255, 0.18);
-                  ">
-                        <div class="flex gap-4 pb-2 ">
-                            <div class="rounded-full rounded-2 rounded-red-500 w-[48px] h-[48px] ">
-                                <img src="../IMG/249948135_361544512438841_2048733435536947929_n.jpg" alt="" class="rounded-full">
-                            </div>
-                            <div class="my-4">
-                                <p class="text-md font">anhsonpv</p>
-                                <a href="" class="flex gap-4 justify-center items-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-wrench text-gray-500" viewBox="0 0 16 16">
-                                    <path d="M.102 2.223A3.004 3.004 0 0 0 3.78 5.897l6.341 6.252A3.003 3.003 0 0 0 13 16a3 3 0 1 0-.851-5.878L5.897 3.781A3.004 3.004 0 0 0 2.223.1l2.141 2.142L4 4l-1.757.364L.102 2.223zm13.37 9.019.528.026.287.445.445.287.026.529L15 13l-.242.471-.026.529-.445.287-.287.445-.529.026L13 15l-.471-.242-.529-.026-.287-.445-.445-.287-.026-.529L11 13l.242-.471.026-.529.445-.287.287-.445.529-.026L13 11l.471.242z"/>
-                                  </svg>
-                                    <span class="text-gray-500 text-xs">Sửa hồ sơ</span>
-                                </a href="">
-                            </div>
-                        </div>
-                        <a href="" class="button three flex gap-4  items-center p-1 rounded">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-person text-red-500" viewBox="0 0 16 16">
-                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
-                              </svg>
-                            <p class="text-xs">Tài khoản tôi</p>
-                        </a>
-
-                        <div class="px-4">
-
-                            <div class="p-2">
-                                <p class="text-sm ">Tên khách hàng: </p>
-                                <p class="text-sm ">Số điện thoại</p>
-                                <p class="text-sm ">Thời gian đặt: </p>
-                                <p class="text-sm ">Ghi chú: </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class=" ">
-                    <div class="bg-gray-100 ">
-                        <div class="bg-red-500 ">
-                            <ul class="flex justify-between bg-red-400 p-0.5 rounded whitespace-nowrap ">
-                                <a href=" # " class="button one ">
-                                    <li class="sm:px-4 md:py-1 sm:text-md p-1 text-xs font-normal text-white ">
-                                        Tất cả
-                                    </li>
-                                </a>
-
-                                <a href=" # " class="button one ">
-                                    <li class="sm:px-4 md:py-1 sm:text-md p-1 text-xs font-normal text-white ">
-                                        Chờ xác nhận
-                                    </li>
-                                </a>
-                                <a href=" # " class="button one ">
-                                    <li class="sm:px-4 md:py-1 sm:text-md p-1 text-xs font-normal text-white ">
-                                        đang xử lí
-                                    </li>
-                                </a>
-                                <a href=" # " class="button one ">
-                                    <li class="sm:px-4 md:py-1 sm:text-md p-1 text-xs font-normal text-white ">
-                                        Đã hoàn thành
-                                    </li>
-                                </a>
-                                <a href=" # " class="button one ">
-                                    <li class="sm:px-4 md:py-1 sm:text-md p-1 text-xs font-normal text-white p-1 ">
-                                        Đã huỷ
-                                    </li>
-                                </a>
-                            </ul>
-                        </div>
-                        <div style="
-                        background: rgba(255, 255, 255, 0.25);
-                        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-                        backdrop-filter: blur(4px);
-                        -webkit-backdrop-filter: blur(4px);
-                        border-radius: 10px;
-                        border: 1px solid rgba(255, 255, 255, 0.18);
-                      " class="grid grid-cols-[150px,auto] my-2  ">
-                            <a href=" ">
-                                <div class="flex border-2 border-gray-300 items-center rounded p-1 space-x-2 mx-4 ">
-                                    <svg xmlns="http://www.w3.org/2000/svg " width="10 " height="10 " fill="currentColor " class="bi bi-shop " viewBox="0 0 16 16 ">
-                            <path d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375
-                                2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5
-                                0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1
-                                0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z "/>
-                          </svg>
-                                    <p class="text-xs ">Xem sản phẩm</p>
-
-                                </div>
-                            </a>
-
-                            <div class="flex items-center rounded space-x-2 mx-2 justify-end ">
-                                <svg xmlns="http://www.w3.org/2000/svg " width="16 " height="16 " fill="currentColor " class="bi bi-rocket-takeoff " viewBox="0 0 16 16 ">
-                                <path d="M9.752 6.193c.599.6 1.73.437 2.528-.362.798-.799.96-1.932.362-2.531-.599-.6-1.73-.438-2.528.361-.798.8-.96 1.933-.362 2.532Z "/>
-                                <path d="M15.811 3.312c-.363 1.534-1.334 3.626-3.64 6.218l-.24 2.408a2.56 2.56 0 0 1-.732 1.526L8.817 15.85a.51.51 0 0 1-.867-.434l.27-1.899c.04-.28-.013-.593-.131-.956a9.42 9.42 0 0 0-.249-.657l-.082-.202c-.815-.197-1.578-.662-2.191-1.277-.614-.615-1.079-1.379-1.275-2.195l-.203-.083a9.556
-                                9.556 0 0 0-.655-.248c-.363-.119-.675-.172-.955-.132l-1.896.27A.51.51 0 0 1 .15 7.17l2.382-2.386c.41-.41.947-.67 1.524-.734h.006l2.4-.238C9.005 1.55 11.087.582 12.623.208c.89-.217 1.59-.232 2.08-.188.244.023.435.06.57.093.067.017.12.033.16.045.184.06.279.13.351.295l.029.073a3.475
-                                3.475 0 0 1 .157.721c.055.485.051 1.178-.159 2.065Zm-4.828 7.475.04-.04-.107 1.081a1.536 1.536 0 0 1-.44.913l-1.298 1.3.054-.38c.072-.506-.034-.993-.172-1.418a8.548 8.548 0 0 0-.164-.45c.738-.065 1.462-.38 2.087-1.006ZM5.205
-                                5c-.625.626-.94 1.351-1.004 2.09a8.497 8.497 0 0 0-.45-.164c-.424-.138-.91-.244-1.416-.172l-.38.054 1.3-1.3c.245-.246.566-.401.91-.44l1.08-.107-.04.039Zm9.406-3.961c-.38-.034-.967-.027-1.746.163-1.558.38-3.917 1.496-6.937 4.521-.62.62-.799
-                                1.34-.687 2.051.107.676.483 1.362 1.048 1.928.564.565 1.25.941 1.924 1.049.71.112 1.429-.067 2.048-.688 3.079-3.083 4.192-5.444 4.556-6.987.183-.771.18-1.345.138-1.713a2.835 2.835 0 0 0-.045-.283 3.078 3.078 0 0 0-.3-.041Z "/>
-                                <path d="M7.009 12.139a7.632 7.632 0 0 1-1.804-1.352A7.568 7.568 0 0 1 3.794 8.86c-1.102.992-1.965 5.054-1.839 5.18.125.126 3.936-.896 5.054-1.902Z "/>
-                              </svg>
-                                <p class="text-xs text-cyan-400 ">Tình trạng: <span class="text-red-500 ">đã giao</span></p>
-                            </div>
-
-                        </div>
-                        <div class="">
-                            <div id="checkout" class="w-full  px-8 py-10">
-                                <h1 class="receipt__product font-semibold text-2xl border-b pb-8">Thanh toán</h1>
-                                <div class="flex gap-2 justify-between items-center p-2 border-b-[3px] border-dashed">
-                                    <span class="repcript__product-quantity text-sm font-light">x</span>
-
-                                    <h1 class="repcript__product-name text-xs text-gray-500 font-light">
-                                        sản phẩm
-                                    </h1>
-                                    <span class="repcript__product-name text-xs text-gray-500 font-light">
-                                        giảm giá
-                                    </span>
-                                    <span class="repcript__product-name text-xs text-gray-500 font-light">
-                                        giá tiền 
-                                    </span>
-                                </div>
-                                <div class="flex gap-2 justify-between items-center p-2 border-b-[3px] border-dashed">
-                                    <span class="repcript__product-quantity text-sm font-light">x1</span>
-
-                                    <h1 class="repcript__product-name text-xs text-gray-500 font-light">
-                                        sản phẩm
-                                    </h1>
-                                    <span class="repcript__product-name text-xs text-gray-500 font-light">
-                                        giảm giá
-                                    </span>
-                                    <span class="repcript__product-name text-xs text-gray-500 font-light">
-                                        giá tiền 
-                                    </span>
-                                </div>
-                                <div class="flex justify-between">
-                                    <h1>Tổng giá tiền</h1>
-                                    <div class="">100.0000</div>
-                                </div>
-                            </div>
-                            <button class="px-8 rounded py-10 bg-indigo-500 font-semibold hover:bg-indigo-600 py-3 text-sm text-white uppercase w-full">
-                                     Huỷ đơn hàng
-                                    </button>
-                            </form>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-    </div>
-    </div>
-
-
+                  </p>
+                </td>
+                
+                <td class=" whitespace-nowrap  items-center flex">
+                  <p class="text-xs text-gray-900">
+                    60.000VNĐ
+                  </p>
+                </td>
+                <td class="mt-1 px-2 mt-7 whitespace-nowrap flex gap-3 items-center justify-center">
+                    <a href="">chi tiết</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="flex justify-center     gap-4 mt-4 font-bold ">
+     <button type="submit" class="hover:bg-white hover:text-black py-2 px-10 bg-orange-600 text-white rounded-xl">Bla </button>
+     <button type="submit" class="hover:bg-white hover:text-orange-600 py-2 px-10 bg-orange-600 text-white rounded-xl">Bla1 </button>
+     </div>
+        </div>
+        
+        
+       
+        
+      </form>
+      
     </section>
+  </main>
     <footer class="text-gray-700 pt-24 mx-auto ">
         <section class="w-full grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-8 md:px-14 lg:px-20 ">
             <div class="footer__item-logo ml-5 ">
@@ -465,7 +409,7 @@ Quên mật khẩu</button>";
             </div>
         </div>
     </footer>
-    <a style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) " id="cart " href="<?=$ SITE_URL ?>/cart/all-my-cart.php" class="rounded-full w-16 h-16 sm:w-20 sm:h-20 bg-orange-600 animate-bounce fixed bottom-8 right-0 flex items-center z-50 justify-center text-gray-800 mr-8 mb-8 shadow-sm border-gray-300 border"
+    <a style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37) " id="cart " href="" class="rounded-full w-16 h-16 sm:w-20 sm:h-20 bg-orange-600 animate-bounce fixed bottom-8 right-0 flex items-center z-50 justify-center text-gray-800 mr-8 mb-8 shadow-sm border-gray-300 border"
         target="_blank">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9 text-white">
             <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
@@ -519,7 +463,5 @@ Quên mật khẩu</button>";
     </nav>
 
 </body>
-
-</html>
 
 </html>
