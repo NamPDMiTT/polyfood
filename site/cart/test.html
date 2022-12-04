@@ -1,26 +1,14 @@
-<?php
-require_once '/xampp/htdocs/polyfood/global.php';
-require_once '/xampp/htdocs/polyfood/site/layout/header.php';
-require_once '/xampp/htdocs/polyfood/site/layout/menu.php';
-require_once '/xampp/htdocs/polyfood/dao/users.php';
-$items = $_SESSION['my_cart'];
-$total_price_all = 0;
-if (isset($_SESSION['my_cart'])) {
-  foreach ($items as $item) {
-    extract($item);
-    $total_price_all += $total_price;
-  }
-}
-
-
-
-if (isset($_SESSION['user'])) {
-  $user_id = $_SESSION['user']['user_id'];
-  $user = select_by_id_users($user_id);
-  extract($user);
-}
-?>
-<main class="w-full px-8 mt-10 sm:px-24 md:px-32 lg:px-36 font-montserrat">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LE CONG TIEN</title>
+    <link rel="stylesheet" href="../../css/style.css" />
+  </head>
+  <body>
+   <main class="w-full px-8 mt-10 sm:px-24 md:px-32 lg:px-36 font-montserrat">
   <div class="flex items-center w-full gap-5 mb-5 header__checkout">
     <h1 class="flex items-center w-full gap-3 text-3xl font-semibold text-indigo-500 ">
       <span>Thanh toán</span>
@@ -120,23 +108,20 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );" type="email" name="email" id="em
             <img style="width:96px; height: 96px;" src=" <?= $CONTENT_URL ?>/images/products/<?= $item['image'] ?>" alt="" class="object-cover rounded-md " />
           </div>
           <div class="flex flex-col justify-between product__name">
-            <h3 class="font-medium">
+            <h3 class="text-lg font-medium t">
               <?= $item['product_name'] ?>
             </h3>
             <p class="text-sm text-gray-500">
-              Số lượng :
-              <span class="text-orange-500">
-                <?= $item['quantity'] ?>
-              </span>
+              <span class="text-orange-500">Số lượng : </span>
+              <?= $item['quantity'] ?>
             </p>
             <p class="text-sm text-gray-500">
-              Đơn giá :
-              <span class="text-orange-500"> <?= number_format($item['price'], 0, ",", ".") ?> đ</span>
+              <span class="text-orange-500">Đơn giá : </span>
+              <?= number_format($item['price'], 0, ",", ".") ?> đ
             </p>
             <p class="text-sm text-gray-500">
-              Thành tiền :
-              <span class="text-orange-500"> <?= number_format($item['price'] * $item['quantity'], 0, ",", ".") ?> đ
-              </span>
+              <span class="text-orange-500">Thành tiền : </span>
+              <?= number_format($item['price'] * $item['quantity'], 0, ",", ".") ?> đ
             </p>
           </div>
         </div>
@@ -176,7 +161,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );" name="note" id="note" class="w-f
           polyfood
         </a>
       </p>
-      <input type="hidden" name="order_id" value="<?= $order_id + 1 ?>">
+
       <button style="box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);" name="order" class="w-full p-3 text-white bg-orange-600 rounded-lg form__input--submit sm:w-1/4 focus:outline-none">
         Đặt hàng
       </button>
@@ -184,6 +169,5 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );" name="note" id="note" class="w-f
     </div>
   </form>
 </main>
-<?php
-require_once '/xampp/htdocs/polyfood/site/layout/footer.php';
-?>
+  </body>
+</html>

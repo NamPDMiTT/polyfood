@@ -1,94 +1,94 @@
-<footer class="text-gray-700 pt-24 mx-auto">
-    <section class="w-full grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 px-8 md:px-14 lg:px-20">
-        <div class="footer__item-logo ml-5">
+<footer class="pt-24 mx-auto text-gray-700">
+    <section class="grid w-full grid-cols-2 gap-4 px-8 md:grid-cols-3 lg:grid-cols-4 md:px-14 lg:px-20">
+        <div class="ml-5 footer__item-logo">
             <img class="h-16" src="../IMG/logo.png" alt="logo" />
             <p class="footer-item-title--desc mt-4 text-gray-500 text-sm max-w-[220px]">
                 Website được phát triển bởi đội ngũ sinh viên FPT Polytechnic.
             </p>
         </div>
-        <div class="footer__item mb-5 ml-5">
-            <h1 class="footer__item-title text-xl block mb-3 font-bold">
+        <div class="mb-5 ml-5 footer__item">
+            <h1 class="block mb-3 text-xl font-bold footer__item-title">
                 Liên hệ
             </h1>
-            <ul class="footer__item-list mt-3">
+            <ul class="mt-3 footer__item-list">
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         Giới thiệu
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         Góp ý
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         Tuyển dụng
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         Điều khoản
                     </a>
                 </li>
             </ul>
         </div>
-        <div class="footer__item mb-5 ml-5">
-            <h1 class="footer__item-title text-xl block mb-3 font-bold">
+        <div class="mb-5 ml-5 footer__item">
+            <h1 class="block mb-3 text-xl font-bold footer__item-title">
                 Hỗ trợ
             </h1>
-            <ul class="footer__item-list mt-3">
+            <ul class="mt-3 footer__item-list">
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         Hướng dẫn mua hàng
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         Hướng dẫn thanh toán
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         Khiếu nại
                     </a>
                 </li>
 
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         FAQs
                     </a>
                 </li>
             </ul>
         </div>
 
-        <div class="footer__item mb-5 ml-5">
-            <h1 class="footer__item-title text-xl block mb-3 font-bold">
+        <div class="mb-5 ml-5 footer__item">
+            <h1 class="block mb-3 text-xl font-bold footer__item-title">
                 ĐỊA CHỈ
             </h1>
-            <ul class="footer__item-list mt-3">
+            <ul class="mt-3 footer__item-list">
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         Tòa nhà FPT Polytechnic, P. Trịnh Văn Bô, Xuân Phương, Nam Từ
                         Liêm, Hà Nội, Việt Nam
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         https://caodang.fpt.edu.vn/
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                         098.172.5836
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                     </a>
                 </li>
                 <li class="footer__item-list-item">
-                    <a href="#" class="footer__item-list-item-link block mb-3 text-sm text-gray-500">
+                    <a href="#" class="block mb-3 text-sm text-gray-500 footer__item-list-item-link">
                     </a>
                 </li>
             </ul>
@@ -96,16 +96,16 @@
     </section>
 
     <div class="border-t border-gray-200">
-        <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
+        <div class="container flex flex-wrap items-center px-5 py-8 mx-auto">
             <div>
-                <div class="container mx-auto py-4 px-5 flex justify-center items-center sm:flex-row flex-col">
-                    <p class="text-gray-500 text-sm text-center sm:text-left">
+                <div class="container flex flex-col items-center justify-center px-5 py-4 mx-auto sm:flex-row">
+                    <p class="text-sm text-center text-gray-500 sm:text-left">
                         © 2022 polyfood —
-                        <a href="#" class="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">@fptpolytechnic</a>
+                        <a href="#" class="ml-1 text-gray-600" target="_blank" rel="noopener noreferrer">@fptpolytechnic</a>
                     </p>
                 </div>
             </div>
-            <span class="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
+            <span class="inline-flex justify-center w-full mt-6 lg:ml-auto lg:mt-0 md:justify-start md:w-auto">
                 <a class="text-gray-500">
                     <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                         <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -133,7 +133,7 @@
     </div>
 
 </footer>
-<a style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)" id="cart" href="<?= $SITE_URL ?>/cart/index.php?all-my-cart" class="rounded-full w-16 h-16 sm:w-20 sm:h-20 bg-orange-600 animate-bounce fixed bottom-8 right-0 flex items-center z-50 justify-center text-gray-800 mr-8 mb-8 shadow-sm border-gray-300 border" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-9 h-9 text-white">
+<a style="box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37)" id="cart" href="<?= $SITE_URL ?>/cart/index.php?my-cart" class="fixed right-0 z-50 flex items-center justify-center w-16 h-16 mb-8 mr-8 text-gray-800 bg-orange-600 border border-gray-300 rounded-full shadow-sm sm:w-20 sm:h-20 animate-bounce bottom-8" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-white w-9 h-9">
         <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
     </svg>
 </a>
@@ -144,8 +144,8 @@
         -webkit-backdrop-filter: blur(2.5px);
         border-radius: 10px;
         border: 1px solid rgba(255, 255, 255, 0.18);
-      " class="menu__mobile lg:hidden fixed bottom-0 left-0 right-0 p-3 z-40 text-gray-400">
-    <ul class="flex justify-center items-center gap-6 sm:gap-8">
+      " class="fixed bottom-0 left-0 right-0 z-40 p-3 text-gray-400 menu__mobile lg:hidden">
+    <ul class="flex items-center justify-center gap-6 sm:gap-8">
         <li>
             <a href="<?= $SITE_URL ?>/page/index.php">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 sm:w-10">

@@ -4,7 +4,6 @@ require_once "../../dao/orders.php";
 check_login();
 extract($_REQUEST);
 if(exist_param("btn_confirm")){
-    // var_dump($order_id);die;
     order_change_status($order_id);
     $items=order_select_by_unfinished();
     $VIEW_NAME = "./list.php";
@@ -13,7 +12,7 @@ if(exist_param("btn_confirm")){
     $items=order_select_by_unfinished();
     $VIEW_NAME = "./list.php";
 }else{
-    $items=order_select_by_unfinished();
+    $items=order_select_by_unfinished(); 
     $VIEW_NAME = "./list.php";
 }
 require "./layout.php";
