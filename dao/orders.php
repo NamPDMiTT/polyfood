@@ -41,8 +41,8 @@ function order_select_by_user_id($user_id) {
     return pdo_query($sql);
 
 }
-function order_change_status($order_id, $status) {
-    $sql = "UPDATE orders SET status=$status WHERE order_id=$order_id";
+function order_change_status($order_id) {
+    $sql = "UPDATE orders SET status=1 WHERE order_id=$order_id";
     pdo_execute($sql);
 }
 // order đã được xử lý
@@ -54,7 +54,7 @@ function order_select_by_finish() {
 // order chưa được xử lý
 
 function order_select_by_unfinished() {
-    $sql = "SELECT * FROM orders WHERE status=0";
+    $sql = "SELECT o.*,u.name,u.user_id,p.product_name,p.image,p.price,p.discount FROM orders o JOIN users u ON o.user_id = u.user_id JOIN products p ON o.product_id = p.product_id WHERE o.status=0";
     return pdo_query($sql);
 
 }

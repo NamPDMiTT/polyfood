@@ -3,7 +3,7 @@
         <li><a href="<?= $SITE_URL ?>/page/index.php">Trang chủ</a></li>
         <?php if (isset($_SESSION['user'])) { ?>
             <?php if ($_SESSION['user']['role_id'] != 3) { ?>
-                <li><a href='<?= $STAFF_URL ?>/page/index.php'>Danh sách đặt hàng</a></li>
+                <li><a href='<?= $STAFF_URL ?>/list-orders/index.php'>Danh sách đặt hàng</a></li>
             <?php } ?>
         <?php } ?>
         <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
