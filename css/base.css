@@ -74,6 +74,8 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+/* Chữ không xuống dòng */
+
 
 /* FOOTER */
 
@@ -299,11 +301,6 @@ a.button.eight:before {
   transition: height 0.3s ease;
 }
 
-a.button.eight:hover:before {
-  height: 100%;
-  transform: scale(1.08);
-  transition: all 0.3s ease;
-}
 
 a.button.eight:hover:after {
   transform: scale(1.08);

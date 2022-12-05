@@ -56,7 +56,7 @@ function post_exist($post_id)
 }
 
 function check_exist()
-{
+{ 
     $sql = "SELECT * FROM posts ORDER BY post_id DESC LIMIT 1";
     return pdo_query_one($sql);
 }
