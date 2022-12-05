@@ -111,12 +111,13 @@ if (exist_param("btn_order")) {
     $note = $_POST['note'];
     foreach ($_SESSION['my_cart'] as $cart) {
         extract($cart);
-       insert_order($product_id, $quantity, $user_id, $note, $status);
+        insert_order($product_id, $quantity, $user_id, $note, $status);
     }
     $VIEW_NAME = "bill.php";
-} else if (exist_param("all-my-cart")) {
+    unset($_SESSION['my_cart']);
+} else if (exist_param("my-cart")) {
     $VIEW_NAME = "my-cart.php";
-}else{
+} else {
     $VIEW_NAME = "my-cart.php";
 }
 require_once $VIEW_NAME;

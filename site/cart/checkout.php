@@ -12,8 +12,6 @@ if (isset($_SESSION['my_cart'])) {
   }
 }
 
-
-
 if (isset($_SESSION['user'])) {
   $user_id = $_SESSION['user']['user_id'];
   $user = select_by_id_users($user_id);
@@ -31,6 +29,7 @@ if (isset($_SESSION['user'])) {
   </div>
 
   <form action="index.php?order" method="post" class="flex flex-col gap-3 mx-auto ">
+    <input type="hidden" name="order_id" value="<?php echo $order_id ?>">
     <h2 class="flex items-center gap-2 text-xl text-orange-500">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-700">
         <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -135,7 +134,8 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );" type="email" name="email" id="em
             </p>
             <p class="text-sm text-gray-500">
               Thành tiền :
-              <span class="text-orange-500"> <?= number_format($item['price'] * $item['quantity'], 0, ",", ".") ?> đ
+              <span class="text-orange-500">
+                <?= number_format($item['price'] * $item['quantity'], 0, ",", ".") ?> đ
               </span>
             </p>
           </div>
@@ -176,7 +176,6 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );" name="note" id="note" class="w-f
           polyfood
         </a>
       </p>
-      <input type="hidden" name="order_id" value="<?= $order_id + 1 ?>">
       <button style="box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);" name="order" class="w-full p-3 text-white bg-orange-600 rounded-lg form__input--submit sm:w-1/4 focus:outline-none">
         Đặt hàng
       </button>

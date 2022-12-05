@@ -28,7 +28,8 @@
               <div class="flex flex-col gap-1 product__info">
                 <h1 class="text-xl font-semibold text-gray-700"><?= $product_name ?></h1>
                 <p class="text-xs text-gray-500">Số lượng : <?= $quantity ?></p>
-                <p class="text-xs text-gray-500">Đơn giá : <?= number_format($price * (1 - $discount / 100), 0, '', '.') ?>đ</p>
+                <p class="text-xs text-gray-500">Đơn giá :
+                  <?= number_format($price * (1 - $discount / 100), 0, '', '.') ?>đ</p>
 
                 <p class="text-xs text-gray-500">Ngày đặt :
                   <?php
@@ -46,14 +47,15 @@
           <div class="list__porduct__orded__item__user  rounded-lg p-5 border-[3px] border-dashed">
             <div class="flex gap-5 list__porduct__orded__item__user__info">
               <div class="user__info">
-                <h1 style="width:200px;" class="text-xl font-semibold text-gray-700 ">Thông tin người nhận</h1>
+                <h1 style="width:200px;" class="text-xl font-semibold text-gray-700 ">Thông tin người nhận
+                </h1>
                 <p class="text-sm font-bold text-gray-600 whitespace-nowrap">
                   Họ tên : <span class="font-normal whitespace-nowrap"><?= $name ?></span>
                 </p>
                 <p class="text-sm font-bold text-gray-600 whitespace-nowrap">
                   Mã đơn hàng : <span class="text-orange-500">#<?= $order_id ?></span>
                 </p>
-               
+
 
               </div>
             </div>
@@ -68,7 +70,8 @@
               <div class="flex items-center gap-1 user__status">
 
                 <h1 class="text-sm font-bold text-gray-600 whitespace-nowrap">Tổng tiền : </h1>
-                <p class="text-sm text-orange-500"><?= number_format($price * (1 - $discount / 100) * $quantity, 0, '', '.') ?>đ</p>
+                <p class="text-sm text-orange-500">
+                  <?= number_format($price * (1 - $discount / 100) * $quantity, 0, '', '.') ?>đ</p>
               </div>
             </div>
             <!-- 2 nút xác nhận và hủy -->
