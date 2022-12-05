@@ -1,6 +1,7 @@
 <?php
 require_once '/xampp/htdocs/polyfood/global.php';
 require_once '/xampp/htdocs/polyfood/dao/orders.php';
+require_once '/xampp/htdocs/polyfood/dao/users.php';
 require_once '/xampp/htdocs/polyfood/dao/products.php';
 check_login();
 extract($_REQUEST);
@@ -104,7 +105,6 @@ if (exist_param("btn_order")) {
     $time_order = date("Y-m-d H:i:s");
     $status = 0;
 } else if (exist_param("order")) {
-    $VIEW_NAME = "all-my-cart.php";
     $user_id = $_SESSION['user']['user_id'];
     $time_order = date("Y-m-d H:i:s");
     $status = 0;
@@ -113,11 +113,11 @@ if (exist_param("btn_order")) {
         extract($cart);
         insert_order($product_id, $quantity, $user_id, $note, $status);
     }
+    $VIEW_NAME = "bill.php";
     unset($_SESSION['my_cart']);
-} else if (exist_param("all-my-cart")) {
-    $VIEW_NAME = "all-my-cart.php";
-    // echo $VIEW_NAME;
-}else{
+} else if (exist_param("my-cart")) {
+    $VIEW_NAME = "my-cart.php";
+} else {
     $VIEW_NAME = "my-cart.php";
 }
 require_once $VIEW_NAME;
