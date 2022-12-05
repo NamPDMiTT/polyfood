@@ -3,6 +3,9 @@
 .font {
   font-family: 'Lobster', cursive;
 }
+*{
+  font-family: 'Montserrat', sans-serif;
+}
 .rating {
   border: none;
   float: left;

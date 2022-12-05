@@ -11,10 +11,7 @@ extract($_REQUEST);
 $items = products_select_by_id($product_id);
 extract($items);
 $category_id = $items['category_id'];
-
-
-
-
+$price_discount = $price * (1 - $discount / 100);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -131,24 +128,10 @@ Quên mật khẩu</button>";
     </header>
 
     <section class="max-w-6xl mx-auto mt-10">
-        <div class="block md:hidden flex items-center font text-center text-3xl py-2 px-6 text-orange-600"><svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-balloon-heart-fill h-[30px] w-[30px] " viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2.376 2.376 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386Z" />
-            </svg>
-            <p><span class="inline-block text-red-500 font-semibold">Đ</span>
-                ộc lập
-                <span class="inline-block text-lime-600 font-semibold">tự do</span>
-                , miếng nào
-                <span class="inline-block text-cyan-400 font-semibold">to</span>
-                thì
-                <span class="inline-block text-pink-500 font-semibold">gấp.</span>
-            </p>
-            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-balloon-heart-fill h-[30px] w-[30px] " viewBox="0 0 16 16">
-                <path fill-rule="evenodd" d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2.376 2.376 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386Z" />
-            </svg>
-        </div>
-        <div class="grid md:grid-cols-2 gap-12 px-6">
-            <div class="rounded">
-                <img src="<?= $CONTENT_URL ?>/images/products/<?= $items['image'] ?>" alt="" class="rounded">
+
+        <div class="grid md:grid-cols-2 gap-12 p-6 bg-white rounded-lg shadow-md">
+            <div class="rounded-lg">
+                <img src="<?= $CONTENT_URL ?>/images/products/<?= $items['image'] ?>" alt="" class="rounded-xl">
             </div>
             <div class="">
                 <form action="../cart/index.php?btn_order" method="POST">
@@ -157,11 +140,9 @@ Quên mật khẩu</button>";
                     <input type="hidden" name="price" id="price" value="<?= $items['price'] ?>">
                     <input type="hidden" name="image" id="image" value="<?= $items['image'] ?>">
 
-                    <div class="font-bold text-5xl font text-orange-600"><?= $items['product_name'] ?></div>
+                    <div class="font-bold text-3xl  text-gray-700"><?= $items['product_name'] ?></div>
                     <div class="flex items-center space-x-2 py-4 ">
-                        <p class="text-orange-600">
-
-
+                        <p class="text-gray-500 text-sm">
                             <?php
                             $avg = avg_feedbacks($items['product_id']);
                             if ($avg == 0) {
@@ -181,40 +162,45 @@ Quên mật khẩu</button>";
                             ?>
 
                         </p>
-                        <p class="text-black">|</p>
-                        <p class="font "><?= $count ?> Customer Reviews</p>
+                        <p class="text-orange-500 text-sm">/</p>
+                        <p class="text-gray-500 text-sm"><?= $count ?>
+                            Phản hồi
+                        </p>
                     </div>
-                    <div class="text-3xl font text-orange-600 flex space-x-2">
+                    <div class="text-3xl  text-orange-600 flex space-x-2">
 
-                        <strike class="text-zinc-500 text-3xl"><?= $price ?>đ</strike>
-                        <p class="text-3xl flex gap-2"> <span>-</span> <?= $price * (1 - $discount / 100) ?></p>đ
-
-
+                        <strike class="text-gray-400 text-3xl font-light"><?= number_format($price, 0, ",", ".") ?>
+                            đ</strike>
+                        <p class="text-3xl flex gap-2"> <span></span>
+                            <?= number_format($price_discount, 0, ",", ".") ?>đ
                     </div>
-                    <span class="inline-block text-gray-400 font">Quốc gia:</span>
-                    <span class="inline-block text-black font">Việt Nam</span>
-                    <div class="font text-2xl font-bold py-4">Ưu đãi</div>
+
+                    <div class="py-4">
+                        <img style="width:96px" src="../IMG/logo.png" alt="">
+                    </div>
                     <div class="flex items-center space-x-2">
-                        <span class="bg-orange-600 py-2 px-0.5"></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar-check text-orange-600" viewBox="0 0 16 16">
-                            <path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
-                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
                         </svg>
-                        <p class="text-orange-600 font">Đổi trả dễ dàng trong 2 giờ nếu bạn đổi ý</p>
+
+                        <p class="text-gray-500 font-light">
+                            Hỗ trợ tận tình , đồ ăn tận răng !
+                        </p>
                     </div>
                     <div class="flex items-center space-x-2 py-2">
-                        <span class="bg-orange-600 py-2 px-0.5"></span>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-tags text-orange-600" viewBox="0 0 16 16">
-                            <path d="M3 2v4.586l7 7L14.586 9l-7-7H3zM2 2a1 1 0 0 1 1-1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 2 6.586V2z" />
-                            <path d="M5.5 5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm0 1a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3zM1 7.086a1 1 0 0 0 .293.707L8.75 15.25l-.043.043a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 0 7.586V3a1 1 0 0 1 1-1v5.086z" />
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-orange-500">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
                         </svg>
-                        <p class="text-orange-600 font">Gọi món sớm, có hàng sớm :></p>
+
+                        <p class="text-gray-500 font-light">
+                            Đồ ăn sẵn sàng , điện thoại reo
+                        </p>
                     </div>
-                    <button class="bg-orange-600 text-white font py-2 px-8 items-center flex  rounded-xl">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bag-x-fill w-[16px] h-[16px] " viewBox="0 0 16 16">
-                            <path fill-rule="evenodd" d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5v-.5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0zM6.854 8.146a.5.5 0 1 0-.708.708L7.293 10l-1.147 1.146a.5.5 0 0 0 .708.708L8 10.707l1.146 1.147a.5.5 0 0 0 .708-.708L8.707 10l1.147-1.146a.5.5 0 0 0-.708-.708L8 9.293 6.854 8.146z" />
+                    <button class="bg-orange-600 mt-5 text-sm text-white  py-2 px-5 items-center flex  rounded-lg">
+                        <p class="px-2">Thêm vào giỏ</p>
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
                         </svg>
-                        <p class="px-2">Thêm Vào Giỏ Hàng.</p>
                     </button>
                 </form>
             </div>
@@ -222,11 +208,13 @@ Quên mật khẩu</button>";
     </section>
     <section class="max-w-6xl mx-auto mt-20">
         <div class="flex justify-center items-center space-x-4 button-box">
-            <div id="btn" class="inlinde-block md:mr-44 font text-xl rounded-xl md:w-[114px] md:h-[48px] border-red-500 bg-red-500"></div>
-            <button type="button" class="toggle-btn" onclick="leftClick()"><span id="trai" class="inline-block font text-xl  py-2 px-8  text-white  rounded-xl  sili ">Mô tả</span></button>
-            <button type="button" class="toggle-btn" onclick="rightClick()"><span id="phai" class="inline-block font text-xl  py-2 px-8  text-red-500 rounded-xl  ">Nhận xét ( <?= $count ?> )</span></button>
+            <div id="btn" class="inlinde-block md:mr-44  text-xl text-center rounded-xl md:w-[90px] md:h-[48px] border-red-500 bg-orange-500">
+            </div>
+            <button type="button" class="toggle-btn" onclick="leftClick()"><span id="trai" class="inline-block text-xl  py-2 px-8  text-white  rounded-xl  sili">Mô tả</span></button>
+            <button type="button" class="toggle-btn" onclick="rightClick()"><span id="phai" class="inline-block  text-xl  py-2 px-8  text-red-500 rounded-xl  ">Nhận xét ( <?= $count ?>
+                    )</span></button>
         </div>
-        <p class="font text-md py-6 px-6" id="description"><?= $detail ?></p>
+        <p class="text-md font-light text-gray-500 py-6 px-6" id="description"><?= $detail ?></p>
         <div class="px-16 py-12 hidden" id="comment">
 
             <?php
@@ -244,12 +232,14 @@ Quên mật khẩu</button>";
 
                 <div class="grid grid-cols-[48px,auto] gap-8">
                     <div class="rounded-full rounded-2 rounded-red-500 w-[48px] h-[48px]">
-                        <img src="<?= $CONTENT_URL ?>/images/users/<?= $fb['img_user'] ?>" alt="" class="">
+                        <img src="<?= $CONTENT_URL ?>/images/users/<?= $fb['img_user'] ?>" alt="">
                     </div>
                     <div class="">
                         <div class="flex items-center space-x-4">
                             <h1 class="text-md font-bold"><?= $fb['name_user'] ?></h1>
-                            <p class="text-gray-400 text-md"> <?= $count_date < 30 ? $count_date . ' ngày' : floor($count_date / 30) . ' tháng' ?> trước</p>
+                            <p class="text-gray-400 text-md">
+                                <?= $count_date < 30 ? $count_date . ' ngày' : floor($count_date / 30) . ' tháng' ?> trước
+                            </p>
                         </div>
                         <div class="text-yellow-500">
 
@@ -285,12 +275,15 @@ Quên mật khẩu</button>";
                 }
                 ?>
 
-                <div class=" grid grid-cols-[48px,auto] gap-8 mt-10">
-                    <div class="rounded-full rounded-2 rounded-red-500 w-[48px] h-[48px]">
-                        <img src="<?= $CONTENT_URL . '/images/users/' ?><?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : 'user.png' ?>" alt="" class="">
+                <div class=" grid grid-cols-[100px,auto]  mt-10">
+                    <div class="rounded-full flex items-center gap-5 rounded-2 rounded-red-500 w-[100px] h-[48px]">
+                        <img src="<?= $CONTENT_URL . '/images/users/' ?><?= isset($_SESSION['user']) ? $_SESSION['user']['image'] : 'user.png' ?>" alt="" class="rounded-full w-[48px] h-[48px]">
+                        <span class="whitespace-nowrap text-gray-500">
+                            <?= isset($_SESSION['user']) ? $_SESSION['user']['name'] : 'Đăng nhập để bình luận' ?>
+                        </span>
                     </div>
-                    <div class="space-y-2">
-                        <div class="flex items-center space-x-4 py-4">
+                    <div class="space-y-2 mt-5">
+                        <div class="flex lg:flex-row flex-col items-center space-x-4 py-4">
                             <fieldset class="rating">
                                 <input type="radio" id="star5" name="rating" value="5" /><label class="full" for="star5" title="Awesome - 5 stars"></label>
                                 <input type="radio" id="star4" name="rating" value="4" /><label class="full" for="star4" title="Pretty good - 4 stars"></label>
@@ -298,7 +291,7 @@ Quên mật khẩu</button>";
                                 <input type="radio" id="star2" name="rating" value="2" /><label class="full" for="star2" title="Kinda bad - 2 stars"></label>
                                 <input type="radio" id="star1" name="rating" value="1" /><label class="full" for="star1" title="Sucks big time - 1 star"></label>
                             </fieldset>
-                            <p class="text-black text-md">(Vui lòng chọn đánh giá)</p>
+                            <p class="text-gray-500 text-sm">(Vui lòng chọn đánh giá)</p>
                         </div>
                         <textarea id="note" name="note" placeholder="Điền đánh giá ...." class="md:w-[612px] md:h-[97px] border-2 rounded px-4 py-1"></textarea>
                         <br>
@@ -308,7 +301,7 @@ Quên mật khẩu</button>";
                             echo "<h5 class='text-red-500'>$err</h5>";
                         }
                         ?>
-                        <button type="submit" class="rounded py-2 px-10 bg-red-500 font text-white">Gửi</button>
+                        <button type="submit" class="rounded py-2 px-10 bg-orange-500  text-white">Gửi</button>
                     </div>
                 </div>
 
@@ -318,14 +311,11 @@ Quên mật khẩu</button>";
 
     </section>
     <section class="max-w-6xl mx-auto">
-        <div class="text-center text-xl text-orange-500 font">Nhiều lượt xem nhất</div>
-        <div class="text-center font-bold text-3xl text-red-500 font">Sản phẩm liên quan</div>
+        <h1 class="text-center font-bold text-3xl text-orange-500">Có thể bạn cũng thích</h1>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4">
-
             <?php
             require_once '/xampp/htdocs/polyfood/site/food/product/products_cate.php';
             ?>
-
         </div>
 
     </section>
@@ -445,7 +435,8 @@ Quên mật khẩu</button>";
                     </a>
                     <a class="ml-3 text-gray-500">
                         <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                            </path>
                         </svg>
                     </a>
                     <a class="ml-3 text-gray-500">
@@ -456,7 +447,8 @@ Quên mật khẩu</button>";
                     </a>
                     <a class="ml-3 text-gray-500">
                         <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
-                            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                            </path>
                             <circle cx="4" cy="4" r="2" stroke="none"></circle>
                         </svg>
                     </a>

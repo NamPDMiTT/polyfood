@@ -230,9 +230,7 @@ Quên mật khẩu</button>";
                             <div class="user__status flex items-center gap-1">
                                 <h1 class="font-bold text-sm text-gray-600">Tổng tiền : </h1>
                                 <p class="text-orange-500 text-sm">
-                                    <?=
-
-                                        number_format($total, 0, ".", ".") ?>đ
+                                    <?= number_format($total, 0, ".", ".") ?>đ
                                 </p>
                             </div>
                         </div>
@@ -243,12 +241,6 @@ Quên mật khẩu</button>";
                                 Đã nhận hàng
                             </button>
                             <!-- Nếu nút confim được submit thì hiển thị nút đánh giá -->
-
-                            <button style="" type="submit" name="rate"
-                                class="bg-yellow-500 whitespace-nowrap  text-white text-sm font-semibold px-3 py-2 rounded-lg">
-                                Đánh giá
-                            </button>
-
                         </div>
                     </div>
                 </div>
