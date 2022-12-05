@@ -8,7 +8,7 @@ extract($_REQUEST);
 if (isset($_SESSION['user'])) {
     $user_id = $_SESSION['user']['user_id'];
 }
-$order = order_select_by_user_id($user_id);
+$order = join_order_product($user_id);
 extract($order);
 ?>
 <!DOCTYPE html>
@@ -178,10 +178,10 @@ Quên mật khẩu</button>";
                                 <h1 class="text-xl font-semibold text-gray-700">
                                     Điền tên sản Phẩm
                                 </h1>
-                                <p class="text-gray-600 text-xs">Số lượng : 12</p>
-                                <p class="text-gray-600 text-xs">Ngày đặt : 5/12/2022</p>
+                                <p class="text-gray-600 text-xs">Số lượng : <?=$quantity?></p>
+                                <p class="text-gray-600 text-xs">Ngày đặt : <?=$time_order?></p>
                                 <p class="text-gray-600 text-xs">Đơn giá :
-                                    1111111 đ
+                                    <?=$price?>
                                 </p>
                             </div>
                         </div>
@@ -229,7 +229,7 @@ Quên mật khẩu</button>";
                             <div class="user__status flex items-center gap-1">
                                 <h1 class="font-bold text-sm text-gray-600">Tổng tiền : </h1>
                                 <p class="text-orange-500 text-sm">
-                                    1111111 đ
+                                    <?=$price*$quantity?>
                                 </p>
                             </div>
                         </div>
