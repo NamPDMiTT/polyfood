@@ -12,6 +12,8 @@ if (isset($_SESSION['user'])) {
     $user = select_by_id_users($user_id);
     extract($user);
 }
+$order = order_select_by_user_id($user_id);
+extract($order);
 
 
 ?> <div class="container mx-auto mt-10">
@@ -51,13 +53,11 @@ if (isset($_SESSION['user'])) {
         <div class="flex flex-col justify-between px-5 order__info sm:flex-row-reverse lg:px-20">
 
             <div class="mt-5 order__info__title">
-                <h1 class="text-lg font-bold text-gray-700 sm:text-2xl">
-                    Mã đơn hàng #<span class="text-indigo-500">
-                        123
-                    </span>
-                </h1>
+
                 <p class="mt-2 text-sm text-gray-500">Ngày đặt :
-                    5/12/2022
+                    <?= //hiển thị ngày hiện tại
+                    gmdate('d-m-Y');
+                    ?>
                 </p>
             </div>
             <div class="mt-5 order__info__address">
@@ -65,10 +65,10 @@ if (isset($_SESSION['user'])) {
                     Thông tin người nhận
                 </h1>
                 <p class="mt-1 text-lg text-gray-500">
-                    Lê Công Tiến
+                    <?= $name ?>
                 </p>
                 <p class="mt-2 text-sm text-gray-500">
-                    096 123 4567
+                    <?= $phone ?>
                 </p>
             </div>
         </div>
@@ -82,13 +82,17 @@ if (isset($_SESSION['user'])) {
                     Ghi chú :
                 </h1>
                 <p class="text-gray-500">
-                    Không có ghi chú
+                    <?php if ($note != "") {
+                        echo $note;
+                    } else {
+                        echo "Không có ghi chú";
+                    } ?>
                 </p>
             </div>
 
             <div class="flex flex-col justify-between sm:flex-row payment__method sm:gap-5">
                 <h1 class="text-lg font-bold text-gray-700">Tổng thanh toán :</h1>
-                <p class="text-lg text-orange-500">1.000.000đ</p>
+                <p class="text-lg text-orange-500"><?= number_format($total_price) ?>đ</p>
             </div>
         </div>
 
@@ -104,5 +108,6 @@ if (isset($_SESSION['user'])) {
     </main>
 </div>
 <?php
+unset($_SESSION['my_cart']);
 require_once '/xampp/htdocs/polyfood/site/layout/footer.php';
 ?>

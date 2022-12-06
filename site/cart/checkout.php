@@ -166,7 +166,7 @@ border: 1px solid rgba( 255, 255, 255, 0.18 );" name="note" id="note" class="w-f
     <div class="flex items-center justify-between gap-4 total__price sm:mt-4">
       <h3 class="text-xl font-semibold text-gray-700">Tổng thanh toán</h3>
       <h3 class="text-xl font-semibold text-orange-500">
-        <?= number_format($total_price, 0, ",", ".") ?> đ
+        <?= number_format($total_price_all, 0, ",", ".") ?> đ
       </h3>
     </div>
     <div class="flex flex-col items-center justify-between w-full gap-3 mt-3 mb-10 form__group--oder sm:flex-row lg:mb-20">

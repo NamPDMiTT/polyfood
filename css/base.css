@@ -3,6 +3,9 @@
 .font {
   font-family: 'Lobster', cursive;
 }
+*{
+  font-family: 'Montserrat', sans-serif;
+}
 .rating {
   border: none;
   float: left;
@@ -74,6 +77,14 @@ main {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+.limited__content-4 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Chữ không xuống dòng */
 
 

@@ -73,7 +73,7 @@ function order_select_by_unfinished()
 }
 function info_order($user_id)
 {
-    $sql = "SELECT o.*,u.name,u.user_id,p.product_name,p.image,p.price,p.discount FROM orders o JOIN users u ON o.user_id = u.user_id JOIN products p ON o.product_id = p.product_id WHERE o.user_id=$user_id";
+    $sql = "SELECT o.*,u.name,u.user_id,u.user_name,p.product_name,p.image,p.price,p.discount FROM orders o JOIN users u ON o.user_id = u.user_id JOIN products p ON o.product_id = p.product_id WHERE o.user_id=$user_id";
     return pdo_query($sql);
 }
 function update_product_cart($quantity, $total, $id)

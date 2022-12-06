@@ -8,7 +8,7 @@ extract($_REQUEST);
 if (isset($_SESSION['user'])) {
     $user_id = $_SESSION['user']['user_id'];
 }
-$order = order_select_by_user_id($user_id);
+$order = join_order_product($user_id);
 extract($order);
 ?>
 <!DOCTYPE html>
@@ -150,13 +150,14 @@ Quên mật khẩu</button>";
             <!-- Đặt vòng for từ đây -->
             <!-- Khối chứa thông tin sản phẩm -->
             <?php foreach ($order as $item) { ?>
-            <?php extract($item); ?>
+            <?php extract($item);
+                $total = $price * $quantity; ?>
             <form class="all__my__cart " action="" method="post">
                 <div class="flex sm:flex-row flex-col my-5 gap-3 p-4 border-b-[3px] relative">
                     <div class="order__id bg-orange-500 px-2 py-1 h-8 rounded-full absolute top-o left-0 z-50">
                         <!-- Mã đơn hàng -->
                         <h1 class="whitespace-nowrap font-bold text-white ">
-                            #123
+                            #<?= $order_id ?>
                         </h1>
                     </div>
                     <div
@@ -176,12 +177,12 @@ Quên mật khẩu</button>";
                             </div>
                             <div class="product__info flex flex-col gap-1">
                                 <h1 class="text-xl font-semibold text-gray-700">
-                                    Điền tên sản Phẩm
+                                    <?= $product_name ?>
                                 </h1>
-                                <p class="text-gray-600 text-xs">Số lượng : 12</p>
-                                <p class="text-gray-600 text-xs">Ngày đặt : 5/12/2022</p>
+                                <p class="text-gray-600 text-xs">Số lượng : <?= $quantity ?></p>
+                                <p class="text-gray-600 text-xs">Ngày đặt : <?= $time_order ?></p>
                                 <p class="text-gray-600 text-xs">Đơn giá :
-                                    1111111 đ
+                                    <?= number_format($price, 0, ".", ".") ?>đ</p>
                                 </p>
                             </div>
                         </div>
@@ -229,7 +230,7 @@ Quên mật khẩu</button>";
                             <div class="user__status flex items-center gap-1">
                                 <h1 class="font-bold text-sm text-gray-600">Tổng tiền : </h1>
                                 <p class="text-orange-500 text-sm">
-                                    1111111 đ
+                                    <?= number_format($total, 0, ".", ".") ?>đ
                                 </p>
                             </div>
                         </div>
@@ -240,12 +241,6 @@ Quên mật khẩu</button>";
                                 Đã nhận hàng
                             </button>
                             <!-- Nếu nút confim được submit thì hiển thị nút đánh giá -->
-
-                            <button style="" type="submit" name="rate"
-                                class="bg-yellow-500 whitespace-nowrap  text-white text-sm font-semibold px-3 py-2 rounded-lg">
-                                Đánh giá
-                            </button>
-
                         </div>
                     </div>
                 </div>

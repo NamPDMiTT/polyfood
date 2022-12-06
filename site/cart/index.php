@@ -8,6 +8,7 @@ extract($_REQUEST);
 if (!isset($_SESSION['my_cart'])) {
     $_SESSION['my_cart'] = [];
 }
+// unset($_SESSION['my_cart']);
 if (exist_param("btn_order")) {
     $product_id = $_POST['product_id'];
     $order_product = products_select_by_id($product_id);
@@ -63,6 +64,7 @@ if (exist_param("btn_order")) {
             'category_id' => $category_id,
             'menu_id' => $menu_id,
             'detail' => $detail,
+            'note1'=>''
         ];
         array_push($_SESSION['my_cart'], $add_orders);
     }
@@ -113,8 +115,12 @@ if (exist_param("btn_order")) {
         extract($cart);
         insert_order($product_id, $quantity, $user_id, $note, $status);
     }
+    //thêm note vào session my_cart
+    foreach ($_SESSION['my_cart'] as $key => $value) {
+        $_SESSION['my_cart'][$key]['note'] = $note;
+    }
     $VIEW_NAME = "bill.php";
-    unset($_SESSION['my_cart']);
+    // unset($_SESSION['my_cart']);
 } else if (exist_param("my-cart")) {
     $VIEW_NAME = "my-cart.php";
 } else {

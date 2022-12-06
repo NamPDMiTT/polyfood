@@ -87,7 +87,7 @@ foreach ($_SESSION['my_cart'] as $cart) {
             <?php } ?>
             <?php } else { ?>
             <div class="flex flex-col items-center justify-center">
-                <img class="w-[200px] h-[200px]" src="../IMG/empty-cart.png" alt="">
+                <img style="width:200; height:200;" src="../IMG/empty-cart.png" alt="">
                 <h3 class="text-xl font-semibold">Giỏ hàng của bạn trống</h3>
                 <a href="<?= $SITE_URL ?>/page/product.php" class="flex mt-5 text-sm font-semibold text-indigo-600">
                     <svg class="w-4 mr-2 text-indigo-600 fill-current" viewBox="0 0 448 512">
