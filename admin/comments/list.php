@@ -42,7 +42,7 @@
                 </svg>
 
                 <h1 class="text-left text-xl text-gray-500 uppercase">
-                    LIST comments
+                    Danh sách bình luận
                 </h1>
             </section>
             <form action="index.php" method="post">
@@ -50,28 +50,28 @@
                     <table class="w-full text-center rounded-md shadow-md my-3">
                         <thead class="boder bg-gray-200 px-2 rounded-t-md">
                             <tr>
-                                <th class=" text-xs  p-2 w-20 font-medium">
-                                    Post ID
+                                <th class=" text-xs  p-2  font-medium">
+                                    Mã bài viết
                                 </th>
                                 <th class=" text-xs  p-2  font-medium">
-                                    Total
+                                    Tổng bình luận
                                 </th>
-                                <th class=" text-xs  px-6 py-2 font-medium">
+                                <th class=" text-xs  px-2 py-2 font-medium">
                                     Mới nhất
                                 </th>
                                 <th class=" text-xs  px-2 py-2 font-medium">
                                     Cũ nhất
                                 </th>
                                 <th class=" text-xs  px-6 py-2 font-medium">
-                                    Action
+                                    Thao tác
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-              foreach ($items as $item) {
-                extract($item);
-              ?>
+                            foreach ($items as $item) {
+                                extract($item);
+                            ?>
                             <tr class="border-t-2 border-dashed">
                                 <td class="p-2 whitespace-nowrap">
                                     <p class="text-xs text-gray-900">
@@ -83,8 +83,8 @@
                                         <?= $total ?>
                                     </p>
                                 </td>
-                                <td class="p-2 w-20 ">
-                                    <p class="text-xs text-gray-900 truncate w-32 overflow-hidden">
+                                <td class="p-2  ">
+                                    <p class="text-xs text-gray-900">
                                         <?= $new ?>
                                     </p>
                                 </td>
@@ -93,9 +93,9 @@
                                         <?= $old ?>
                                     </p>
                                 </td>
-                                <td class="px-2 mt-7 whitespace-nowrap flex gap-3 items-center justify-center">
+                                <td class="p-2">
                                     <a href="<?= $ADMIN_URL ?>/comments/index.php?post_id=<?= $post_id ?>"
-                                        class="text-xs text-gray-900">Chi tiết
+                                        class="text-xs text-indigo-500">Chi tiết
                                     </a>
                                 </td>
                             </tr>
