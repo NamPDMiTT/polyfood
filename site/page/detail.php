@@ -40,7 +40,7 @@ $price_discount = $price * (1 - $discount / 100);
                     <li><a href="<?= $SITE_URL ?>/page/index.php">Trang chủ</a></li>
                     <?php if (isset($_SESSION['user'])) { ?>
                         <?php if ($_SESSION['user']['role_id'] != 3) { ?>
-                            <li><a href='<?= $STAFF_URL ?>/page/index.php'>Danh sách đặt hàng</a></li>
+                            <li><a href='<?= $STAFF_URL ?>/list-orders/index.php'>Danh sách đặt hàng</a></li>
                         <?php } ?>
                     <?php } ?>
                     <li><a href="<?= $SITE_URL ?>/page/introduce.php">Giới thiệu</a></li>
@@ -64,7 +64,7 @@ $price_discount = $price * (1 - $discount / 100);
                                     <a href="#" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">
                                         Hỗ trợ
                                     </a>
-                                    <a href="<?= $SITE_URL ?>/cart/all-my-cart.php<?php if (isset($_SESSION['user'])) echo "?user_id=" . $_SESSION['user']['user_id'] ?>" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
+                                    <a href="<?= $STAFF_URL ?>/list-orders/index.php<?php if (isset($_SESSION['user'])) echo "?user_id=" . $_SESSION['user']['user_id'] ?>" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
                                         Đơn hàng của tôi
                                     </a>
                                     <a href="<?= $SITE_URL ?>/account/change-password.php" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">
