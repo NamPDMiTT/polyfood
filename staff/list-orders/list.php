@@ -35,9 +35,9 @@
 
                             <p class="text-xs text-gray-500">Ngày đặt :
                                 <?php
-                  $date = date_create($time_order);
-                  echo date_format($date, 'd/m/Y');
-                  ?>
+                                    $date = date_create($time_order);
+                                    echo date_format($date, 'd/m/Y');
+                                    ?>
                             </p>
                             </p>
                         </div>
@@ -81,8 +81,8 @@
                             class="px-3 py-2 text-sm font-semibold text-white bg-green-500 rounded-lg whitespace-nowrap">
                             Xác nhận
                         </button>
-                        <button type="submit" name="btn_cancel"
-                            class="px-3 py-2 text-sm font-semibold text-white bg-red-500 rounded-lg">
+                        <button style="background-color:red;" type="submit" name="btn_cancel"
+                            class="px-3 py-2 text-sm font-semibold text-white  rounded-lg">
                             Hủy
                         </button>
                     </div>
