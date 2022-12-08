@@ -1,7 +1,7 @@
 <footer class="pt-24 mx-auto text-gray-700">
     <section class="grid w-full grid-cols-2 gap-4 px-8 md:grid-cols-3 lg:grid-cols-4 md:px-14 lg:px-20">
         <div class="ml-5 footer__item-logo">
-            <img class="h-16" src="../IMG/logo.png" alt="logo" />
+            <img class="h-16" src="../../site/IMG/logo.png" alt="logo" />
             <p class="footer-item-title--desc mt-4 text-gray-500 text-sm max-w-[220px]">
                 Website được phát triển bởi đội ngũ sinh viên FPT Polytechnic.
             </p>
