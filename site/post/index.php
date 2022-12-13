@@ -5,7 +5,7 @@ require_once "/xampp/htdocs/polyfood/dao/posts.php";
 require_once "/xampp/htdocs/polyfood/dao/users.php";
 require_once "/xampp/htdocs/polyfood/dao/comments.php";
 check_login();
-extract($_REQUEST);
+extract($_REQUEST); //lấy tất cả các tham số gửi lên từ form và đưa vào biến có tên là tên tham số
 if (exist_param("btn_insert")) {
     $post_id = $_POST['post_id'];
     if (isset($_SESSION['user'])) {
@@ -26,7 +26,6 @@ if (exist_param("btn_insert")) {
         $image_tmp = $_FILES['image']['tmp_name'][$key]; //đường dẫn file
         move_uploaded_file($image_tmp, $IMAGE_DIR . 'posts/' . $image); //di chuyển file vào thư mục
         insert_image_post($post_id, $image);
-        
     }
     echo "<scrip>alert('Đăng bài thành công!');</script>";
     header("location:./index.php");
