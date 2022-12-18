@@ -85,9 +85,13 @@
                                 </p>
                             </td>
                             <td class="p-2 whitespace-nowrap">
+                               <?php if(!empty($image)){ ?>
                                 <img class="rounded-md object-cover object-center block mx-auto"
                                     src="<?= $CONTENT_URL ?>/images/feedbacks/<?= $image ?>" width="60" height="60"
                                     alt="">
+                                <?php }else {?>
+                                    <p class="text-xs text-gray-900 ">No image feedback</p>
+                                    <?php } ?>
                             </td>
                             <td class="p-2 whitespace-nowrap">
                                 <p class="text-xs text-gray-900">
