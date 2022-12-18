@@ -9,7 +9,7 @@
             <div
               class="logo-[100px] h-auto px-2 flex gap-2 items-center justify-center"
             >
-              <a href="../../index.php">
+              <a href="<?= $SITE_URL ?>/page/index.php">
                 <img
                   src="../../site/IMG/logo.png"
                   alt="logo"

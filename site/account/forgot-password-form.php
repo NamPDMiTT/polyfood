@@ -19,7 +19,7 @@
                 <div class="form__group flex flex-col gap-2">
                     <label for="email">Email</label>
                     <input type="email" name="email" id="email" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-lg
-                  focus:border-orange-500 focus:outline-none" placeholder="Email" value="<?= $email ?>" />
+                  focus:border-orange-500 focus:outline-none" placeholder="example@gmail.com" value="<?= $email ?>" />
                     <span class="text-red-500 text-xs">
                         <?php echo isset($error['email']) ? $error['email'] : ''; ?>
                     </span>

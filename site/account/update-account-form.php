@@ -44,7 +44,7 @@
             <div class="form__group flex flex-col gap-2">
               <label for="image_upload">Avatar</label>
               <input type="file" name="image_upload" id="image_upload" class="form__input  text-xs border border-gray-700  p-3 w-full rounded-lg focus:border-orange-500 focus:outline-none" placeholder="image" />
-              <img class="w-full" src="<?= $CONTENT_URL ?>/images/users/<?= $image ?>">
+              <img class="" style="width:200px;height:200px;display:block;margin:0 auto;" src="<?= $CONTENT_URL ?>/images/users/<?= $image ?>">
             </div>
             <div class="form__group flex flex-col justify-center items-center gap-3">
               <button type="submit" name="btn_update" class="text-white bg-orange-600 p-2 rounded-lg w-full sm:w-[100px] text-center">
