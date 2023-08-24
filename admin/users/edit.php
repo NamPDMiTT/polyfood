@@ -15,18 +15,15 @@ check_login();
         <div class="account__admin flex items-center gap-2">
             <div class="account__admin--avatar">
 
-                <img src="<?= $CONTENT_URL ?>/images/users/<?= $_SESSION['user']['image'] ?>" alt=""
-                    class="w-10 h-10 rounded-full" />
+                <img src="<?= $CONTENT_URL ?>/images/users/<?= $_SESSION['user']['image'] ?>" alt="" class="w-10 h-10 rounded-full" />
             </div>
             <div class="account__admin--name flex flex-col gap-1">
                 <p class="font-medium text-sm text-gray-500">
                     <?= $_SESSION['user']['name'] ?>
                 </p>
                 <a href="index.php?action=logout" class="logout text-xs text-gray-500 flex items-center gap-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-4 h-4">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
                     </svg>
                     Logout
                 </a>
@@ -43,10 +40,8 @@ check_login();
         ?>
         <section class="add__user w-full mt-5">
             <section class="add__products-title flex  items-center gap-1">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-10 h-10 text-gray-500">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-gray-500">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <h1 class="text-left lg:text-xl text-gray-500 uppercase">Cật nhật tài khoản</h1>
             </section>
@@ -65,9 +60,7 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">USER
                                 NAME</label>
-                            <input type="text"
-                                class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 "
-                                name="user_name" id="name" placeholder="Nhập user name..." value="<?= $user_name ?>" />
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="user_name" id="name" placeholder="Nhập user name..." value="<?= $user_name ?>" />
                             <span class="text-red-500 text-xs">
                                 <?= isset($error['user_name']) ? $error['user_name'] : ''; ?>
                             </span>
@@ -75,9 +68,7 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">Họ và
                                 tên</label>
-                            <input type="text"
-                                class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 "
-                                name="name" id="name" placeholder="Nhaaoj họ và tên..." value="<?= $name ?>" />
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="name" id="name" placeholder="Nhaaoj họ và tên..." value="<?= $name ?>" />
                             <span class="text-red-500 text-xs">
                                 <?= isset($error['name']) ? $error['name'] : ''; ?>
                             </span>
@@ -85,9 +76,7 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">Mật
                                 khẩu</label>
-                            <input type="password"
-                                class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 "
-                                name="password" id="name" placeholder="******" value="<?= $password ?>" />
+                            <input type="password" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="password" id="name" placeholder="******" value="<?= $password ?>" />
                             <span class="text-red-500 text-xs">
                                 <?= isset($error['password']) ? $error['password'] : ''; ?>
                             </span>
@@ -95,9 +84,7 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">Địa chỉ
                                 email</label>
-                            <input type="text"
-                                class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 "
-                                name="email" id="name" placeholder="Nhập email..." value="<?= $email ?>" />
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="email" id="name" placeholder="Nhập email..." value="<?= $email ?>" />
                             <span class="text-red-500 text-xs">
                                 <?= isset($error['email']) ? $error['email'] : ''; ?>
                             </span>
@@ -106,9 +93,7 @@ rounded-md text-gray-500
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">Số điện
                                 thoại</label>
-                            <input type="text"
-                                class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 "
-                                name="phone" id="name" placeholder="Nhập số điện thoại" value="<?= $phone ?>" />
+                            <input type="text" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="phone" id="name" placeholder="Nhập số điện thoại" value="<?= $phone ?>" />
                             <span class="text-red-500 text-xs">
                                 <?= isset($error['phone']) ? $error['phone'] : ''; ?>
                             </span>
@@ -117,24 +102,19 @@ rounded-md text-gray-500
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">Vai
                                 trò</label>
 
-                            <select name="role_id"
-                                class="mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm  bg-gray-100 rounded-md text-gray-500">
+                            <select name="role_id" class="mt-2 p-2 px-3  shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm  bg-gray-100 rounded-md text-gray-500">
                                 <option value="">Chọn vai trò</option>
                                 <?php foreach ($roles as $role) : ?>
-                                <?php extract($role) ?>
-                                <option value="<?= $role_id ?>"><?= $role_name ?></option>
+                                    <?php extract($role) ?>
+                                    <option value="<?= $role_id ?>"><?= $role_name ?></option>
                                 <?php endforeach; ?>
                             </select>
                         </div>
                         <div class="form__group flex flex-col ">
                             <label class="text-xs sm:text-sm md:text-base lg:text-base text-gray-500" for="name">Ảnh đại
                                 diện</label>
-                            <input type="hidden"
-                                class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-1 px-3  rounded-md text-gray-500 "
-                                name="image" id="name" value="<?= $image ?>" />
-                            <input type="file"
-                                class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 "
-                                name="upload_image" id="name" />
+                            <input type="hidden" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-1 px-3  rounded-md text-gray-500 " name="image" id="name" value="<?= $image ?>" />
+                            <input type="file" class="form__input-add__prodcut shadow-2xl border border-gray-200 focus:outline-none text-xs sm:text-sm md:text-base lg:text-base bg-gray-100 mt-2 p-2 px-3  rounded-md text-gray-500 " name="upload_image" id="name" />
                             (<?= $image ?>)
                         </div>
                     </div>
